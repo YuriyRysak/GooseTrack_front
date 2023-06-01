@@ -29,6 +29,7 @@ export const StyledForm = styled.form`
 
     @media screen and (min-width: 768px /* change to imported variable */){
         width: 480px;
+        padding: 40px;
     }
 
     @media screen and (min-width: 1440px /* change to imported variable */){
@@ -44,6 +45,11 @@ export const StyledHeading = styled.h2`
     line-height: 24px;
     font-weight: 600;
     text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07), 0px 9.4px 57.6875px rgba(0, 0, 0, 0.035); /* change to imported variable */
+
+    @media screen and (min-width: 768px /* change to imported variable */) {
+        font-size: 24px;  
+        margin-bottom: 22px;
+    }
 `;
 
 export const StyledLabel = styled.label`
@@ -52,6 +58,11 @@ export const StyledLabel = styled.label`
     font-weight: 600;
     font-size: 12px; /* delete if it doubles main one */
     line-height: 15px; /* delete if it doubles main one */
+    @media screen and (min-width: 768px /* change to imported variable */) {
+        font-size: 14px;
+        line-height: 17px; 
+        margin-top: 18px;
+    }
 `;
 
 export const StyledInput = styled.input`
@@ -74,6 +85,13 @@ export const StyledInput = styled.input`
         border: 1px solid #111111;
         border-radius: 8px;
     }
+
+    @media screen and (min-width: 768px /* change to imported variable */) {
+        height: 54px;
+        padding: 18px;
+        font-size: 16px;
+        line-height: 18px;
+    }
 `;
 
 export const StyledButton = styled.button`
@@ -88,5 +106,12 @@ export const StyledButton = styled.button`
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.02em;
+
+    @media screen and (min-width: 768px /* change to imported variable */) {
+        height: 56px;
+        margin-top: 48px;
+        font-size: 18px;
+        line-height: 24px;
+    }
 
 `;
