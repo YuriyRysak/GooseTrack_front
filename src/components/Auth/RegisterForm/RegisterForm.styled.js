@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 // add import of 3 breakpoints
 // add import of colors: #FFFFFF #3E85F3 #111111 #DCE3E5 rgba(220, 227, 229, 0.6) shadow ones
 // check main font size and line height and delete doubling
@@ -52,7 +53,16 @@ export const StyledHeading = styled.h2`
 
 export const StyledLabel = styled.label`
     margin-top: 24px;
-    color: #111111;
+    color: ${(props) => {
+        switch (props.valid) {
+            case true:
+                return '#3CBC81';
+            case false:
+                return '#E74A3B';
+            default:
+                return '#111111'
+        }           
+    }};
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
@@ -73,7 +83,17 @@ export const StyledInput = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    border: 1px solid rgba(220, 227, 229, 0.6);
+    border: 1px solid;
+    border-color: ${(props) => {
+        switch (props.valid) {
+            case true:
+                return '#3CBC81';
+            case false:
+                return '#E74A3B';
+            default:
+                return 'rgba(220, 227, 229, 0.6)'
+        }           
+    }};
     border-radius: 8px;
 
     ::placeholder {
