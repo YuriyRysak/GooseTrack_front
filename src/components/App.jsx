@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 
-import MainLayout from '../components/User/MainLayout';
+import MainLayout from '../components/User/MainLayout/MainLayout';
 
-const MainPage = lazy(() => import('../Pages/MainPage'));
-const AccountPage = lazy(() => import('../Pages/AccountPage'));
-const CalendarPage = lazy(() => import('../Pages/CalendarPage'));
-const LoginPage = lazy(() => import('../Pages/LoginPage'));
-const RegisterPage = lazy(() => import('../Pages/RegisterPage'));
-const NotFoundPagePage = lazy(() => import('../Pages/NotFoundPagePage'));
+const MainPage = lazy(() => import('../pages/MainPage'));
+const AccountPage = lazy(() => import('../pages/AccountPage'));
+const CalendarPage = lazy(() => import('../pages/CalendarPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const NotFoundPagePage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
   return (
