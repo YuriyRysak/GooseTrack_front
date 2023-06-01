@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { StyledForm } from './RegisterForm.styled';
+import { StyledButton, StyledForm, StyledHeading, StyledInput, StyledLabel } from './RegisterForm.styled';
 
 export const RegisterForm = () => {
 
@@ -29,34 +29,35 @@ export const RegisterForm = () => {
 
     return (
         <StyledForm onSubmit={formik.handleSubmit}>
-        <label htmlFor="name">Name</label>
-            <input
-                id="name"
-                name="name"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.name}
-                placeholder='Enter your name'
-            />
-        <label htmlFor="email">Email</label>
-            <input
-                id="email"
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-                placeholder='Enter email'
-            />
-        <label htmlFor="password">Password</label>
-            <input
-                id="password"
-                name="password"
-                type="text"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-                placeholder='Enter password'
-            />
-        <button type="submit">Sign up</button>
-     </StyledForm>
+            <StyledHeading>Sign up</StyledHeading>
+            <StyledLabel htmlFor="name">Name</StyledLabel>
+                <StyledInput
+                    id="name"
+                    name="name"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.name}
+                    placeholder='Enter your name'
+                />
+            <StyledLabel htmlFor="email">Email</StyledLabel>
+                <StyledInput
+                    id="email"
+                    name="email"
+                    type="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                    placeholder='Enter email'
+                />
+            <StyledLabel htmlFor="password">Password</StyledLabel>
+                <StyledInput
+                    id="password"
+                    name="password"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                    placeholder='Enter password'
+                />
+            <StyledButton type="submit">Sign up</StyledButton>
+        </StyledForm>
     )
 }
