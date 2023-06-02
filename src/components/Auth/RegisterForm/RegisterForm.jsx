@@ -1,13 +1,15 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading, StyledInput, StyledLabel } from './RegisterForm.styled';
+import { StyledButton, StyledForm, StyledHeading, StyledInput, StyledLabel, StyledIcon, InputContainer, StyledInputNotification } from './RegisterForm.styled';
 import { registerSchema, validateRegisterForm } from 'helpers/registerValidation';
 import { useState } from 'react';
+import { BiErrorCircle, BiCheckCircle } from "react-icons/bi";
+import { AuthField } from '../AuthField/AuthField';
 
 export const RegisterForm = () => {
 
     const [emailValid] = useState(true);
     const [passwordValid] = useState(false);
-    const [nameValid] = useState();
+    const [nameValid] = useState(null);
 
     const onSubmitForm = async (/* name, email, password */ values) => {
         // валідація полів форми
@@ -41,36 +43,34 @@ export const RegisterForm = () => {
     return (
         <StyledForm onSubmit={formik.handleSubmit}>
             <StyledHeading>Sign up</StyledHeading>
-            <StyledLabel htmlFor="name" valid={nameValid}>Name</StyledLabel>
-                <StyledInput
-                    id="name"
-                    name="name"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.name}
-                    placeholder='Enter your name'
-                    valid={nameValid}
-                />
-            <StyledLabel htmlFor="email" valid={emailValid}>Email</StyledLabel>
-                <StyledInput
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    placeholder='Enter email'
-                    valid={emailValid}
-                />
-            <StyledLabel htmlFor="password" valid={passwordValid}>Password</StyledLabel>
-                <StyledInput
-                    id="password"
-                    name="password"
-                    type="text"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    placeholder='Enter password'
-                    valid={passwordValid}
-                />
+
+
+            <AuthField 
+                name={'Name'}
+                value={formik.values.name}
+                type={'text'}
+                onChange={formik.handleChange}
+                valid={nameValid}
+                placeholder='Enter your name'
+            />
+
+            <AuthField 
+                name={'Email'}
+                value={formik.values.email}
+                type={'email'}
+                onChange={formik.handleChange}
+                valid={emailValid}
+                placeholder='Enter email'
+            />
+
+            <AuthField 
+                name={'Password'}
+                value={formik.values.password}
+                type={'text'}
+                onChange={formik.handleChange}
+                valid={passwordValid}
+            />
+
             <StyledButton type="submit">Sign up</StyledButton>
         </StyledForm>
     )
