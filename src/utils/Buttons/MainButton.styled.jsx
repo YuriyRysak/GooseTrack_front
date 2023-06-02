@@ -24,6 +24,7 @@ export const AuthLink = styled(NavLink)`
   display: inline-flex;
   align-items: center;
   text-decoration: ${props => props.colorbtn && `none`};
+  text-shadow: ${themes.shadows.authHeading};
   &.active {
     color: ${props =>
       props.color === 'blue'
@@ -61,6 +62,7 @@ export const MainBtn = styled.button`
   cursor: pointer;
   color: ${themes.colors.white};
   background-color: ${themes.colors.accent};
+  box-shadow: ${themes.shadows.authButton};
   transition: background-color
     ${(themes.animations.duration, themes.animations.cubicBezier)};
   &:hover {
@@ -101,7 +103,7 @@ export const SecondBtn = styled.button`
 
 export const AddTaskBtn = styled.button`
   border-radius: 10px;
-  border: 1px dashed ${themes.colors.accent};
+  border: 1px dashed ${themes.colors.bordColorBtnAddTask};
   font-weight: ${themes.fontWeight.sb};
   font-size: ${themes.fontSizes.xs};
   line-height: 1.3;
