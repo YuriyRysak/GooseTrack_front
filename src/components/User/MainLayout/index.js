@@ -14,7 +14,7 @@ import { TaskToolbar } from './TaskToolbar';
 import { UserForm } from './UserForm';
 
 export {
-  MainLayout,
+  // MainLayout,
   CalendarTable,
   CalendarToolbar,
   ChoosedDay,
@@ -29,3 +29,5 @@ export {
   TaskToolbar,
   UserForm,
 };
+
+export default MainLayout;

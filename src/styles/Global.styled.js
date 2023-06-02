@@ -5,6 +5,7 @@ const GlobalStyles = createGlobalStyle`
 html {
     box-sizing: border-box;
 }
+
 *,
 *::after,
 *::before {
@@ -27,7 +28,7 @@ body {
   h6,
   p,
   ul,
-  .list,
+  .list
   {
     margin: 0;
     padding: 0;
@@ -69,4 +70,4 @@ body {
 
   `;
 
-  export default GlobalStyles;
+export default GlobalStyles;

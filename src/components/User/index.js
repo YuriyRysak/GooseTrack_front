@@ -21,7 +21,7 @@ import {
   TasksColumnsList,
   TaskToolbar,
   UserForm,
-  MainLayout,
+  // MainLayout,
 } from './MainLayout';
 
 import { SideBar, UserNav } from './SideBar';
@@ -33,7 +33,7 @@ export {
   FeedbackList,
   ThemeToggler,
   UserInfo,
-  MainLayout,
+  // MainLayout,
   CalendarTable,
   CalendarToolbar,
   ChoosedDay,

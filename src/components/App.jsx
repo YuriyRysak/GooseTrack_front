@@ -3,8 +3,8 @@ import { lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { MainLayout } from 'components/User';
-import { Layout } from 'utils/Layout/Layout';
+const MainLayout = lazy(() => import('components/User/MainLayout'));
+const Layout = lazy(() => import('utils/Layout'));
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage'));
