@@ -11,7 +11,7 @@ import {
 // ! іконку на всі елементи однакова, зявляться ті які треба або я або ти поставиш в свій елемент
 import { CgLogIn } from 'react-icons/cg';
 
-const MainButton = () => {
+export const MainButton = () => {
   return (
     /* //!для того щоб розмістити елемент у себе в файлі просто копіюєте необхідну вам кількість рядків які знаходяться нижче
     ! і також не забуваємо імпортувати необхідні елементи з файлику стилів кнопок MainButton.styled.jsx,*/
@@ -65,7 +65,7 @@ const MainButton = () => {
       </li>
       <li>
         {/*//! кнопка Feedback*/}
-        <SecondBtn>Feedback</SecondBtn>
+        <SecondBtn radius="10">Feedback</SecondBtn>
       </li>
       <li>
         {/*//! контейнер з кнопками Edit та Cancel довжина кожної з них 50% від загального контейнера */}
