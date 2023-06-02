@@ -1,17 +1,21 @@
 import { RegisterForm } from 'components/Auth';
-import { RegisterPageContainer } from './RegisterPage.styled';
-import { NavLink } from 'react-router-dom';
+import { Img, RegisterPageContainer, RegisterPageWrap, StyledNavLink } from './RegisterPage.styled';
+import normalImage from '../images/others/desktop/goose-quote1x.png';
+import retinaImage from '../images/others/desktop/goose-quote2x.png';
+import superRetinaImage from '../images/others/desktop/goose-quote3x.png';
 
 const RegisterPage = () => {
   return (
     <RegisterPageContainer>
-<img
-  // src={}
-  // srcset=""
-  alt="Goose"
+<Img
+  src={normalImage}
+  srcset={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
+  alt="Goose wiht tablet"
 />
+      <RegisterPageWrap>
       <RegisterForm />
-      <NavLink to={ '/login'} >Log In</NavLink>
+      <StyledNavLink to={ '/login'} >Log In</StyledNavLink>
+      </RegisterPageWrap>
     </RegisterPageContainer>
   );
 };

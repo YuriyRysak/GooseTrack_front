@@ -15,23 +15,15 @@ import { authReducer } from './auth/slice';
 import { reviewsReducer } from './reviews/slice';
 import { tasksReducer } from './tasks/slice';
 
-const persistConfig = {
-  key: 'token',
-  version: 1,
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  whitelist: ['accessToken', 'refreshToken'],
+  whitelist: ['token'],
 };
-
-// const persistConfigTheme = {
-//   key: 'theme',
-//   version: 1,
-//   storage,
-//   whitelist: ['theme'],
-// };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     tasks: tasksReducer,
     reviews: reviewsReducer,
   },
@@ -43,7 +35,6 @@ export const store = configureStore({
     }),
   ],
   devTools: process.env.NODE_ENV === 'development',
-  floc: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);
