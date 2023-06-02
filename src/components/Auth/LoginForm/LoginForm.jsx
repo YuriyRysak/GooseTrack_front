@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './LoginForm.styled';
+import { StyledButton, StyledForm, StyledHeading, StyledIcon, StyledLink } from './LoginForm.styled';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
 import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
     const [emailValid, setEmailValid] = useState(null);
@@ -36,9 +37,15 @@ export const LoginForm = () => {
         }
     });
 
+    const navigate = useNavigate();
+    const redirect = () => {
+        console.log('redirect');
+        navigate("/register", { replace: true });
+    };
+
     return (
         <StyledForm onSubmit={formik.handleSubmit}>
-            <StyledHeading>Sign in</StyledHeading>
+            <StyledHeading>Log in</StyledHeading>
 
             <AuthField 
                 name={'Email'}
@@ -59,9 +66,11 @@ export const LoginForm = () => {
             />
 
             <StyledButton type="submit">
-                Sign in
+                Log in
                 <StyledIcon><FiLogIn size={17} color='#FFFFFF'/></StyledIcon>
             </StyledButton>
+
+            <StyledLink onClick={redirect}>Sign up</StyledLink>
         </StyledForm>
     )
 };
