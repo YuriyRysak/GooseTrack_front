@@ -69,6 +69,7 @@ export const RegisterForm = () => {
                 type={'text'}
                 onChange={formik.handleChange}
                 valid={passwordValid}
+                placeholder='Enter password'
             />
 
             <StyledButton type="submit">Sign up</StyledButton>

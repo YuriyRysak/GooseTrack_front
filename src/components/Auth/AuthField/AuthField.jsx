@@ -1,5 +1,6 @@
 import { StyledInput, StyledLabel, StyledIcon, InputContainer, StyledInputNotification } from './AuthField.styled';
 import { BiErrorCircle, BiCheckCircle } from "react-icons/bi";
+import PropTypes from 'prop-types';
 
 export const AuthField = ({valid, onChange, value, name, type, placeholder}) => {
     return (
@@ -19,4 +20,13 @@ export const AuthField = ({valid, onChange, value, name, type, placeholder}) => 
             {valid !== null && <StyledInputNotification valid={valid}>This is  {valid ? ('a CORRECT') : ('an ERROR')} {name.toLowerCase()}</StyledInputNotification>}
         </InputContainer>
     )
-}
+};
+
+AuthField.propTypes = {
+    valid: PropTypes.oneOf([true, false, null]),
+    onChange: PropTypes.func.isRequired, 
+    value: PropTypes.string.isRequired, 
+    name: PropTypes.string.isRequired, 
+    type: PropTypes.oneOf(['text', 'email']).isRequired, 
+    placeholder: PropTypes.string.isRequired
+};
