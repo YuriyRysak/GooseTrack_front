@@ -26,7 +26,7 @@ export const StyledLabel = styled.label`
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-top: 18px;
         font-size: 14px;
         line-height: 17px; 
@@ -63,7 +63,7 @@ export const StyledInput = styled.input`
         border: 1px solid ${({theme}) => (theme.colors.borderInputActive)};
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         height: 54px;
         padding: 18px;
         font-size: 16px;

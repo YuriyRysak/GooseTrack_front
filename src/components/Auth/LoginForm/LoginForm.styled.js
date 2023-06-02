@@ -16,11 +16,11 @@ export const StyledForm = styled.form`
     background-color: ${({theme}) => (theme.colors.white)};
     border-radius: 8px;
 
-    @media screen and (min-width: 375px){
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.s)}){
         width: 335px;
     }
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}){
         width: 480px;
         min-height: 424px;
         padding: 40px;
@@ -36,7 +36,7 @@ export const StyledHeading = styled.h2`
     font-weight: 600;
     text-shadow: ${({theme}) => (theme.shadows.authHeading)};
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-bottom: 22px;
         font-size: 24px;  
     }
@@ -71,7 +71,7 @@ export const StyledButton = styled.button`
         background-color: ${({theme}) => (theme.colors.hovered)};
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         height: 56px;
         margin-top: 48px;
         font-size: 18px;
