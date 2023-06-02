@@ -1,8 +1,7 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading, StyledInput, StyledLabel, StyledIcon, InputContainer, StyledInputNotification } from './RegisterForm.styled';
+import { StyledButton, StyledForm, StyledHeading } from './RegisterForm.styled';
 import { registerSchema, validateRegisterForm } from 'helpers/registerValidation';
 import { useState } from 'react';
-import { BiErrorCircle, BiCheckCircle } from "react-icons/bi";
 import { AuthField } from '../AuthField/AuthField';
 
 export const RegisterForm = () => {

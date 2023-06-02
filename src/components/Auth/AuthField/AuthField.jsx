@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 export const AuthField = ({valid, onChange, value, name, type, placeholder}) => {
     return (
         <InputContainer>
-            <StyledLabel htmlFor={name} valid={valid}>{name}</StyledLabel>
+            <StyledLabel htmlFor={name.toLowerCase()} valid={valid}>{name}</StyledLabel>
             <StyledInput
-                id={name}
-                name={name}
+                id={name.toLowerCase()}
+                name={name.toLowerCase()}
                 type={type}
                 onChange={onChange}
                 value={value}
