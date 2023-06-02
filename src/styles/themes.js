@@ -29,6 +29,8 @@ export const themes = Object.freeze({
     failed: '#E74A3B', //!неуспішний колір бордера в інпуті авторизаціі
     saccess: '#3CBC81', //!успішний колір бордера в інпуті авторизаціі
     canceled: '#E5EDFA', //!фон не активних елементів і кнопки Cancel
+    loaderWrapper: '#343434',
+    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF']
   },
   fontSizes: {
     xs: 12,
@@ -60,3 +62,8 @@ export const themes = Object.freeze({
     duration: '250ms',
   },
 });
+
+
+// For black theme:
+// loaderWrapper: '#FFFFFF',
+// loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF']
