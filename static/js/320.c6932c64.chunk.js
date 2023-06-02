@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkGooseTrack_front=self.webpackChunkGooseTrack_front||[]).push([[320],{4320:function(n,e,r){r.r(e),r.d(e,{default:function(){return u}});var t,c=r(1262),o=r(168),i=r(7686).Z.div(t||(t=(0,o.Z)(["\n    background-color: #DCEBF7;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    height: 100vh;\n"]))),s=r(3329),u=function(){return(0,s.jsxs)(i,{children:[(0,s.jsx)("h3",{children:"LoginPage"}),(0,s.jsx)(c.U,{})]})}}}]);
-//# sourceMappingURL=320.c6932c64.chunk.js.map
