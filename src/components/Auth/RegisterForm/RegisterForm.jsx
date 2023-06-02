@@ -1,14 +1,15 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading } from './RegisterForm.styled';
+import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './RegisterForm.styled';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
 import { validateRegisterForm } from 'helpers/authFieldValidation';
+import { FiLogIn } from 'react-icons/fi';
 
 export const RegisterForm = () => {
 
-    const [emailValid] = useState(true);
-    const [passwordValid] = useState(false);
-    const [nameValid] = useState(null);
+    const [emailValid, setEmailValid] = useState(null);
+    const [passwordValid, setPasswordValid] = useState(null);
+    const [nameValid, setNameValid] = useState(null);
 
     const onSubmitForm = async (/* name, email, password */ values) => {
         // валідація полів форми
@@ -23,6 +24,9 @@ export const RegisterForm = () => {
         //редірект /calendar/month
         console.log(values);
         const validationResponse = await validateRegisterForm(values);
+        setEmailValid(validationResponse.email.valid);
+        setPasswordValid(validationResponse.password.valid);
+        setNameValid(validationResponse.name.valid)
         console.log(validationResponse);
 
     };
@@ -34,10 +38,8 @@ export const RegisterForm = () => {
         email: '',
         },
         onSubmit: values => {
-        //onSubmitForm(values.name, values.email, values.password)
         onSubmitForm(values)
-        },
-        // validationSchema: registerSchema
+        }
     });
 
     return (
@@ -72,7 +74,10 @@ export const RegisterForm = () => {
                 placeholder='Enter password'
             />
 
-            <StyledButton type="submit">Sign up</StyledButton>
+            <StyledButton type="submit">
+                Sign up
+                <StyledIcon><FiLogIn size={15} color='#FFFFFF'/></StyledIcon>
+            </StyledButton>
         </StyledForm>
     )
 }

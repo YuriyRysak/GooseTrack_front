@@ -1,4 +1,3 @@
-import { object, string } from 'yup';
 import * as yup from 'yup';
 
 const nameRegex = /^[\p{L}\s]+$/u;
@@ -10,7 +9,7 @@ const nameSchema = yup
     .min(1, 'min 1')
     .max(15)
     .required()
-    //.matches(nameRegex)
+    .matches(nameRegex)
 
 const emailSchema = yup
     .string()

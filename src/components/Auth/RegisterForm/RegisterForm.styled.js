@@ -118,12 +118,10 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledIcon = styled.div`
-    width: 20px;
-    height: 20px;
-    margin-right: 12px;
-    position: absolute;
-    bottom: 13px;
-    right: 0;
+    margin-left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 `;
 
@@ -150,6 +148,9 @@ export const StyledButton = styled.button`
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
     border-radius: 16px;
     border-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 
     @media screen and (min-width: 768px) {
         height: 56px;
