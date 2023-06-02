@@ -8,9 +8,7 @@ export function Layout() {
 
     return (
         <div>
-            <Suspense fallback={<Loader />}>
-                <Outlet />
-            </Suspense>
+            <Outlet />
             {isLoading && <Loader />}
         </div>
     )
