@@ -118,9 +118,7 @@ export default MainButton;
 //   SecondBtn,
 //   WrapperSecondBtn,
 // } from "/MainButton.styled";
-{
-  /*//! контейнер з кнопками Edit та Cancel довжина кожної з них 50% від загального контейнера */
-}
+// ! контейнер з кнопками Edit та Cancel довжина кожної з них 50% від загального контейнера
 // <WrapperSecondBtn>
 //   <SecondBtn style={{ width: '50%' }}>Edit</SecondBtn>
 //   <SecondBtn btn="cancel" style={{ width: '50%' }}>
@@ -134,9 +132,7 @@ export default MainButton;
 // } from "/MainButton.styled";
 // ! іконку на всі елементи однакова, зявляться ті які треба або я або ти поставиш в свій елемент
 //   import { CgLogIn } from 'react-icons/cg';
-{
-  /*//! кнопка Add task з довжиною на весь контейнер*/
-}
+// ! кнопка Add task з довжиною на весь контейнер
 // <AddTaskBtn style={{ width: '100%' }}>
 //   <CgLogIn style={{ marginLeft: 11, width: 24, height: 24 }} />
 //   Add task
