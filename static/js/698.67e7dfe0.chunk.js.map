@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/698.67e7dfe0.chunk.js","mappings":"4IAQA,UARoB,WAClB,OACE,0BACE,wBAAI,iBAGT,C","sources":["pages/AccountPage.jsx"],"sourcesContent":["const AccountPage = () => {\n  return (\n    <div>\n      <h3>AccountPage</h3>\n    </div>\n  );\n};\n\nexport default AccountPage;\n"],"names":[],"sourceRoot":""}
