@@ -10,6 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import { ThemeProvider } from '@emotion/react';
 import { themes } from 'styles/themes';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
