@@ -32,12 +32,12 @@ export const register = createAsyncThunk(
         toast.error(`User with this email  already exist`);
       } else {
         toast.error(
-          `Enter valid email: contain letter,at lest one '.' and @. Or valid password: min 6 numbers, at lest one letter. Or valid name:`
+          `Enter valid email: contain letter,at lest one '.' and @. Or valid password: min 6 numbers, at lest one letter. Or valid name:`,
         );
       }
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 /*
@@ -56,22 +56,23 @@ export const logIn = createAsyncThunk(
       toast.error(`Email or Password is wrong`);
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
  */
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
-  try {
-    await axios.post('/users/logout');
-    // After a successful logout, remove the token from the HTTP header
-    clearAuthHeader();
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
+export const logOut = createAsyncThunk(
+  'auth/logout', async (_, thunkAPI) => {
+    try {
+      await axios.post('/users/logout');
+      // After a successful logout, remove the token from the HTTP header
+      clearAuthHeader();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  });
 
 //  Get information about the current user
 export const refreshUser = createAsyncThunk(
@@ -91,5 +92,20 @@ export const refreshUser = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  },
+);
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (userData, thunkAPI) => {
+    try {
+      const res = await axios.patch('/users/update', userData);
+      return res.data;
+    } catch (error) {
+      toast.error('Failed to update user');
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
+
+
