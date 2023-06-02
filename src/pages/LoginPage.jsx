@@ -1,11 +1,12 @@
 import { LoginForm } from 'components/Auth';
+import { LoginPageContainer } from './LoginPage.styled';
 
 const LoginPage = () => {
   return (
-    <div>
+    <LoginPageContainer>
       <h3>LoginPage</h3>
       <LoginForm />
-    </div>
+    </LoginPageContainer>
   );
 };
 

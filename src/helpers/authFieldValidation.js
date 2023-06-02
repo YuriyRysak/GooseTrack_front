@@ -39,3 +39,9 @@ export const validateRegisterForm = async ({name, email, password}) => {
     const passwordValidation = await validateField(password, passwordSchema);
     return {name: nameValidation, email: emailValidation, password: passwordValidation}
 };
+
+export const validateLoginForm = async ({email, password}) => {
+    const emailValidation = await validateField(email, emailSchema);
+    const passwordValidation = await validateField(password, passwordSchema);
+    return {email: emailValidation, password: passwordValidation}
+};
