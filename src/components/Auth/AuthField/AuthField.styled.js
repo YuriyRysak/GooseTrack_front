@@ -13,14 +13,14 @@ export const InputContainer = styled.div`
 
 export const StyledLabel = styled.label`
     margin-top: 24px;
-    color: ${(props) => {
-        switch (props.valid) {
+    color: ${({valid, theme}) => {
+        switch (valid) {
             case true:
-                return '#3CBC81';
+                return theme.colors.saccess;
             case false:
-                return '#E74A3B';
+                return theme.colors.failed;
             default:
-                return '#111111'
+                return theme.colors.borderInputActive
         }           
     }};
     font-weight: 600;
@@ -38,29 +38,29 @@ export const StyledInput = styled.input`
     height: 46px;
     padding: 14px;
     margin-top: 8px;
-    background-color: #FFFFFF;
-    color: #111111;
+    background-color: ${({theme}) => (theme.colors.white)};
+    color: ${({theme}) => (theme.colors.borderInputActive)};
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     border: 1px solid;
-    border-color: ${(props) => {
-        switch (props.valid) {
+    border-color: ${({valid, theme}) => {
+        switch (valid) {
             case true:
-                return '#3CBC81';
+                return theme.colors.saccess;
             case false:
-                return '#E74A3B';
+                return theme.colors.failed;
             default:
-                return 'rgba(220, 227, 229, 0.6)'
+                return theme.colors.borderInput;
         }           
     }};
     border-radius: 8px;
 
     ::placeholder {
-        color: #DCE3E5;    
+        color: ${({theme}) => (theme.colors.placegolderAuth)}    
     }
     :focus {
-        border: 1px solid #111111;
+        border: 1px solid ${({theme}) => (theme.colors.borderInputActive)};
     }
 
     @media screen and (min-width: 768px) {
@@ -88,12 +88,12 @@ export const StyledInputNotification = styled.p`
     position: absolute;
     font-size: 12px;
     line-height: 14px;
-    color: ${(props) => {
-        switch (props.valid) {
+    color: ${({valid, theme}) => {
+        switch (valid) {
             case true:
-                return '#3CBC81';
+                return theme.colors.saccess;
             case false:
-                return '#E74A3B';
+                return theme.colors.failed;
             default:
                 return 'transparant';
         }           

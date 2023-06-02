@@ -13,7 +13,7 @@ export const StyledForm = styled.form`
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: ${({theme}) => (theme.colors.white)};
     border-radius: 8px;
 
     @media screen and (min-width: 375px){
@@ -29,12 +29,12 @@ export const StyledForm = styled.form`
 
 export const StyledHeading = styled.h2`
     margin-bottom: 8px;
-    color: #3E85F3;
+    color: ${({theme}) => (theme.colors.accent)};
     font-family: 'Inter';
     font-size: 18px;
     line-height: 24px;
     font-weight: 600;
-    text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07), 0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
+    text-shadow: ${({theme}) => (theme.shadows.authHeading)};
 
     @media screen and (min-width: 768px) {
         margin-bottom: 22px;
@@ -53,13 +53,13 @@ export const StyledIcon = styled.div`
 export const StyledButton = styled.button`
     height: 46px;
     margin-top: 32px;
-    background-color: #3E85F3;
-    color: #FFFFFF;
+    background-color: ${({theme}) => (theme.colors.accent)};
+    color: ${({theme}) => (theme.colors.white)};
     font-weight: 600;
     font-size: 14px;
     line-height: 18px;
     letter-spacing: -0.02em;
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+    box-shadow: ${({theme}) => (theme.shadows.authButton)};
     border-radius: 16px;
     border-width: 0;
     display: flex;
@@ -68,7 +68,7 @@ export const StyledButton = styled.button`
     cursor: pointer; 
     
     :hover {
-        background-color: #2c66bc;
+        background-color: ${({theme}) => (theme.colors.hovered)};
     }
 
     @media screen and (min-width: 768px) {

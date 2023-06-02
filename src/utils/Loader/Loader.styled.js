@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { themes } from "styles/themes";
 
 export const Wrapper = styled.div`
     position: fixed;
@@ -10,7 +9,7 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${themes.colors.loaderWrapper};
+    background-color: ${({theme}) => theme.colors.loaderWrapper};
     opacity: 0.4;
 
 `;

@@ -1,12 +1,15 @@
 import { ColorRing } from "react-loader-spinner";
 import { Wrapper } from "./Loader.styled";
-import { themes } from "styles/themes";
+import { useTheme } from "@emotion/react";
 
 export const Loader = () => {
+
+    const themeColors = useTheme().colors;
+
     return(
         <Wrapper>
             <ColorRing 
-                colors={themes.colors.loaderCircle}
+                colors={themeColors.loaderCircle}
             />
         </Wrapper>
     )
