@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 
+// add import of 3 breakpoints
+// add import of colors
+// check main font size and line height and delete doubling
+// check using font family
+
 export const InputContainer = styled.div`
     position: relative;
     display: flex;

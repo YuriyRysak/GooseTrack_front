@@ -11,24 +11,22 @@ export const RegisterForm = () => {
     const [passwordValid, setPasswordValid] = useState(null);
     const [nameValid, setNameValid] = useState(null);
 
-    const onSubmitForm = async (/* name, email, password */ values) => {
-        // валідація полів форми
-
-        // false - 
-        // підсвітити помилки
-        // пуш повідомлення помилки
-
-        // true
-        // запис в глобальний стейт
-
-        //редірект /calendar/month
-        console.log(values);
+    const onSubmitForm = async (values) => {
+        // validation of inputs
         const validationResponse = await validateRegisterForm(values);
         setEmailValid(validationResponse.email.valid);
         setPasswordValid(validationResponse.password.valid);
-        setNameValid(validationResponse.name.valid)
-        console.log(validationResponse);
+        setNameValid(validationResponse.name.valid);
 
+        // set loader true
+
+        // API registration
+
+        // set loader false
+
+        // notificate API response
+
+        // redirect /calendar/month
     };
 
     const formik = useFormik({
@@ -76,7 +74,7 @@ export const RegisterForm = () => {
 
             <StyledButton type="submit">
                 Sign up
-                <StyledIcon><FiLogIn size={15} color='#FFFFFF'/></StyledIcon>
+                <StyledIcon><FiLogIn size={17} color='#FFFFFF'/></StyledIcon>
             </StyledButton>
         </StyledForm>
     )

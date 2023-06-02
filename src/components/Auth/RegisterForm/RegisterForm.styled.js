@@ -1,24 +1,14 @@
 import styled from "@emotion/styled";
 
 // add import of 3 breakpoints
-// add import of colors: #FFFFFF #3E85F3 #111111 #DCE3E5 rgba(220, 227, 229, 0.6) shadow ones
+// add import of colors
 // check main font size and line height and delete doubling
 // check using font family
 
-
-//delete before pull
-export const TesterDiv = styled.div`
-    background-color: #DCEBF7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-`;
-//
-
 export const StyledForm = styled.form`
+    box-sizing: border-box;
     width: 100%;
+    min-height: 469px;
     margin: auto 20px;
     padding: 40px 20px;
     display: flex;
@@ -32,6 +22,7 @@ export const StyledForm = styled.form`
 
     @media screen and (min-width: 768px){
         width: 480px;
+        min-height: 521px;
         padding: 40px;
     }
 `;
@@ -51,72 +42,6 @@ export const StyledHeading = styled.h2`
     }
 `;
 
-export const InputContainer = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-`;
-
-export const StyledLabel = styled.label`
-    margin-top: 24px;
-    color: ${(props) => {
-        switch (props.valid) {
-            case true:
-                return '#3CBC81';
-            case false:
-                return '#E74A3B';
-            default:
-                return '#111111'
-        }           
-    }};
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 15px;
-    @media screen and (min-width: 768px) {
-        margin-top: 18px;
-        font-size: 14px;
-        line-height: 17px; 
-    }
-`;
-
-export const StyledInput = styled.input`
-    box-sizing: border-box;
-    height: 46px;
-    padding: 14px;
-    margin-top: 8px;
-    background-color: #FFFFFF;
-    color: #111111;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    border: 1px solid;
-    border-color: ${(props) => {
-        switch (props.valid) {
-            case true:
-                return '#3CBC81';
-            case false:
-                return '#E74A3B';
-            default:
-                return 'rgba(220, 227, 229, 0.6)'
-        }           
-    }};
-    border-radius: 8px;
-
-    ::placeholder {
-        color: #DCE3E5;    
-    }
-    :focus {
-        border: 1px solid #111111;
-    }
-
-    @media screen and (min-width: 768px) {
-        height: 54px;
-        padding: 18px;
-        font-size: 16px;
-        line-height: 18px;
-    }
-`;
-
 export const StyledIcon = styled.div`
     margin-left: 14px;
     display: flex;
@@ -125,21 +50,10 @@ export const StyledIcon = styled.div`
 
 `;
 
-export const StyledInputNotification = styled.p`
-    position: absolute;
-    bottom: -22px;
-    margin: 0 18px;
-    position: absolute;
-    font-size: 12px;
-    line-height: 14px;
-    color: #E74A3B;
-
-`;
-
 export const StyledButton = styled.button`
     height: 46px;
     margin-top: 32px;
-    background: #3E85F3;
+    background-color: #3E85F3;
     color: #FFFFFF;
     font-weight: 600;
     font-size: 14px;
@@ -150,7 +64,12 @@ export const StyledButton = styled.button`
     border-width: 0;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
+    cursor: pointer; 
+    
+    :hover {
+        background-color: #2c66bc;
+    }
 
     @media screen and (min-width: 768px) {
         height: 56px;

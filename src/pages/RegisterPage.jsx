@@ -1,12 +1,12 @@
 import { RegisterForm } from 'components/Auth';
-import { TesterDiv } from 'components/Auth/RegisterForm/RegisterForm.styled';
+import { RegisterPageContainer } from './RegisterPage.styled';
 
 const RegisterPage = () => {
   return (
-    <TesterDiv>
+    <RegisterPageContainer>
       <h3>RegisterPage</h3>
       <RegisterForm />
-    </TesterDiv>
+    </RegisterPageContainer>
   );
 };
 
