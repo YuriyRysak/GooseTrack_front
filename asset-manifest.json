@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.js": "/GooseTrack_front/static/js/main.4e51a445.js",
+    "main.js": "/GooseTrack_front/static/js/main.bc02ab3e.js",
     "static/js/727.02ad8057.chunk.js": "/GooseTrack_front/static/js/727.02ad8057.chunk.js",
     "static/js/698.67e7dfe0.chunk.js": "/GooseTrack_front/static/js/698.67e7dfe0.chunk.js",
     "static/js/335.8e1fa184.chunk.js": "/GooseTrack_front/static/js/335.8e1fa184.chunk.js",
     "static/js/637.9d395452.chunk.js": "/GooseTrack_front/static/js/637.9d395452.chunk.js",
     "static/js/432.1ed8e788.chunk.js": "/GooseTrack_front/static/js/432.1ed8e788.chunk.js",
-    "static/js/520.65c32974.chunk.js": "/GooseTrack_front/static/js/520.65c32974.chunk.js",
+    "static/js/248.44c8c40e.chunk.js": "/GooseTrack_front/static/js/248.44c8c40e.chunk.js",
+    "static/js/807.8c2c6665.chunk.js": "/GooseTrack_front/static/js/807.8c2c6665.chunk.js",
+    "static/media/404-page-animation.gif": "/GooseTrack_front/static/media/404-page-animation.d56b4691554bbb421bb8.gif",
     "index.html": "/GooseTrack_front/index.html",
-    "main.4e51a445.js.map": "/GooseTrack_front/static/js/main.4e51a445.js.map",
+    "main.bc02ab3e.js.map": "/GooseTrack_front/static/js/main.bc02ab3e.js.map",
     "727.02ad8057.chunk.js.map": "/GooseTrack_front/static/js/727.02ad8057.chunk.js.map",
     "698.67e7dfe0.chunk.js.map": "/GooseTrack_front/static/js/698.67e7dfe0.chunk.js.map",
     "335.8e1fa184.chunk.js.map": "/GooseTrack_front/static/js/335.8e1fa184.chunk.js.map",
     "637.9d395452.chunk.js.map": "/GooseTrack_front/static/js/637.9d395452.chunk.js.map",
     "432.1ed8e788.chunk.js.map": "/GooseTrack_front/static/js/432.1ed8e788.chunk.js.map",
-    "520.65c32974.chunk.js.map": "/GooseTrack_front/static/js/520.65c32974.chunk.js.map"
+    "248.44c8c40e.chunk.js.map": "/GooseTrack_front/static/js/248.44c8c40e.chunk.js.map",
+    "807.8c2c6665.chunk.js.map": "/GooseTrack_front/static/js/807.8c2c6665.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.4e51a445.js"
+    "static/js/main.bc02ab3e.js"
   ]
 }
