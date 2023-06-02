@@ -30,7 +30,9 @@ export const themes = Object.freeze({
     saccess: '#3CBC81', //!успішний колір бордера в інпуті авторизаціі
     canceled: '#E5EDFA', //!фон не активних елементів і кнопки Cancel
     loaderWrapper: '#343434',
-    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF']
+    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
+    bordColorBtnAddTask: '#3E85F3',
+    backColorBtnAddTask: '#E3F3FF',
   },
   fontSizes: {
     xs: 12,
@@ -62,12 +64,22 @@ export const themes = Object.freeze({
     duration: '250ms',
   },
   shadows: {
-    authHeading: '0px 47px 355px rgba(0, 0, 0, 0.07), 0px 9.4px 57.6875px rgba(0, 0, 0, 0.035)',
+    authHeading:
+      '0px 47px 355px rgba(0, 0, 0, 0.07), 0px 9.4px 57.6875px rgba(0, 0, 0, 0.035)',
     authButton: '4px 2px 16px rgba(136, 165, 191, 0.48)',
-  }
+  },
 });
 
-
-// For black theme:
-// loaderWrapper: '#FFFFFF',
-// loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF']
+export const dark = Object.freeze({
+  colors: {
+    background: '#171820',
+    black: '#FFFFFF',
+    starDisable: '#353647',
+    ligthBlue: '#21222C',
+    darkBlue: '#3E85F3',
+    bordColorBtnAddTask: 'transparent',
+    backColorBtnAddTask: '#3E85F3',
+    loaderWrapper: '#FFFFFF',
+    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
+  },
+});
