@@ -1,6 +1,4 @@
-import { validateLoginForm, validateRegisterForm } from "./authFieldValidation";
+import { validateLoginForm, validateRegisterForm } from './authFieldValidation';
+import { patterns } from './patterns';
 
-export { 
-    validateLoginForm,
-    validateRegisterForm
-};
+export { validateLoginForm, validateRegisterForm, patterns };

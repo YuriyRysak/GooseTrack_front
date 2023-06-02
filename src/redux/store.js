@@ -22,12 +22,12 @@ const persistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
-const persistConfigTheme = {
-  key: 'theme',
-  version: 1,
-  storage,
-  whitelist: ['theme'],
-};
+// const persistConfigTheme = {
+//   key: 'theme',
+//   version: 1,
+//   storage,
+//   whitelist: ['theme'],
+// };
 
 export const store = configureStore({
   reducer: {
@@ -43,7 +43,7 @@ export const store = configureStore({
     }),
   ],
   devTools: process.env.NODE_ENV === 'development',
-  floc: process.env.NODE_ENV === "development",
+  floc: process.env.NODE_ENV === 'development',
 });
-export const persistor = persistStore(store);
 
+export const persistor = persistStore(store);
