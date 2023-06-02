@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-// add import of 3 breakpoints
-// add import of colors
 // check main font size and line height and delete doubling
 // check using font family
 
@@ -15,6 +13,9 @@ export const StyledForm = styled.form`
     flex-direction: column;
     background-color: ${({theme}) => (theme.colors.white)};
     border-radius: 8px;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.s)}){
         width: 335px;
@@ -30,7 +31,6 @@ export const StyledForm = styled.form`
 export const StyledHeading = styled.h2`
     margin-bottom: 8px;
     color: ${({theme}) => (theme.colors.accent)};
-    font-family: 'Inter';
     font-size: 18px;
     line-height: 24px;
     font-weight: 600;
@@ -57,6 +57,7 @@ export const StyledButton = styled.button`
     color: ${({theme}) => (theme.colors.white)};
     font-weight: 600;
     font-size: 14px;
+    font-family: inherit;
     line-height: 18px;
     letter-spacing: -0.02em;
     box-shadow: ${({theme}) => (theme.shadows.authButton)};

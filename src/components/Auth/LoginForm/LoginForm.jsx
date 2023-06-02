@@ -38,7 +38,7 @@ export const LoginForm = () => {
 
     return (
         <StyledForm onSubmit={formik.handleSubmit}>
-            <StyledHeading>Sign in</StyledHeading>
+            <StyledHeading>Log in</StyledHeading>
 
             <AuthField 
                 name={'Email'}
@@ -59,7 +59,7 @@ export const LoginForm = () => {
             />
 
             <StyledButton type="submit">
-                Sign in
+                Log in
                 <StyledIcon><FiLogIn size={17} color='#FFFFFF'/></StyledIcon>
             </StyledButton>
         </StyledForm>
