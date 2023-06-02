@@ -7,18 +7,17 @@ import { RegisterPageContainer, RegisterPageWrap, StyledNavLink } from './Regist
 import { Img } from './LoginPage.styled';
 
 
-
 const LoginPage = () => {
   return (
     <RegisterPageContainer>
       <Img
         src={normalImage}
         srcset={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
-        alt="Goose in rocket"
+        alt='Goose in rocket'
       />
       <RegisterPageWrap>
-      <LoginForm />
-      <StyledNavLink to={'/register'}>Sign Up</StyledNavLink>
+        <LoginForm />
+        <StyledNavLink to={'/register'}>Sign Up</StyledNavLink>
       </RegisterPageWrap>
     </RegisterPageContainer>
   );

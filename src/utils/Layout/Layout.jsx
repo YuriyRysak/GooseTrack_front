@@ -11,4 +11,4 @@ export function Layout() {
             {isLoading && <Loader />}
         </div>
     )
-};
+}

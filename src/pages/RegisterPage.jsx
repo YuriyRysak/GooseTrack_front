@@ -7,14 +7,14 @@ import superRetinaImage from '../images/others/desktop/goose-quote3x.png';
 const RegisterPage = () => {
   return (
     <RegisterPageContainer>
-<Img
-  src={normalImage}
-  srcset={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
-  alt="Goose wiht tablet"
-/>
+      <Img
+        src={normalImage}
+        srcset={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
+        alt='Goose wiht tablet'
+      />
       <RegisterPageWrap>
-      <RegisterForm />
-      <StyledNavLink to={ '/login'} >Log In</StyledNavLink>
+        <RegisterForm />
+        <StyledNavLink to={'/login'}>Log In</StyledNavLink>
       </RegisterPageWrap>
     </RegisterPageContainer>
   );

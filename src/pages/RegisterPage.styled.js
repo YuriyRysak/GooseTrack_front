@@ -16,7 +16,6 @@ text-align: center;
 
 `;
 export const StyledNavLink = styled(NavLink)`
-  font-family: 'Inter';
   display: block;
   margin-top: ${themes.fontSizes.l}px;
   color:${themes.colors.accent};
