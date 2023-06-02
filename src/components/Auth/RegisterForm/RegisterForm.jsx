@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
 import { StyledButton, StyledForm, StyledHeading } from './RegisterForm.styled';
-import { registerSchema, validateRegisterForm } from 'helpers/registerValidation';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
+import { validateRegisterForm } from 'helpers/authFieldValidation';
 
 export const RegisterForm = () => {
 
@@ -22,8 +22,9 @@ export const RegisterForm = () => {
 
         //редірект /calendar/month
         console.log(values);
-        const smth = await validateRegisterForm(values);
-        console.log(smth);
+        const validationResponse = await validateRegisterForm(values);
+        console.log(validationResponse);
+
     };
 
     const formik = useFormik({
@@ -36,7 +37,7 @@ export const RegisterForm = () => {
         //onSubmitForm(values.name, values.email, values.password)
         onSubmitForm(values)
         },
-        validationSchema: registerSchema
+        // validationSchema: registerSchema
     });
 
     return (
