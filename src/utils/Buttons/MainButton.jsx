@@ -29,7 +29,12 @@ export const MainButton = () => {
       </li>
       <li>
         {/*//! лінк  у вигляді кнопки Log in в білому кольорі*/}
-        <AuthLink color="blue" colorbtn="white">
+        <AuthLink
+          color="blue"
+          colorbtn="white"
+          state={{ from: location?.state?.from }}
+          to={console.log('white')}
+        >
           Log in
           <CgLogIn style={{ marginLeft: 6, width: 18, height: 18 }} />
         </AuthLink>

@@ -4,22 +4,21 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
-import { ThemeProvider } from '@emotion/react';
 import {
   store,
   // persistor
 } from 'redux/store';
-import { themes } from 'styles/themes';
 import './index.css';
+import { ThemeContextProvider } from 'components/User/Header/ThemeToggler/ThemeContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
       <BrowserRouter basename="GooseTrack_front">
-        <ThemeProvider theme={themes}>
+        <ThemeContextProvider>
           <App />
-        </ThemeProvider>
+        </ThemeContextProvider>
       </BrowserRouter>
       {/* </PersistGate> */}
     </Provider>

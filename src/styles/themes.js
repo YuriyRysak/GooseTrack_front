@@ -2,21 +2,37 @@
 export const themes = Object.freeze({
   colors: {
     background: '#EAEAEA',
+    backgroundSidebar: '#FFFFFFF',
+    backgroundUserbar: '#F7F6F9',
+    backgroundUserForm: '#FFFFFF',
     backgroundTextArea: '#F6F6F6',
+    textAndIconTodo: '#111111',
+    borderTableAndInput: '#DCE3E5',
+    starDisable: '#CEC9C1', //!сірий зірок не активних
+    ligthBlue: '#E3F3FF',
+    darkBlue: '#CAE8FF',
+    borderBtnAddTask: '#3E85F3',
+    backColorBtnAddTask: '#E3F3FF',
+    scrollSwitchHorizont: '#E7E5E5',
+    lineHorizontScroll: '#FFFFFF',
+    lineHorizontScrollInTodo: '#F2F2F2',
+    reviewsBackBlue: '#E3F3FF50',
+    iconPaginationActive: '#111111',
+    scrollSwitchVertical: '#34343420',
+    lineSwitchVertical: '#FFFFFFF',
+    loaderWrapper: '#343434',
+    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
+
+    // !не міняються при зміні теми !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     black: '#343434',
     white: '#FFFFFF',
     accent: '#3E85F3', //!основні кнопки, активні елементи, іконки, фон календаря
     hovered: '#2B78EF',
     accentText: '#3E85F320',
     starActive: '#FFAC33', //!жовтий зірок рейтингу
-    starDisable: '#CEC9C1', //!сірий зірок не активних
-    reviewsBackBlue: '#E3F3FF50',
-    ligthBlue: '#E3F3FF',
-    darkBlue: '#CAE8FF',
+
     backgroundAuth: '#DCEBF7', //!фоновий колір пейджа регістраціі та логінізаціі
-    scrollSwitchHorizont: '#E7E5E5',
-    lineScroll: '#F2F2F2',
-    scrollSwitchVertical: '#34343420',
+
     lowTask: '#72C2F8', //!найменший пріоритет в тасках і радіокнопки неактивні
     mediumTask: '#F3B249', //!середній пріоритет в тасках і жовтий текст в календарі і радіокнопки неактивні
     highTask: '#EA3D65', //!найвищщий пріоритет в тасках і рожевий текст в календарі і радіокнопки неактивні
@@ -25,14 +41,10 @@ export const themes = Object.freeze({
     pinkInNotes: '#FFD2DD', //!рожева лейба-фон в календарі
     borderInput: '#DCE3E560', //!неактивний колір бордера в інпуті авторизаціі
     placegolderAuth: '#DCE3E5', //! колір плейсхолдера в інпуті авторизаціі
-    borderInputActive: '#111111', //!активний колір бордера в інпуті авторизаціі
+    borderInputActive: '#11111110', //!активний колір бордера в інпуті авторизаціі
     failed: '#E74A3B', //!неуспішний колір бордера в інпуті авторизаціі
     saccess: '#3CBC81', //!успішний колір бордера в інпуті авторизаціі
     canceled: '#E5EDFA', //!фон не активних елементів і кнопки Cancel
-    loaderWrapper: '#343434',
-    loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
-    bordColorBtnAddTask: '#3E85F3',
-    backColorBtnAddTask: '#E3F3FF',
   },
   fontSizes: {
     xs: '12px',
@@ -73,12 +85,23 @@ export const themes = Object.freeze({
 export const dark = Object.freeze({
   colors: {
     background: '#171820',
-    black: '#FFFFFF',
+    backgroundSidebar: '#13151A',
+    backgroundUserbar: '#181921',
+    backgroundUserForm: '#21222C',
+    textAndIconTodo: '#FFFFFF',
+    borderTableAndInput: '#FFFFFF15',
     starDisable: '#353647',
     ligthBlue: '#21222C',
     darkBlue: '#3E85F3',
-    bordColorBtnAddTask: 'transparent',
+    borderBtnAddTask: 'transparent',
     backColorBtnAddTask: '#3E85F3',
+    scrollSwitchHorizont: '#2D3037',
+    lineHorizontScroll: '#21222C',
+    iconPaginationActive: '#FFFFFF',
+    reviewsBackBlue: '#21222C',
+    scrollSwitchVertical: '#171820',
+    lineSwitchVertical: '#2D3037',
+    lineHorizontScrollInTodo: '#2D3037',
     loaderWrapper: '#FFFFFF',
     loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
   },

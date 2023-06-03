@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 import { device } from 'styles/mediaVeriables';
 import { themes } from 'styles/themes';
+import { ReactComponent as IconLightTheme } from 'images/svg/light-theme.svg';
+import { ReactComponent as IconDarkTheme } from 'images/svg/dark-theme.svg';
 // !після того як всі ростягнуть свої елементи ListLink треба видалить
 export const ListLink = styled.ul`
   display: flex;
@@ -26,17 +28,15 @@ export const AuthLink = styled(NavLink)`
   align-items: center;
   text-decoration: ${props => props.colorbtn && `none`};
   text-shadow: ${themes.shadows.authHeading};
-  &.active {
-    color: ${props =>
-      props.color === 'blue'
-        ? `${themes.colors.accent}`
-        : `${themes.colors.white}`};
-    color: ${props => props.colorbtn === 'blue' && `${themes.colors.white}`};
-    background-color: ${props =>
-      props.colorbtn === 'white' && `${themes.colors.white}`};
-    background-color: ${props =>
-      props.colorbtn === 'blue' && `${themes.colors.accent}`};
-  }
+  color: ${props =>
+    props.color === 'blue'
+      ? `${themes.colors.accent}`
+      : `${themes.colors.white}`};
+  color: ${props => props.colorbtn === 'blue' && `${themes.colors.white}`};
+  background-color: ${props =>
+    props.colorbtn === 'white' && `${themes.colors.white}`};
+  background-color: ${props =>
+    props.colorbtn === 'blue' && `${themes.colors.accent}`};
   &:hover {
     color: ${props =>
       props.color === 'blue'
@@ -128,7 +128,7 @@ export const SecondBtn = styled.button`
 
 export const AddTaskBtn = styled.button`
   border-radius: 10px;
-  border: 1px dashed ${themes.colors.bordColorBtnAddTask};
+  border: 1px dashed ${themes.colors.borderBtnAddTask};
   font-weight: ${themes.fontWeight.sb};
   font-size: ${themes.fontSizes.s};
   line-height: 1.3;
@@ -139,7 +139,7 @@ export const AddTaskBtn = styled.button`
   gap: 8px;
   cursor: pointer;
   color: ${themes.colors.black};
-  background-color: ${themes.colors.ligthBlue};
+  background-color: ${themes.colors.backColorBtnAddTask};
   transition: background-color
     ${(themes.animations.duration, themes.animations.cubicBezier)};
   &:hover {
@@ -174,4 +174,20 @@ export const MonthDayBtn = styled.button`
     font-size: ${themes.fontSizes.m};
     width: 82px;
   }
+`;
+
+export const ToggleThemeBtn = styled.button`
+  border: none;
+  background-color: transparent;
+`;
+
+export const IconLight = styled(IconLightTheme)`
+  fill: ${themes.colors.accent};
+  width: 24px;
+  height: 24px;
+`;
+export const IconDark = styled(IconDarkTheme)`
+  fill: ${themes.colors.accent};
+  width: 24px;
+  height: 24px;
 `;
