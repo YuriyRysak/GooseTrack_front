@@ -1,12 +1,10 @@
-import { Header } from '../../User';
-import { SideBar } from '../SideBar';
+
+import { Outlet } from 'react-router-dom';
 
 export const MainLayout = () => {
   return (
     <div>
-      <h3>MainLayout</h3>
-      <Header />
-      <SideBar />
+      <Outlet />
     </div>
   );
 };
