@@ -8,7 +8,7 @@ import {
 } from './UserInfo.styled';
 import { useSelector } from 'react-redux';
 
-const UserInfo = () => {
+export const UserInfo = () => {
   const {
     user: { name },
     userPhoto,
@@ -32,5 +32,3 @@ const UserInfo = () => {
     </StyledLink>
   );
 };
-
-export default UserInfo;
