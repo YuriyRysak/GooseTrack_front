@@ -7,16 +7,16 @@ import { FiLogIn } from 'react-icons/fi';
 
 export const RegisterForm = () => {
 
-    const [emailValid, setEmailValid] = useState(null);
-    const [passwordValid, setPasswordValid] = useState(null);
-    const [nameValid, setNameValid] = useState(null);
+    const [emailValid, setEmailValid] = useState();
+    const [passwordValid, setPasswordValid] = useState();
+    const [nameValid, setNameValid] = useState();
 
     const onSubmitForm = async (values) => {
         // validation of inputs
         const validationResponse = await validateRegisterForm(values);
-        setEmailValid(validationResponse.email.valid);
-        setPasswordValid(validationResponse.password.valid);
-        setNameValid(validationResponse.name.valid);
+        setEmailValid(validationResponse.email);
+        setPasswordValid(validationResponse.password);
+        setNameValid(validationResponse.name);
 
         // set loader true
 
@@ -50,8 +50,9 @@ export const RegisterForm = () => {
                 value={formik.values.name}
                 type={'text'}
                 onChange={formik.handleChange}
-                valid={nameValid}
+                valid={nameValid?.valid}
                 placeholder='Enter your name'
+                errorMessage={nameValid?.error}
             />
 
             <AuthField 
@@ -59,8 +60,9 @@ export const RegisterForm = () => {
                 value={formik.values.email}
                 type={'email'}
                 onChange={formik.handleChange}
-                valid={emailValid}
+                valid={emailValid?.valid}
                 placeholder='Enter email'
+                errorMessage={emailValid?.error}
             />
 
             <AuthField 
@@ -68,8 +70,9 @@ export const RegisterForm = () => {
                 value={formik.values.password}
                 type={'text'}
                 onChange={formik.handleChange}
-                valid={passwordValid}
+                valid={passwordValid?.valid}
                 placeholder='Enter password'
+                errorMessage={passwordValid?.error}
             />
 
             <StyledButton type="submit">

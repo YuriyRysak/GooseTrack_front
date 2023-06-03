@@ -6,14 +6,14 @@ import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
 
 export const LoginForm = () => {
-    const [emailValid, setEmailValid] = useState(null);
-    const [passwordValid, setPasswordValid] = useState(null);
+    const [emailValid, setEmailValid] = useState();
+    const [passwordValid, setPasswordValid] = useState();
 
     const onSubmitForm = async (values) => {
         // validation of inputs
         const validationResponse = await validateLoginForm(values);
-        setEmailValid(validationResponse.email.valid);
-        setPasswordValid(validationResponse.password.valid);
+        setEmailValid(validationResponse.email);
+        setPasswordValid(validationResponse.password);
 
         // set loader true
 
@@ -44,8 +44,9 @@ export const LoginForm = () => {
                 value={formik.values.email}
                 type={'email'}
                 onChange={formik.handleChange}
-                valid={emailValid}
+                valid={emailValid?.valid}
                 placeholder='Enter email'
+                errorMessage={emailValid?.error}
             />
 
             <AuthField 
@@ -53,8 +54,9 @@ export const LoginForm = () => {
                 value={formik.values.password}
                 type={'text'}
                 onChange={formik.handleChange}
-                valid={passwordValid}
+                valid={passwordValid?.valid}
                 placeholder='Enter password'
+                errorMessage={passwordValid?.error}
             />
 
             <StyledButton type="submit">
