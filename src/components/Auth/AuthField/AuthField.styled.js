@@ -26,6 +26,7 @@ export const StyledLabel = styled.label`
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
+    text-align: start;
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-top: 18px;
         font-size: 14px;
