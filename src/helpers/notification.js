@@ -1,13 +1,13 @@
 const { createContext, useState } = require("react");
 
-const NotificationContext = createContext();
+export const NotificationContext = createContext();
 
 export const NotificationProvider = ({children}) => {
 
-    const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
 
     return(
-        <NotificationContext.Provider value={{isNotificationVisible, setIsNotificationVisible}}>
+        <NotificationContext.Provider value={{isVisible, setIsVisible}}>
             {children}
         </NotificationContext.Provider>
     )
