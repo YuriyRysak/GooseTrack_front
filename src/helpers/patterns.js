@@ -1,7 +1,7 @@
 const namePattern = /^[\p{L}\s]+$/u; // only Latin or Cyrillic characters
 const namePatternErrorMessage = 'only of Latin or Cyrillic characters';
 const emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-const emailPatternErrorMessage = '';
+const emailPatternErrorMessage = 'must be valid email';
 const passwordPattern = /^.*(?=.{6,})((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/; // 6 characters, at lest one upperCase and one lowercase
 const passwordPatternErrorMessage = 'more than 6 characters, at least one uppercase and one lowercase'
 const urlPattern =
