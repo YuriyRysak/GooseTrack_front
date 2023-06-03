@@ -1,4 +1,4 @@
-import { Header, Description, AuthNav } from 'components/Main';
+import { Header, Description, ReviewsSlider } from 'components/Main';
 
 const MainPage = () => {
   return (
@@ -6,7 +6,7 @@ const MainPage = () => {
       {/* <h3>MainPage</h3> */}
       <Header />
       <Description />
-      <AuthNav />
+      <ReviewsSlider />
     </div>
   );
 };
