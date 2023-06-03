@@ -23,7 +23,7 @@ export const NotificationProvider = ({children}) => {
 
 export const useNotification = () => useContext(NotificationContext).changeContext;
 
-export const notification = (changeContext, type='info', text) => {
+export const notification = (changeContext, type='info', text, time='3000') => {
 
     const notificationTypes = ['success', 'fail', 'info'];
     const correctType = notificationTypes.some(item => item === type);
@@ -41,5 +41,5 @@ export const notification = (changeContext, type='info', text) => {
         changeContext.text('');
         changeContext.visibility(false);
     }
-    setTimeout(hideNotification, 3000);
+    setTimeout(hideNotification, time);
 }
