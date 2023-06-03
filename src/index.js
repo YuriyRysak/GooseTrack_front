@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import { PersistGate } from 'redux-persist/integration/react';
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
 import {
   store,
-  // persistor
+  persistor
 } from 'redux/store';
 import './index.css';
 import { ThemeContextProvider } from 'components/User/Header/ThemeToggler/ThemeContext';
@@ -14,13 +14,16 @@ import { ThemeContextProvider } from 'components/User/Header/ThemeToggler/ThemeC
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <PersistGate loading={null} persistor={persistor}> */}
+       <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="GooseTrack_front">
         <ThemeContextProvider>
           <App />
         </ThemeContextProvider>
       </BrowserRouter>
-      {/* </PersistGate> */}
+       </PersistGate>
     </Provider>
   </React.StrictMode>
 );
+
+
+

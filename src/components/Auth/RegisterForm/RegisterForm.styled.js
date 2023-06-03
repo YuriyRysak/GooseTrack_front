@@ -37,10 +37,11 @@ export const StyledHeading = styled.h2`
     line-height: 24px;
     font-weight: 600;
     text-shadow: ${({theme}) => (theme.shadows.authHeading)};
+    text-align: start;
 
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-bottom: 22px;
-        font-size: 24px;  
+        font-size: 24px;
     }
 `;
 
@@ -68,8 +69,8 @@ export const StyledButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer; 
-    
+    cursor: pointer;
+
     :hover {
         background-color: ${({theme}) => (theme.colors.hovered)};
     }

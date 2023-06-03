@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
-// add import of 3 breakpoints
-// add import of colors
 // check main font size and line height and delete doubling
-// check using font family
+
+export const Wrapper = styled.div`
+    position: relative;
+`;
 
 export const InputContainer = styled.div`
     position: relative;
@@ -26,6 +27,7 @@ export const StyledLabel = styled.label`
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
+    text-align: start;
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-top: 18px;
         font-size: 14px;
@@ -82,10 +84,8 @@ export const StyledIcon = styled.div`
 `;
 
 export const StyledInputNotification = styled.p`
-    position: absolute;
-    bottom: -22px;
-    margin: 0 18px;
-    position: absolute;
+    margin: 0;
+    padding: 0 18px;
     font-size: 12px;
     line-height: 14px;
     color: ${({valid, theme}) => {

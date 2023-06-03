@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Link } from 'react-router-dom';
+import { themes } from '../styles/themes';
 
 export const Img = styled.img`
   display: none;
@@ -12,5 +14,3 @@ export const Img = styled.img`
     bottom: 19px;
   }
 `;
-
-

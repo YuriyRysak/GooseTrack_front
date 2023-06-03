@@ -1,30 +1,20 @@
 import * as yup from 'yup';
-
 import { patterns } from 'helpers/patterns';
-
-// const nameRegex = /^[\p{L}\s]+$/u;
-// const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-// const passwordRegex = /^.*(?=.{6,})((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/;
 
 const nameSchema = yup
   .string()
-  .min(1, 'min 1')
-  .max(15)
   .required()
-  .matches(patterns.namePattern);
+  .matches(patterns.namePattern, patterns.emailPatternErrorMessage);
 
 const emailSchema = yup
   .string()
-  .email()
-  .matches(patterns.emailPattern)
-  .required();
+  .required()
+  .matches(patterns.emailPattern, patterns.emailPatternErrorMessage);
 
 const passwordSchema = yup
   .string()
   .required()
-  .min(6)
-  .max(16)
-  .matches(patterns.passwordPattern);
+  .matches(patterns.passwordPattern, patterns.passwordPatternErrorMessage);
 
 const validateField = async (value, schema) => {
   let isValid;
@@ -39,12 +29,12 @@ const validateField = async (value, schema) => {
   return { valid: isValid, error: firstError };
 };
 
-export const validateRegisterForm = async ({ name, email, password }) => {
-  const nameValidation = await validateField(name, nameSchema);
+export const validateRegisterForm = async ({ username, email, password }) => {
+  const nameValidation = await validateField(username, nameSchema);
   const emailValidation = await validateField(email, emailSchema);
   const passwordValidation = await validateField(password, passwordSchema);
   return {
-    name: nameValidation,
+    username: nameValidation,
     email: emailValidation,
     password: passwordValidation,
   };
