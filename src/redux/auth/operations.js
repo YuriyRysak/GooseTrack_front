@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://calendar-server-g3h0.onrender.com/api';
 
 // Для токена, щоб завантажувати JWT
 const setAuthHeader = token => {
@@ -15,18 +15,19 @@ const clearAuthHeader = () => {
 };
 
 /*
- * POST @ /users/signup
- * body: { name, email, password }
+ * POST @ /users/register
+ * body: { username, email, password }
  */
 export const register = createAsyncThunk(
   'auth/register',
   // credentials - відправляються дані з форми
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
+      const {data} = await axios.post('/users/register', credentials);
       // додаємо токен до запиту
-      setAuthHeader(res.data.token);
-      return res.data;
+      console.log('register data===>',data);
+      setAuthHeader(data.token);
+      return data;
     } catch (error) {
       if (error.message === `Email has already registered. Please log in`) {
         toast.error(`User with this email  already exist`);
@@ -48,10 +49,12 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/login', credentials);
+      const {data} = await axios.post('/users/login', credentials);
       // додаємо токен до запиту
-      setAuthHeader(res.data.token);
-      return res.data;
+      console.log('login data===>', data);
+      setAuthHeader(data.token);
+      console.log(data);
+      return data;
     } catch (error) {
       toast.error(`Email or Password is wrong`);
       return thunkAPI.rejectWithValue(error.message);
