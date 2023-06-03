@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy , Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,7 +15,7 @@ const NotFoundPagePage = lazy(() => import('pages/NotFoundPage'));
 
 export const App = () => {
   return (
-    <>
+      <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
@@ -29,6 +29,6 @@ export const App = () => {
         </Route>
       </Routes>
       <ToastContainer autoClose={3000} />
-    </>
+      </Suspense>
   );
 };
