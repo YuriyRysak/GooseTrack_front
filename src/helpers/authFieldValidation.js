@@ -39,12 +39,12 @@ const validateField = async (value, schema) => {
   return { valid: isValid, error: firstError };
 };
 
-export const validateRegisterForm = async ({ name, email, password }) => {
-  const nameValidation = await validateField(name, nameSchema);
+export const validateRegisterForm = async ({ username, email, password }) => {
+  const nameValidation = await validateField(username, nameSchema);
   const emailValidation = await validateField(email, emailSchema);
   const passwordValidation = await validateField(password, passwordSchema);
   return {
-    name: nameValidation,
+    username: nameValidation,
     email: emailValidation,
     password: passwordValidation,
   };

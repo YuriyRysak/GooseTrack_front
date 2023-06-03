@@ -17,10 +17,10 @@ text-align: center;
 `;
 export const StyledNavLink = styled(Link)`
   display: block;
-  margin-top: ${themes.fontSizes.l}px;
+  margin-top: ${themes.fontSizes.l};
   color:${themes.colors.accent};
   font-weight: ${themes.fontWeight.sb};
-  font-size: ${themes.fontSizes.xs}px;
+  font-size: ${themes.fontSizes.xs};
   line-height: 1.17;
   text-decoration-line: underline;
   cursor: pointer;
@@ -29,7 +29,7 @@ export const StyledNavLink = styled(Link)`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
-    margin-top: ${themes.fontSizes.xxl}px;
+    margin-top: ${themes.fontSizes.xxl};
   }
 
   :hover {
