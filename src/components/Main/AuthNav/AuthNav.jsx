@@ -5,8 +5,8 @@ import { Wrapper } from './AuthNav.styled';
 export const AuthNav = () => {
   return (
     <Wrapper>
-      <AuthLink to={'/login'}>Sign up</AuthLink>
-      <AuthLink to={'/register'} color="blue" colorbtn="white">
+      <AuthLink to={'/register'}>Sign up</AuthLink>
+      <AuthLink to={'/login'} color="blue" colorbtn="white">
         Log in
         <CgLogIn style={{ marginLeft: 6, width: 18, height: 18 }} />
       </AuthLink>
