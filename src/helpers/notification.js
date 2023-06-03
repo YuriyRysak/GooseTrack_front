@@ -1,4 +1,4 @@
-const { createContext, useState } = require("react");
+const { createContext } = require("react");
 
 export const NotificationContext = createContext();
 
@@ -8,7 +8,7 @@ export const NotificationProvider = ({children}) => {
 
     const isVisible = true;
     const text = 'Notification';
-    const type = '';
+    const type = 'success';
 
     return(
         <NotificationContext.Provider value={{isVisible, text, type}}>
@@ -17,7 +17,10 @@ export const NotificationProvider = ({children}) => {
     )
 };
 
-export const notification = {
-    
+const success = () => {
+    console.log('Notification works');
+}
 
+export const notification = {
+    success
 };

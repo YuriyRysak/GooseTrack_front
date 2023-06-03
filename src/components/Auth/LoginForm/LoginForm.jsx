@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './LoginForm.styled';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
-import { validateLoginForm } from 'helpers';
+import { notification, validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
 
 export const LoginForm = () => {
@@ -24,6 +24,7 @@ export const LoginForm = () => {
         // notificate API response
 
         // redirect /calendar/month
+        notification.success();
     };
 
     const formik = useFormik({

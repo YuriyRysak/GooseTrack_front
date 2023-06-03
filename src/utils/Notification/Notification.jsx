@@ -5,8 +5,8 @@ import { NotificationContext } from "helpers/notification"
 export const Notification = () => {
 
     const isVisible = useContext(NotificationContext).isVisible;
-    const text = '';
-    const type = '';
+    const text = useContext(NotificationContext).text;
+    const type = useContext(NotificationContext).type;
 
     if(isVisible) {
         return (
