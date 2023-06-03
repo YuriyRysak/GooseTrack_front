@@ -1,10 +1,11 @@
 import { LoginForm } from 'components/Auth';
 
-import normalImage from '../images/others/desktop/rocket1x.png';
-import retinaImage from '../images/others/desktop/rocket2x.png';
-import superRetinaImage from '../images/others/desktop/rocket3x.png';
+import normalImage from 'images/others/desktop/rocket1x.png';
+import retinaImage from 'images/others/desktop/rocket2x.png';
+import superRetinaImage from 'images/others/desktop/rocket3x.png';
+
+import { Img} from './LoginPage.styled';
 import { RegisterPageContainer, RegisterPageWrap, StyledNavLink } from './RegisterPage.styled';
-import { Img } from './LoginPage.styled';
 
 
 const LoginPage = () => {

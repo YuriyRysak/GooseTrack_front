@@ -1,10 +1,9 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading, StyledIcon, StyledLink } from './RegisterForm.styled';
+import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './RegisterForm.styled';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
 import { validateRegisterForm } from 'helpers/authFieldValidation';
 import { FiLogIn } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
 
@@ -40,12 +39,6 @@ export const RegisterForm = () => {
         onSubmitForm(values)
         }
     });
-
-    const navigate = useNavigate();
-    const redirect = () => {
-        console.log('redirect');
-        navigate("/register", { replace: true });
-    };
 
     return (
         <StyledForm onSubmit={formik.handleSubmit}>
@@ -83,7 +76,7 @@ export const RegisterForm = () => {
                 Sign up
                 <StyledIcon><FiLogIn size={17} color='#FFFFFF'/></StyledIcon>
             </StyledButton>
-            <StyledLink onClick={redirect}>Log in</StyledLink>
+            
         </StyledForm>
     )
 }
