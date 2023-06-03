@@ -2,15 +2,12 @@ import { useFormik } from 'formik';
 import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './LoginForm.styled';
 import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
-import { notification, validateLoginForm } from 'helpers';
+import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
-import { useNotification } from 'helpers/notification';
 
 export const LoginForm = () => {
     const [emailValid, setEmailValid] = useState();
     const [passwordValid, setPasswordValid] = useState();
-
-    const use = useNotification();
 
     const onSubmitForm = async (values) => {
         // validation of inputs
@@ -27,7 +24,6 @@ export const LoginForm = () => {
         // notificate API response
 
         // redirect /calendar/month
-        notification(use, 'success','text');
     };
 
     const formik = useFormik({
