@@ -7,17 +7,21 @@ import { useTheme } from '@emotion/react';
 import { useThemeColors } from './ThemeContext';
 
 export const ThemeToggler = () => {
+  
   const changeTheme = useThemeColors().changeTheme;
-  const theme = useTheme();
+  // const theme = useTheme();
+  const theme = useThemeColors().theme;
   const handlerChangeTheme = () => {
     changeTheme();
-    console.log(theme);
+    console.log(type);
   };
-  console.log(theme);
+  const type = useThemeColors().type;
+  console.log('Потрібний лог:');
+  console.log(type);
   return (
     <>
       <ToggleThemeBtn onClick={handlerChangeTheme}>
-        {theme === 'dark' ? <IconLight /> : <IconDark />}
+        {type === 'dark' ? <IconLight /> : <IconDark />}
       </ToggleThemeBtn>
     </>
   );
