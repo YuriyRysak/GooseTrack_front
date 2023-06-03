@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { themes } from 'styles/themes';
 export const RegisterPageContainer = styled.div`
   background-color: ${themes.colors.backgroundAuth};
@@ -15,7 +15,7 @@ export const RegisterPageWrap = styled.div`
 text-align: center;
 
 `;
-export const StyledNavLink = styled(NavLink)`
+export const StyledNavLink = styled(Link)`
   display: block;
   margin-top: ${themes.fontSizes.l}px;
   color:${themes.colors.accent};

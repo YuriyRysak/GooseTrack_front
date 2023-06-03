@@ -1,8 +1,8 @@
 import { RegisterForm } from 'components/Auth';
 import { Img, RegisterPageContainer, RegisterPageWrap, StyledNavLink } from './RegisterPage.styled';
-import normalImage from '../images/others/desktop/goose-quote1x.png';
-import retinaImage from '../images/others/desktop/goose-quote2x.png';
-import superRetinaImage from '../images/others/desktop/goose-quote3x.png';
+import normalImage from 'images/others/desktop/goose-quote1x.png';
+import retinaImage from 'images/others/desktop/goose-quote2x.png';
+import superRetinaImage from 'images/others/desktop/goose-quote3x.png';
 
 const RegisterPage = () => {
   return (
