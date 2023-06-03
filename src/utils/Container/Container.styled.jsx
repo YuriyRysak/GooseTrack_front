@@ -4,14 +4,11 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding-inline: 20px;
 
-  /* Add after mixin onTablet */
-  /* @include onTablet {
+  @media (min-width: ${({ theme }) => theme.breakpoints.m}) {
     padding-inline: 32px;
-  } */
+  }
 
-  /* Add after mixin onDesktop */
-  /* @include onDesktop {
-    max-width: 1440px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.l}) {
     padding-inline: 128px;
-  } */
+  }
 `;
