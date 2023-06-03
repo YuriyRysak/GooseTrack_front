@@ -1,14 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logOut } from 'redux/auth/operations';
 import { fetchTasks, addTask, deleteTask, updateTask } from './operations';
 
-const handlePending = state => {
-  state.isLoading = true;
-};
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
 
 const initialState = {
   tasks: [],

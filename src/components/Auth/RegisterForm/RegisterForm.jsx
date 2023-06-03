@@ -21,7 +21,8 @@ export const RegisterForm = () => {
       setPasswordValid(validationResponse.password.valid);
       setUsernameValid(validationResponse.username.valid);
 
-      const response = await dispatch(register(values));
+  await dispatch(register(values));
+
       // set loader true
 
       // API registration
