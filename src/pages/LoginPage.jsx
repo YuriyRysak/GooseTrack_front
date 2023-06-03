@@ -13,7 +13,7 @@ const LoginPage = () => {
     <RegisterPageContainer>
       <Img
         src={normalImage}
-        srcset={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
+        srcSet={`${normalImage} 1x, ${retinaImage} 2x, ${superRetinaImage} 3x`}
         alt='Goose in rocket'
       />
       <RegisterPageWrap>

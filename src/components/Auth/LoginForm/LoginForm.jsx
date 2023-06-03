@@ -17,7 +17,8 @@ export const LoginForm = () => {
     const validationResponse = await validateLoginForm(values);
     setEmailValid(validationResponse.email);
     setPasswordValid(validationResponse.password);
-    const res = await dispatch(logIn(values));
+     await dispatch(logIn(values));
+
     // set loader true
 
     // API registration
