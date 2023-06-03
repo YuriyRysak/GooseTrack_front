@@ -18,7 +18,7 @@ export const UserInfo = () => {
   const firstLetter = name.trim().slice(0, 1).toUpperCase();
 
   return (
-    <StyledLink to="/main/account">
+    <StyledLink to="/account">
       <StyledName>{name}</StyledName>
       <StyledAvatarContainer>
         {isLoading ? (
