@@ -28,15 +28,17 @@ export const AuthLink = styled(NavLink)`
   align-items: center;
   text-decoration: ${props => props.colorbtn && `none`};
   text-shadow: ${themes.shadows.authHeading};
-  color: ${props =>
-    props.color === 'blue'
-      ? `${themes.colors.accent}`
-      : `${themes.colors.white}`};
-  color: ${props => props.colorbtn === 'blue' && `${themes.colors.white}`};
-  background-color: ${props =>
-    props.colorbtn === 'white' && `${themes.colors.white}`};
-  background-color: ${props =>
-    props.colorbtn === 'blue' && `${themes.colors.accent}`};
+  &.active {
+    color: ${props =>
+      props.color === 'blue'
+        ? `${themes.colors.accent}`
+        : `${themes.colors.white}`};
+    color: ${props => props.colorbtn === 'blue' && `${themes.colors.white}`};
+    background-color: ${props =>
+      props.colorbtn === 'white' && `${themes.colors.white}`};
+    background-color: ${props =>
+      props.colorbtn === 'blue' && `${themes.colors.accent}`};
+  }
   &:hover {
     color: ${props =>
       props.color === 'blue'
@@ -139,7 +141,7 @@ export const AddTaskBtn = styled.button`
   gap: 8px;
   cursor: pointer;
   color: ${themes.colors.black};
-  background-color: ${themes.colors.backColorBtnAddTask};
+  background-color: ${themes.colors.ligthBlue};
   transition: background-color
     ${(themes.animations.duration, themes.animations.cubicBezier)};
   &:hover {
