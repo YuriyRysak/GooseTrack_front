@@ -4,6 +4,7 @@ import { selectIsIsLoadingUser } from "redux/auth/selectors";
 import { selectIsLoading } from "redux/reviews/selectors";
 import { selectIsLoadingTasks } from "redux/tasks/selectors";
 import { Loader } from "utils/Loader/Loader";
+import { Notification } from "utils/Notification/Notification";
 
 export function Layout() {
     const isAuthLoading = useSelector(selectIsIsLoadingUser);
@@ -24,6 +25,7 @@ export function Layout() {
         <div>
             <Outlet />
             <Loader isVisible={isAnythingLoading}/>
+            <Notification />
         </div>
     )
 };

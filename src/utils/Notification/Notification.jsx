@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { Container, Text } from "./Notification.styled"
 
 export const Notification = ({text, type}) => {
 
     return (
-        <div type={type}>
-            <p type={type}>{text}</p>
-        </div>
+        <Container type={type}>
+            <Text type={type}>{text}</Text>
+        </Container>
     )
 }
