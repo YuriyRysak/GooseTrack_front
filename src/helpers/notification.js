@@ -4,14 +4,14 @@ export const NotificationContext = createContext();
 
 export const NotificationProvider = ({children}) => {
 
-    // const [isVisible, setIsVisible] = useState(true);
-
-    const [isVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
     const [text, setText] = useState('Notification');
-    const [type] = useState('success');
+    const [type, setType] = useState('success');
 
     const changeContext = {
-        text: setText
+        text: setText,
+        type: setType,
+        visibility: setIsVisible
     }
 
     return(
@@ -23,15 +23,21 @@ export const NotificationProvider = ({children}) => {
 
 export const useNotification = () => useContext(NotificationContext).changeContext;
 
-const success = (a) => {
-    a.text('New notification')
+export const notification = (changeContext, type='success', text) => {
+    const notificationTypes = ['success', 'fail', 'info'];
+    const correctType = notificationTypes.some(item => item === type);
+    if(!correctType) {
+        console.log("Use one of type arguments for your notification: ['success', 'fail', 'info']");
+        return;
+    };
+
+    changeContext.type(type)
+    changeContext.text(text);
+    changeContext.visibility(true);
+
     // console.log(a);
    /* return (`
     notificationText = useContext(NotificationContext).text;
     console.log(notificationText);
 `); */
 }
-
-export const notification = {
-    success
-};

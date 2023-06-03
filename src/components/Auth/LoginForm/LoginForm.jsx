@@ -27,7 +27,7 @@ export const LoginForm = () => {
         // notificate API response
 
         // redirect /calendar/month
-        notification.success(use);
+        notification(use, 'success','text');
     };
 
     const formik = useFormik({
