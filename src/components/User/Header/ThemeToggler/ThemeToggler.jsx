@@ -17,7 +17,7 @@ export const ThemeToggler = () => {
   };
   const type = useThemeColors().type;
   console.log('Потрібний лог:');
-  console.log(type);
+  console.log(theme);
   return (
     <>
       <ToggleThemeBtn onClick={handlerChangeTheme}>

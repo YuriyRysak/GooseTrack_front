@@ -16,6 +16,7 @@ text-align: center;
 
 `;
 export const StyledNavLink = styled(NavLink)`
+background-color: ${({theme}) => theme.colors.background};
   display: block;
   margin-top: ${themes.fontSizes.l}px;
   color:${themes.colors.accent};

@@ -15,8 +15,12 @@ export const ThemeContextProvider = ({ children }) => {
     window.localStorage.theme = type;
     if (type === 'themes') {
       setTheme(themes);
+      console.log('show themes');
+      console.log(themes);
     } else if (type === 'dark') {
       setTheme(dark);
+      console.log('show themes');
+      console.log(dark);
     }
     console.log('useEffect  dark:', dark);
   }, [type]);
