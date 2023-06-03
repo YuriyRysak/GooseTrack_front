@@ -2,9 +2,11 @@ import { useContext } from "react"
 import { Container, Text } from "./Notification.styled"
 import { NotificationContext } from "helpers/notification"
 
-export const Notification = ({text, type}) => {
+export const Notification = () => {
 
     const isVisible = useContext(NotificationContext).isVisible;
+    const text = '';
+    const type = '';
 
     if(isVisible) {
         return (
