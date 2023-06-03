@@ -5,8 +5,8 @@ export const NotificationContext = createContext();
 export const NotificationProvider = ({children}) => {
 
     const [isVisible, setIsVisible] = useState(false);
-    const [text, setText] = useState('Notification');
-    const [type, setType] = useState('success');
+    const [text, setText] = useState('');
+    const [type, setType] = useState('info');
 
     const changeContext = {
         text: setText,
@@ -28,7 +28,7 @@ export const notification = (changeContext, type='info', text, time='3000') => {
     const notificationTypes = ['success', 'fail', 'info'];
     const correctType = notificationTypes.some(item => item === type);
     if(!correctType) {
-        console.log("Use one of type arguments for your notification: ['success', 'fail', 'info']");
+        console.log(`Use one of type arguments for your notification: ${notificationTypes}`);
         return;
     };
 
