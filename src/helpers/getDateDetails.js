@@ -41,5 +41,3 @@ const getWeekNumber = date => {
     ((date - onejan) / millisecsInDay + onejan.getDay() + 1) / 7
   );
 };
-
-console.log(getDateDetails('2024-20-12'));
