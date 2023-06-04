@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
 
 // check main font size and line height and delete doubling
 // check using font family
@@ -78,22 +77,6 @@ export const StyledButton = styled.button`
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         height: 56px;
         margin-top: 48px;
-        font-size: 18px;
-        line-height: 24px;
-    }
-`;
-
-export const StyledLink = styled(Link)`
-    position: absolute;
-    bottom: -32px;
-    right: 0;
-    width: 100%;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 14px;
-    color: ${({theme}) => (theme.colors.accent)};
-    text-align: center;
-    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         font-size: 18px;
         line-height: 24px;
     }

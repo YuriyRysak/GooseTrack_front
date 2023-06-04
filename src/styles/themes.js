@@ -48,6 +48,7 @@ export const themes = Object.freeze({
     canceledInTodo: '#EFEFEF', //!фон не активних елементів і кнопки Cancel
     textCancelBtnIntodo: '#111111',
     textCancelBtn: '#343434',
+    borderDefaultColor: 'rgba(17, 17, 17, 0.15)',
   },
   fontSizes: {
     xs: '12px',

@@ -14,26 +14,22 @@ import { logIn } from '../../../redux/auth/operations';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const [emailValid, setEmailValid] = useState();
-  const [passwordValid, setPasswordValid] = useState();
+  const [emailValid, setEmailValid] = useState(null);
+  const [passwordValid, setPasswordValid] = useState(null);
 
   const onSubmitForm = async values => {
     // validation of inputs
     const validationResponse = await validateLoginForm(values);
     setEmailValid(validationResponse.email);
     setPasswordValid(validationResponse.password);
-    await dispatch(logIn(values));
+    // await dispatch(logIn(values));
+    const result = await dispatch(logIn(values));
 
-    // set loader true
-
-    // API registration
-
-    // set loader false
-
-    // notificate API response
-
-    // redirect /calendar/month
-    formik.resetForm();
+    if ('error' in result) {
+      setPasswordValid(null);
+      formik.setFieldValue('password', '');
+      return;
+    }
   };
 
   const formik = useFormik({
@@ -45,12 +41,14 @@ export const LoginForm = () => {
       onSubmitForm(values);
     },
   });
+
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
       <StyledHeading>Log in</StyledHeading>
 
       <AuthField
         name={'Email'}
+        lableName={'Email'}
         value={formik.values.email}
         type={'email'}
         onChange={formik.handleChange}
@@ -61,6 +59,7 @@ export const LoginForm = () => {
 
       <AuthField
         name={'Password'}
+        lableName={'Password'}
         value={formik.values.password}
         type={'text'}
         onChange={formik.handleChange}
