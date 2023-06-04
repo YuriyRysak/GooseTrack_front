@@ -7,7 +7,7 @@ export const UserNavWrap = styled.div`
   font-weight: 600;
   margin-top: 64px;
   width: 185px;
-  margin-botton: 32px;
+  margin-bottom: 32px;
 
   @media screen and (min-width: 768px) {
     margin-top: 50px;
