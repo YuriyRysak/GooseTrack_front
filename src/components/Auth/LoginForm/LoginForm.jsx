@@ -48,7 +48,6 @@ export const LoginForm = () => {
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <MonthCalendarHead />
       <StyledHeading>Log in</StyledHeading>
 
       <AuthField
