@@ -11,6 +11,7 @@ import {
 } from 'redux/store';
 import { themes } from 'styles/themes';
 import './index.css';
+import { NotificationProvider } from 'helpers';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
        <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="GooseTrack_front">
         <ThemeProvider theme={themes}>
-          <App />
+          <NotificationProvider>
+            <App />
+          </NotificationProvider>
         </ThemeProvider>
       </BrowserRouter>
        </PersistGate>
