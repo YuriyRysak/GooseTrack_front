@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { selectIsLoggedInUser, selectUser } from 'redux/auth/selectors';
-import { logOut, refreshUser, updateUser } from 'redux/auth/operations';
+import {  refreshUser, updateUser } from 'redux/auth/operations';
 import { patterns } from 'helpers';
 
 
@@ -77,7 +77,6 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
   //   console.log(logout);
   // }
 
-  {/*<button type='button' onClick={handleLogOut}>LogOut</button> //=================*/}
   //=============================
 
   useEffect(() => {
