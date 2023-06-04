@@ -1,23 +1,29 @@
 import { useFormik } from 'formik';
-import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './LoginForm.styled';
-import {  useState } from 'react';
+import {
+  StyledButton,
+  StyledForm,
+  StyledHeading,
+  StyledIcon,
+} from './LoginForm.styled';
+import { useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
 import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from '../../../redux/auth/operations';
+import { MonthCalendarHead } from 'components/User';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const [emailValid, setEmailValid] = useState();
   const [passwordValid, setPasswordValid] = useState();
 
-  const onSubmitForm = async (values) => {
+  const onSubmitForm = async values => {
     // validation of inputs
     const validationResponse = await validateLoginForm(values);
     setEmailValid(validationResponse.email);
     setPasswordValid(validationResponse.password);
-     await dispatch(logIn(values));
+    await dispatch(logIn(values));
 
     // set loader true
 
@@ -42,6 +48,7 @@ export const LoginForm = () => {
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
+      <MonthCalendarHead />
       <StyledHeading>Log in</StyledHeading>
 
       <AuthField
@@ -50,7 +57,7 @@ export const LoginForm = () => {
         type={'email'}
         onChange={formik.handleChange}
         valid={emailValid?.valid}
-        placeholder='Enter email'
+        placeholder="Enter email"
         errorMessage={emailValid?.error}
       />
 
@@ -60,13 +67,15 @@ export const LoginForm = () => {
         type={'text'}
         onChange={formik.handleChange}
         valid={passwordValid?.valid}
-        placeholder='Enter password'
+        placeholder="Enter password"
         errorMessage={passwordValid?.error}
       />
 
-      <StyledButton type='submit'>
+      <StyledButton type="submit">
         Log in
-        <StyledIcon><FiLogIn size={17} color='#FFFFFF' /></StyledIcon>
+        <StyledIcon>
+          <FiLogIn size={17} color="#FFFFFF" />
+        </StyledIcon>
       </StyledButton>
     </StyledForm>
   );
