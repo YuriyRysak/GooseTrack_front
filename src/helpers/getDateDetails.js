@@ -35,7 +35,7 @@ export const getDateDetails = dateString => {
   };
 };
 
-const getWeekNumber = date => {
+export const getWeekNumber = date => {
   const onejan = new Date(date.getFullYear(), 0, 1);
   const millisecsInDay = 86400000;
   return Math.ceil(
