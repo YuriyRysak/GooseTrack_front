@@ -14,7 +14,8 @@ const dateRegex = patterns.datePattern;
 export const getDateDetails = dateString => {
   if (!dateRegex.test(dateString)) {
     return {
-      Error: 'Incorrect date format! Please use the format yyyy-dd-mm.',
+      Error:
+        'Incorrect date format! Please use the format yyyy-dd-mm in getDateDetails function.',
     };
   }
 
@@ -41,5 +42,3 @@ const getWeekNumber = date => {
     ((date - onejan) / millisecsInDay + onejan.getDay() + 1) / 7
   );
 };
-
-console.log(getDateDetails('2024-20-12'));
