@@ -7,6 +7,10 @@ import TestPage from 'pages/TestPage';
 
 const MainLayout = lazy(() => import('components/User/MainLayout'));
 const Layout = lazy(() => import('utils/Layout'));
+const ChoosedDay = lazy(() => import('components/User/MainLayout/ChoosedDay'));
+const ChoosedMonth = lazy(() =>
+  import('components/User/MainLayout/ChoosedMonth')
+);
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage'));
@@ -26,7 +30,13 @@ export const App = () => {
           <Route path="calendar" element={<MainLayout />}>
             <Route path="account" element={<AccountPage />} />
             <Route index element={<CalendarPage />} />
+            <Route path="/calendar/:currentDay" element={<ChoosedDay />} />
+            <Route
+              path="/calendar/month/:currentDate"
+              element={<ChoosedMonth />}
+            />
           </Route>
+
           <Route path="*" element={<NotFoundPagePage />} />
           <Route path="test" element={<TestPage />} />
         </Route>
