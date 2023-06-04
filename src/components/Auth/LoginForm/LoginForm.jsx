@@ -11,7 +11,6 @@ import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../../redux/auth/operations';
-import { MonthCalendarHead } from 'components/User';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
