@@ -6,6 +6,7 @@ import {
   useNotification,
 } from './notification';
 import { getDateDetails, dayNamesArray } from './getDateDetails';
+import { validateDate } from './validateDate';
 
 export {
   validateLoginForm,
@@ -16,4 +17,5 @@ export {
   NotificationProvider,
   getDateDetails,
   dayNamesArray,
+  validateDate,
 };

@@ -3,8 +3,21 @@ import { Img, RegisterPageContainer, RegisterPageWrap, StyledNavLink } from './R
 import normalImage from 'images/others/desktop/goose-quote1x.png';
 import retinaImage from 'images/others/desktop/goose-quote2x.png';
 import superRetinaImage from 'images/others/desktop/goose-quote3x.png';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedInUser } from '../redux/auth/selectors';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
+  const isLoggedInUser = useSelector(selectIsLoggedInUser);
+  const navigate = useNavigate();
+  console.log(isLoggedInUser);
+  useEffect(()=>{
+    if(isLoggedInUser){
+      navigate('/calendar/account'); //============
+    }
+  },[isLoggedInUser, navigate])
+
   return (
     <RegisterPageContainer>
       <Img

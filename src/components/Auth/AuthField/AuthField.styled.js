@@ -21,8 +21,8 @@ export const StyledLabel = styled.label`
             case false:
                 return theme.colors.failed;
             default:
-                return theme.colors.borderInputActive
-        }           
+                return theme.colors.textCancelBtnIntodo
+        }
     }};
     font-weight: 600;
     font-size: 12px;
@@ -31,7 +31,7 @@ export const StyledLabel = styled.label`
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
         margin-top: 18px;
         font-size: 14px;
-        line-height: 17px; 
+        line-height: 17px;
     }
 `;
 
@@ -41,7 +41,7 @@ export const StyledInput = styled.input`
     padding: 14px;
     margin-top: 8px;
     background-color: ${({theme}) => (theme.colors.white)};
-    color: ${({theme}) => (theme.colors.borderInputActive)};
+    color: ${({theme}) => (theme.colors.textCancelBtnIntodo)};
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
@@ -53,16 +53,16 @@ export const StyledInput = styled.input`
             case false:
                 return theme.colors.failed;
             default:
-                return theme.colors.borderInput;
-        }           
+                return theme.colors.borderDefaultColor;
+        }
     }};
     border-radius: 8px;
 
     ::placeholder {
-        color: ${({theme}) => (theme.colors.placegolderAuth)}    
+        color: ${({theme}) => (theme.colors.placegolderAuth)}
     }
     :focus {
-        border: 1px solid ${({theme}) => (theme.colors.borderInputActive)};
+        border: 1px solid ${({theme}) => (theme.colors.textCancelBtnIntodo)};
     }
 
     @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
@@ -96,6 +96,6 @@ export const StyledInputNotification = styled.p`
                 return theme.colors.failed;
             default:
                 return 'transparant';
-        }           
+        }
     }};
 `;
