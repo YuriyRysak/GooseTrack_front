@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import {  Form, ErrorMessage } from 'formik';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { ReactComponent as Icon } from "images/svg/avatar.svg"
-import { ReactComponent as Plus } from "images/svg/plus.svg"
+import { ReactComponent as Icon } from "images/svg/avatar.svg";
+import { ReactComponent as Plus } from "images/svg/plus.svg";
+import { themes } from 'styles/themes';
+import { device } from 'styles/mediaVeriables';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -15,22 +17,14 @@ export const Wrapper = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 16px;
- 
-  h1 {
-    margin-top: 59px;
-    margin-bottom: 4px;
-    height: 18px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: calc(18 / 14);
-    color: ${({ theme }) => theme.colors.black};
-    @media screen and (min-width: 768px) {
-      margin-bottom: 8px;
-      margin-top: 0px;
-      font-size: 18px;
-      line-height: calc(18 / 18);
-    }
+  padding: 59px 18px 40px;
+  @media ${device.tablet} {
+    padding: 40px 175px;
+    position: unset;
+  }
+  @media ${device.desktop} {
+    padding: 60px 164px;
+  }
   }
 `;
 
@@ -39,9 +33,7 @@ export const FormUser = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 768px) {
-    position: unset;
-  }
+  width: 100%;
 `;
 
 export const ContainerImg = styled.div`
@@ -49,25 +41,17 @@ export const ContainerImg = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 115px;
-  top: -30px;
+  left: auto;
+  top: -16%;
   width: 72px;
   height: 72px;
   border: 2px solid #3e85f3;
   border-radius: 50%;
   background: #ffffff;
-  @media screen and (min-width: 768px) {
+  @media ${device.tablet} {
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 14px;
-    left: 0px;
-    top: 0px;
     width: 124px;
     height: 124px;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-top: 60px;
-    margin-bottom: 20px;
   }
 `;
 
@@ -85,7 +69,7 @@ display: flex;
   height: 48px;
   border-radius: 50%;
   color: ${({ theme }) => theme.colors.accent};
-  
+
 `;
 
 export const IconUser = styled(Icon)`
@@ -115,129 +99,129 @@ export const AddBtn = styled(Plus)`
   }
 `;
 
+export const UserName = styled.h2`
+  font-weight: ${themes.fontWeight.b};
+  font-size: ${themes.fontSizes.s};
+  line-height: 1.3;
+  color: ${themes.colors.black};
+  @media ${device.tablet} {
+    margin-top: 20px;
+    font-size: ${themes.fontSizes.l};
+    line-height: 1;
+  }
+`;
+
+export const User = styled.p`
+  margin-top: 4px;
+  font-weight: ${themes.fontWeight.sb};
+  font-size: ${themes.fontSizes.xs};
+  line-height: 1.2;
+  color: ${({ theme }) => theme.colors.black};
+  @media ${device.tablet} {
+    margin-top: 8px;
+    font-size: ${themes.fontSizes.s};
+    line-height: 1.3;
+  }
+`;
+
+export const BlockInput = styled.ul`
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 18px;
+  margin-bottom: 40px;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    grid-gap: 24px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 1440px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+  }
+`;
+
+
+export const InputContainer = styled.li`
+  display: flex;
+  flex-direction: column;
+`;
+export const LabelInput = styled.label`
+
+`;
+export const TextInput = styled.p`
+  color: ${themes.colors.textAndIconTodo};
+  margin-bottom: 8px;
+  font-weight: ${themes.fontWeight.m};
+  font-size: ${themes.fontSizes.xs};
+  line-height: 1.2;
+  @media ${device.tablet} {
+    font-size: ${themes.fontSizes.s};
+    line-height: 1.3;
+  }
+    // @media ${device.desktop} {
+  //   margin-bottom: 44px;
+  // }
+
+`;
+
+export const Input = styled.input`
+  box-sizing: border-box;
+  padding: 12px 14px;
+  color: ${themes.colors.textCancelBtnIntodo};
+  font-weight: ${themes.fontWeight.sb};
+  font-size: ${themes.fontSizes.s};
+  line-height: 1.3;
+  border-width: 1px;
+  border-style: solid;
+
+  border-color: ${({ valid, theme }) => {
+    switch (valid) {
+      case true:
+        return theme.colors.saccess;
+      case false:
+        return theme.colors.failed;
+      default:
+        return theme.colors.borderDefaultColor;
+    }
+  }};
+  border-radius: 8px;
+
+  :focus {
+    border: 1px solid ${({ theme }) => (theme.colors.textCancelBtnIntodo)};
+  }
+
+  @media screen and (min-width: ${({ theme }) => (theme.breakpoints.m)}) {
+    height: 54px;
+    padding: 18px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  @media ${device.tablet} {
+    padding: 14px 18px;
+    font-size: ${themes.fontSizes.m};
+    line-height: 1.2;
+  }
+    // @media ${device.desktop} {
+  //   margin-bottom: 44px;
+  // }
+`;
+
 export const InputFile = styled.input`
   opacity: 0;
   height: 0;
-  width: 0;
+  width: 100%;
   line-height: 0;
   overflow: hidden;
   padding: 0;
   margin: 0;
 `;
-
-export const User = styled.p`
-  margin-bottom: 40px;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: calc(14 / 12);
-  color: ${({ theme }) => theme.colors.black};
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: calc(18 / 14);
-  }
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 44px;
-  }
-`;
-
-export const BlockInput = styled.div`
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 299px;
-  height: 392px;
-  margin-bottom: 80px;
-
-  p {
-    margin-bottom: 8px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: calc(18 / 14);
-  }
-  
-  @media screen and (min-width: 768px) {
-    width: 354px;
-    height: 458px;
-    justify-content: space-between;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 758px;
-    height: 264px;
-  }
-`;
-
-export const LabelInput = styled.label`
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  color: ${({ theme }) => theme.colors.borderInputActive};
-  height: auto;
-`;
-
-
-
-export const Input = styled.input`
-    box-sizing: border-box;
-    width: 354px;
-    height: 46px;
-    padding: 14px;
-    margin-top: 8px;
-    background-color: ${({theme}) => (theme.colors.white)};
-    color: ${({theme}) => (theme.colors.borderInputActive)};
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    border: 1px solid;
-    border-color: ${({valid, theme}) => {
-        switch (valid) {
-            case true:
-                return theme.colors.saccess;
-            case false:
-                return theme.colors.failed;
-            default:
-                return theme.colors.borderInput;
-        }           
-    }};
-    border-radius: 8px;
-
-    :focus {
-        border: 1px solid ${({theme}) => (theme.colors.borderInputActive)};
-    }
-
-    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
-        height: 54px;
-        padding: 18px;
-        font-size: 16px;
-        line-height: 18px;
-    }
-`;
-
-export const InputWrapper = styled.div`
-  position: relative;
-  width: 100%;
-`
-export const InputContainer = styled.div`
-    position: relative;
-    display: flex;
-    flex-direction: column;
-`;
-
-export const StyledErrorMessage = styled(ErrorMessage) `
-  /* position: absolute; */
-  /* top: 50px; */
-font-weight: 400;
-font-size: 10px;
-line-height: 14px;
-color: #DA1414;
-display: "flex";
-flex-direction: "column";
-
-`
 
 export const DatePickerWrap = styled.div`
   .react-datepicker {
@@ -258,7 +242,7 @@ export const DatePickerWrap = styled.div`
           background-color: ${({ theme }) => theme.colors.ligthBlue};
           color: ${({ theme }) => theme.colors.accent};
           opacity: 0.7;
-          
+
         }
       &--weekend {
         opacity: 40%;
@@ -268,7 +252,7 @@ export const DatePickerWrap = styled.div`
         opacity: 1;
         background-color: ${({ theme }) => theme.colors.white};
         color: ${({ theme }) => theme.colors.accent};
-        
+
       }
       &--selected {
         border-radius: 50%;
@@ -292,7 +276,7 @@ export const DatePickerWrap = styled.div`
       color: ${({ theme }) => theme.colors.white};
     }
     &__year {
-      
+
     }
     &__navigation--years {
       background-color: ${({ theme }) => theme.colors.ligthBlue};
@@ -304,7 +288,7 @@ export const DatePickerWrap = styled.div`
         background-color: ${({ theme }) => theme.colors.accent};
         border: 1px solid ${({ theme }) => theme.colors.white};
       }
-      
+
     }
     &__year-option {
       background-color: ${({ theme }) => theme.colors.accent};
@@ -313,7 +297,7 @@ export const DatePickerWrap = styled.div`
         background-color: ${({ theme }) => theme.colors.accent};
         font-size:14px;
         font-weight: 700;
-      }      
+      }
     }
     &__year-dropdown {
       background-color: ${({ theme }) => theme.colors.accent};
@@ -321,7 +305,7 @@ export const DatePickerWrap = styled.div`
         width: 5px;
     background: ${({ theme }) => theme.colors.accent};
     border-radius: 12px;
-    
+
   }
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.ligthBlue};
@@ -333,67 +317,48 @@ export const DatePickerWrap = styled.div`
 `;
 
 export const StyledDatePicker = styled(DatePicker)`
-  width: 299px;
-  height: 42px;
-  margin-bottom: 18px;
-  padding-left: 18px;
-  border: 1px solid #FAFAFA;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  color: ${themes.colors.textCancelBtnIntodo};
+  font-weight: ${themes.fontWeight.sb};
+  font-size: ${themes.fontSizes.s};
+  line-height: 0.8;
+  border-width: 1px;
+  border-style: solid;
+
+  border-color: ${({ valid, theme }) => {
+  switch (valid) {
+    case true:
+      return theme.colors.saccess;
+    case false:
+      return theme.colors.failed;
+    default:
+      return theme.colors.borderDefaultColor;
+  }
+}};
   border-radius: 8px;
-  background: transparent;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  color: ${({ theme }) => theme.colors.black};
-  @media screen and (min-width: 768px) {
-    width: 354px;
-    height: 46px;
-    margin-bottom: 24px;
+
+  :focus {
+    border: 1px solid ${({ theme }) => (theme.colors.textCancelBtnIntodo)};
+  }
+
+  @media screen and (min-width: ${({ theme }) => (theme.breakpoints.m)}) {
+    height: 54px;
+    padding: 18px;
     font-size: 16px;
-    line-height: calc(18 / 16);
-  }
-
-  &:focus {
-      border-color: ${({ theme }) => theme.colors.accent};
-      outline: none;
-    }
-`;
-
-
-
-export const BtnSubmit = styled.button`
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  width: 195px;
-  height: 46px;
-  border-radius: 16px;
-  border: none;
-  cursor: pointer;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: calc(18 / 14);
-  background: ${({ theme }) => theme.colors.accent};
-  color: ${({ theme }) => theme.colors.white};
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    width: 262px;
-    height: 48px;
-    margin-top: 22px;
-    margin-bottom: 60px;
-  }
-  @media screen and (min-width: 1440px) {
-  }
- :hover {
-        background-color: ${({theme}) => (theme.colors.hovered)};
-    }
-  &:active {
-    filter: blur(0.1rem);
+    line-height: 18px;
   }
 `;
 
+export const StyledErrorMessage = styled(ErrorMessage) `
+  /* position: absolute; */
+  /* top: 50px; */
+font-weight: 400;
+font-size: 10px;
+line-height: 14px;
+color: #DA1414;
+display: flex;
+flex-direction: column;
 
+`

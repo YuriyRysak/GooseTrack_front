@@ -1,10 +1,11 @@
 import { UserForm } from 'components/User/MainLayout/UserForm';
+import { ContainerAccount } from './Pages.styled';
 
 const AccountPage = () => {
   return (
-    <div>
+    <ContainerAccount>
       <UserForm />
-    </div>
+    </ContainerAccount>
   );
 };
 
