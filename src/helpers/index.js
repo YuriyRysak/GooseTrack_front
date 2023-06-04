@@ -9,6 +9,8 @@ import { getMonthDetails, monthNamesArray } from './getMonthDetails';
 import { getDateDetails, dayNamesArray, getWeekNumber } from './getDateDetails';
 import { validateDate } from './validateDate';
 import { getWeekDetails } from './getWeekDetails';
+import { calendarType, checkCalendarType } from './checkCalendarType';
+
 export {
   validateLoginForm,
   validateRegisterForm,
@@ -23,4 +25,6 @@ export {
   dayNamesArray,
   getWeekDetails,
   validateDate,
+  calendarType,
+  checkCalendarType,
 };
