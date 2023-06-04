@@ -55,7 +55,7 @@ export const RegisterForm = () => {
 
 
       <AuthField
-        name={'Username'}
+        name={'Name'}
         value={formik.values.username}
         type={'text'}
         onChange={formik.handleChange}

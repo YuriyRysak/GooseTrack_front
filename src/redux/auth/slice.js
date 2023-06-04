@@ -13,7 +13,7 @@ const handleRejected = (state, { payload }) => {
 const initialState = {
   token: {
     username: null, email: null, userPhoto: null,
-    usrPhone: null,
+    userPhone: null,  //=====
     userSkype: null,
     userBirthday: null,
     token: null,

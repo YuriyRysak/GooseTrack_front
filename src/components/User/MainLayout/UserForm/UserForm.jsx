@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { selectUser } from 'redux/auth/selectors';
+import { selectIsLoggedInUser, selectUser } from 'redux/auth/selectors';
 import { refreshUser, updateUser } from 'redux/auth/operations'
 import { patterns } from 'helpers';
 
@@ -34,17 +34,17 @@ const userSchema = Yup.object().shape({
     .min(2, 'Must be at least 2 characters long!')
     .max(16, 'Must be up to 16 characters long!')
     .required('Name is required field'),
-     
+
   birthday: Yup.date().nullable(),
   email: Yup.string()
     .email('Invalid email format')
     .matches(patterns.emailPattern)
     .required('Email is required'),
-  
+
   phone: Yup.string()
     .matches(patterns.phonePattern, 'Enter your phone number in format 38 (011) 111 11 11'),
   skype: Yup.string().max(16),
- 
+
  });
 
 
@@ -63,6 +63,15 @@ export const UserForm = () => {
     skype: '',
     birthday: '',
   });
+
+  //============================
+
+  console.log(userInfo);
+const isLoginUser = useSelector(selectIsLoggedInUser)
+  console.log(isLoginUser);
+const {username, email, phone, skype, birthday, avatarURL} = userInfo;
+  console.log(username, email, phone, skype, birthday, avatarURL);
+  //=============================
 
   useEffect(() => {
     const saveFormData = localStorage.getItem('formData');
@@ -125,7 +134,7 @@ export const UserForm = () => {
           handleBlur,
         }) => (
           <FormUser autoComplete="off" onSubmit={handleSubmit}>
-            
+
             <ContainerImg>
               {avatarUrl ? (
                 <ImgAvatar
@@ -159,7 +168,7 @@ export const UserForm = () => {
             <LabelInput htmlFor="name" >
                 <p>User Name</p>
                 </LabelInput>
-                   
+
                   <Input
                     type="text"
                     name="name"
@@ -174,7 +183,7 @@ export const UserForm = () => {
                   <StyledErrorMessage name="name"  />
                       </div>
                 </InputContainer>
-              
+
              <InputContainer>
                 <LabelInput htmlFor="phone">
                   <p>Phone</p>
@@ -192,9 +201,9 @@ export const UserForm = () => {
                                     }>
                           <StyledErrorMessage name="phone" />
                         </div>
-                        
+
                       </InputContainer>
-                    
+
                      <InputContainer>
                 <LabelInput htmlFor="birthday">
                <p>Birthday</p>
@@ -219,12 +228,12 @@ export const UserForm = () => {
                     showYearDropdown
                     scrollableYearDropdown
                   />
-                  
+
                   <StyledErrorMessage name="birthday" />
-                  
+
                   </DatePickerWrap>
                   </InputContainer>
-              
+
             <InputContainer>
               <LabelInput htmlFor="skype">
                   <p>Skype</p>
@@ -243,7 +252,7 @@ export const UserForm = () => {
                     <StyledErrorMessage name="skype" />
                   </div>
              </InputContainer>
-              
+
               <InputContainer>
               <LabelInput htmlFor="email">
                   <p>Email</p>
@@ -262,7 +271,7 @@ export const UserForm = () => {
                     <StyledErrorMessage name="email" />
                   </div>
                   </InputContainer>
-                
+
             </BlockInput>
             <BtnSubmit type="submit">Save changes</BtnSubmit>
           </FormUser>
