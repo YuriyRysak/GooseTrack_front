@@ -2,9 +2,14 @@ import PropTypes from 'prop-types';
 import { useAuth } from 'components/hooks';
 import { Navigate } from 'react-router-dom';
 
-const PublicRoute = ({ redirectTo = '/', component: Component }) => {
+const PublicRoute = ({
+  redirectTo = '/',
+  component: Component,
+  ...routeProps
+}) => {
   const { isLoggedIn } = useAuth();
-  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+  const shouldRedirect = isLoggedIn && routeProps.restricted;
+  return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 };
 
 export default PublicRoute;
