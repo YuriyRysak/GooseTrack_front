@@ -35,6 +35,8 @@ export const UserNavTitle = styled.div`
 `;
 
 export const UserNavItem = styled(NavLink)`
+  stroke: rgba(52, 52, 52, 0.5);
+  fill: none;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -47,12 +49,16 @@ export const UserNavItem = styled(NavLink)`
   margin-bottom: 18px;
   &.active {
     color: rgba(62, 133, 243, 1);
-    background-color: rgba(227, 243, 255, 1);
+    background-color: ${({ theme }) => theme.colors.ligthBlue};
+    fill: ${({ theme }) => theme.colors.ligthBlue};
+    stroke: ${({ theme }) => theme.colors.accent};
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: rgba(62, 133, 243, 1);
-    background-color: rgba(227, 243, 255, 1);
+    background-color: ${({ theme }) => theme.colors.ligthBlue};
+    fill: ${({ theme }) => theme.colors.ligthBlue};
+    stroke: ${({ theme }) => theme.colors.accent};
   }
   font-size: 14px;
   line-height: 1.21;
@@ -64,4 +70,10 @@ export const UserNavItem = styled(NavLink)`
     height: 56px;
     padding: 18px 20px;
   }
+`;
+
+export const CalendarStyled = styled.div`
+  fill: green;
+  stroke: red;
+  color: inherit;
 `;
