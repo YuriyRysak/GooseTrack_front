@@ -23,11 +23,10 @@ export const register = createAsyncThunk(
   // credentials - відправляються дані з форми
   async (credentials, thunkAPI) => {
     try {
-      const {data} = await axios.post('/users/register', credentials);
+      const { data } = await axios.post('/users/register', credentials);
       // додаємо токен до запиту
-      console.log('register data===>',data);
-      setAuthHeader(data.token);
-      return data;
+      setAuthHeader(data.data.token);
+      return data.data;
     } catch (error) {
       if (error.message === `Email has already registered. Please log in`) {
         toast.error(`User with this email  already exist`);
@@ -49,12 +48,10 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const {data} = await axios.post('/users/login', credentials);
+      const { data } = await axios.post('/users/login', credentials);
       // додаємо токен до запиту
-      console.log('login data===>', data);
-      setAuthHeader(data.token);
-      console.log(data);
-      return data;
+      setAuthHeader(data.data.token);
+      return data.data;
     } catch (error) {
       toast.error(`Email or Password is wrong`);
       return thunkAPI.rejectWithValue(error.message);
@@ -78,6 +75,15 @@ export const logOut = createAsyncThunk(
   });
 
 //  Get information about the current user
+//   "data": {
+//   "id": "647a2aed72efb73b9334d3d2",
+//     "avatarURL": "http://my-avatar.com/23456",
+//     "email": "string",
+//     "username": "string",
+//     "birthday": "1977-06-10T00:00:00.000Z",
+//     "phone": "38 (067) 111 17 11",
+//     "skype": "(067) 111 17 11",
+//     "token": "..."
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -90,25 +96,31 @@ export const refreshUser = createAsyncThunk(
     }
     setAuthHeader(persistedToken);
     try {
-      const res = await axios.get('users/current');
-      return res.data;
+      const { data } = await axios.get('users/current');
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   },
 );
-
+//   "avatarURL": "<urlPattern>",
+//   "email": "string",
+//   "username": "string",
+//   "password": "Ro1478",
+//   "birthday": "2023-06-03",
+//   "phone": "38 (067) 409 90 67",
+//   "skype": "string"
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
   async (userData, thunkAPI) => {
     try {
-      const res = await axios.patch('/users/update', userData);
-      return res.data;
+      const { data } = await axios.patch('/users/update', userData);
+      return data.data;
     } catch (error) {
       toast.error('Failed to update user');
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 
