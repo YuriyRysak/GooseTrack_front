@@ -20,7 +20,8 @@ const dateRegex = patterns.datePattern;
 export const getMonthDetails = dateString => {
   if (!dateRegex.test(dateString)) {
     return {
-      Error: 'Incorrect date format! Please use the format yyyy-dd-mm.',
+      Error:
+        'Incorrect date format! Please use the format yyyy-dd-mm in getMonthDetails.',
     };
   }
   const date = new Date(dateString);
