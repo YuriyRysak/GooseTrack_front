@@ -1,4 +1,4 @@
-import { getWeekNumber, patterns } from './index';
+import { getWeekNumber, patterns, dayNamesArray } from './index';
 
 const dateRegex = patterns.datePattern;
 
@@ -9,18 +9,28 @@ export const getWeekDetails = dateString => {
         'Incorrect date format! Please use the format yyyy-dd-mm in getWeekDetails function.',
     };
   }
-  const year = parseInt(dateString.substring(0, 4));
-  const month = parseInt(dateString.substring(5, 7)) - 1;
-  const day = parseInt(dateString.substring(8, 10));
 
-  const inputDate = new Date(year, month, day);
-  const weekNumber = getWeekNumber(inputDate);
+  const days = {};
+  const currentDate = new Date(dateString);
+  const weekNumber = getWeekNumber(currentDate);
 
-  const dayOfWeek = inputDate.toLocaleDateString('en-US', { weekday: 'long' });
-  const dayOfMonth = inputDate.getDate();
+  /* during this cycle, the dayNamesArray array is traversed,
+  the index of each element of this array currentDayOfWeek undergoes changes,
+  the change of which, in turn, occurs in the last structure of this array,
+  the value of which is written to the variable currentDayOfMonth */
+
+  for (let i = 0; i < 7; i += 1) {
+    const currentDayOfWeek = currentDate.getDay();
+    const currentDayOfMonth = currentDate.getDate();
+
+    days[dayNamesArray[currentDayOfWeek]] = currentDayOfMonth;
+
+    currentDate.setDate(currentDate.getDate() + 1);
+    console.log((days[dayNamesArray[currentDayOfWeek]] = currentDayOfMonth));
+  }
 
   return {
     number: weekNumber,
-    [dayOfWeek]: dayOfMonth,
+    days: days,
   };
 };
