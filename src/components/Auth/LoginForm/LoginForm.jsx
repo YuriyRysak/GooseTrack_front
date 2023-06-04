@@ -1,10 +1,10 @@
 import { useFormik } from 'formik';
 import { StyledButton, StyledForm, StyledHeading, StyledIcon } from './LoginForm.styled';
-import { useState } from 'react';
+import {  useState } from 'react';
 import { AuthField } from '../AuthField/AuthField';
 import { validateLoginForm } from 'helpers';
 import { FiLogIn } from 'react-icons/fi';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { logIn } from '../../../redux/auth/operations';
 
 export const LoginForm = () => {
