@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { selectIsLoggedInUser, selectUser } from 'redux/auth/selectors';
-import { refreshUser, updateUser } from 'redux/auth/operations'
+import { logOut, refreshUser, updateUser } from 'redux/auth/operations';
 import { patterns } from 'helpers';
 
 
@@ -71,6 +71,13 @@ const isLoginUser = useSelector(selectIsLoggedInUser)
   console.log(isLoginUser);
 const {username, email, phone, skype, birthday, avatarURL} = userInfo;
   console.log(username, email, phone, skype, birthday, avatarURL);
+
+  // const handleLogOut = ()=>{
+  //   const logout = dispatch(logOut())
+  //   console.log(logout);
+  // }
+
+  {/*<button type='button' onClick={handleLogOut}>LogOut</button> //=================*/}
   //=============================
 
   useEffect(() => {
@@ -97,6 +104,7 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
 
   return (
     <Wrapper>
+
       <Formik
         enableReinitialize={true}
         initialValues={{

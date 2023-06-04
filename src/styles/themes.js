@@ -7,7 +7,7 @@ export const themes = Object.freeze({
     backgroundUserForm: '#FFFFFF',
     backgroundTextArea: '#F6F6F6',
     textAndIconTodo: '#111111',
-    borderTableAndInput: '#DCE3E5',
+    borderTableAndInput: '#DCE3E550',
     starDisable: '#CEC9C1', //!сірий зірок не активних
     ligthBlue: '#E3F3FF',
     darkBlue: '#CAE8FF',
@@ -20,7 +20,7 @@ export const themes = Object.freeze({
     iconPaginationActive: '#111111',
     scrollSwitchVertical: '#34343420',
     lineSwitchVertical: '#FFFFFFF',
-    loaderWrapper: '#343434',
+    loaderWrapper: '#343434', //!він також текст у календарі чорний
     loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
 
     // !не міняються при зміні теми !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -48,6 +48,7 @@ export const themes = Object.freeze({
     canceledInTodo: '#EFEFEF', //!фон не активних елементів і кнопки Cancel
     textCancelBtnIntodo: '#111111',
     textCancelBtn: '#343434',
+    borderDefaultColor: 'rgba(17, 17, 17, 0.15)',
   },
   fontSizes: {
     xs: '12px',

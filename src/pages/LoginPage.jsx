@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -20,6 +20,7 @@ const LoginPage = () => {
       navigate('/calendar/account'); //============
     }
   },[isLoggedInUser, navigate])
+
   return (
     <RegisterPageContainer>
       <Img

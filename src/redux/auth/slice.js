@@ -12,10 +12,12 @@ const handleRejected = (state, { payload }) => {
 
 const initialState = {
   token: {
-    username: null, email: null, userPhoto: null,
-    userPhone: null,  //=====
-    userSkype: null,
-    userBirthday: null,
+    username: null,
+    email: null,
+    avatarURL: null,
+    phone: null,
+    skype: null,
+    birthday: null,
     token: null,
   },
   isLoggedIn: false,
@@ -45,17 +47,17 @@ export const authSlice = createSlice({
       })
       .addCase(logIn.rejected, handleRejected)
       .addCase(logOut.pending, handlePending)
-      .addCase(logOut.fulfilled, (state, action) => {
+      .addCase(logOut.fulfilled, (state) => {
         state.token = {
           username: null,
           email: null,
-          userPhoto: null,
-          usrPhone: null,
-          userSkype: null,
-          userBirthday: null,
+          avatarURL: null,
+          phone: null,
+          skype: null,
+          birthday: null,
           token: null,
         };
-          state.isLoggedIn = false;
+        state.isLoggedIn = false;
         state.isLoading = false;
         state.error = null;
       })
