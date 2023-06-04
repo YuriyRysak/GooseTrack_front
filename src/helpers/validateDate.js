@@ -13,7 +13,9 @@ export const validateDate = date => {
     schema.validateSync(date);
     return true;
   } catch (error) {
-    console.log('Incorrect date format! Please use the format yyyy-dd-mm.');
+    console.log(
+      'Incorrect date format! Please use the format yyyy-dd-mm in validateDate.'
+    );
     return false;
   }
 };
