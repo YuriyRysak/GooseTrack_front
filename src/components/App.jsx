@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { useSelector } from 'react-redux';
+// import { selectIsLoggedInUser } from 'redux/auth/selectors';
 
 import TestPage from 'pages/TestPage';
 
@@ -20,6 +22,7 @@ const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const NotFoundPagePage = lazy(() => import('pages/NotFoundPage'));
 
 export const App = () => {
+  // const isLoggedIn = useSelector(selectIsLoggedInUser);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
@@ -27,11 +30,13 @@ export const App = () => {
           <Route index element={<MainPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="calendar" element={<MainLayout />}>
+
+          <Route path="/" element={<MainLayout />}>
             <Route path="account" element={<AccountPage />} />
-            <Route index element={<CalendarPage />} />
-            <Route path=":currentDay" element={<ChoosedDay />} />
-            <Route path="month/:currentDate" element={<ChoosedMonth />} />
+            <Route path="calendar" element={<CalendarPage />}>
+              <Route path=":currentDay" element={<ChoosedDay />} />
+              <Route path="month/:currentDate" element={<ChoosedMonth />} />
+            </Route>
           </Route>
 
           <Route path="*" element={<NotFoundPagePage />} />
