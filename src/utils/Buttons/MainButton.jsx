@@ -23,7 +23,7 @@ export const MainButton = () => {
         <AuthLink
           color="blue"
           colorbtn="white"
-          state={{ from: location?.state?.from }}
+          // state={{ from: location?.state?.from }}
           to={console.log('white')}
         >
           Log in
