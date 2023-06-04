@@ -3,6 +3,7 @@ import {
   IconLight,
   IconDark,
 } from 'utils/Buttons/MainButton.styled';
+import { ThemeTogglerWraper } from './ThemeToggler.styled';
 import { useThemeColors } from './ThemeContext';
 
 export const ThemeToggler = () => {
@@ -13,10 +14,10 @@ export const ThemeToggler = () => {
   };
   const type = useThemeColors().type;
   return (
-    <>
+    <ThemeTogglerWraper>
       <ToggleThemeBtn onClick={handlerChangeTheme}>
         {type === 'dark' ? <IconLight /> : <IconDark />}
       </ToggleThemeBtn>
-    </>
+    </ThemeTogglerWraper>
   );
 };
