@@ -7,6 +7,8 @@ export const themes = Object.freeze({
     backgroundUserForm: '#FFFFFF',
     backgroundTextArea: '#F6F6F6',
     textAndIconTodo: '#111111',
+    textDisactiveInSidebar: '#34343450',
+    textActiveInSidebar: '#3E85F3',
     borderTableAndInput: '#DCE3E550',
     starDisable: '#CEC9C1', //!сірий зірок не активних
     ligthBlue: '#E3F3FF',
@@ -93,6 +95,8 @@ export const dark = Object.freeze({
     backgroundUserbar: '#181921',
     backgroundUserForm: '#21222C',
     textAndIconTodo: '#FFFFFF',
+    textDisactiveInSidebar: '#FFFFFF',
+    textActiveInSidebar: '#FFFFFF',
     borderTableAndInput: '#FFFFFF15',
     starDisable: '#353647',
     ligthBlue: '#21222C',

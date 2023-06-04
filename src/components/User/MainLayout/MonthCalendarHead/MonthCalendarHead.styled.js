@@ -13,8 +13,6 @@ export const ListDay = styled.ul`
   padding: 0;
 `;
 
-export const ItemDay = styled.li``;
-
 export const DayBtn = styled.button`
   border: none;
   background-color: transparent;
@@ -27,3 +25,5 @@ export const DayBtn = styled.button`
   line-height: 1.1;
   padding: 16px 0px;
 `;
+
+// сщдщкЖ
