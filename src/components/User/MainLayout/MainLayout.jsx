@@ -1,10 +1,13 @@
 
 import { Outlet } from 'react-router-dom';
+import { SideBar } from 'components/User/SideBar';
+import { MainLayoutWrap } from './MainLayout.styled';
 
 export const MainLayout = () => {
   return (
-    <div>
+    <MainLayoutWrap>
+      <SideBar />
       <Outlet />
-    </div>
+    </MainLayoutWrap>
   );
 };
