@@ -1,4 +1,4 @@
-import { patterns } from './patterns';
+import { patterns } from './index';
 export const dayNamesArray = [
   'Sunday',
   'Monday',
@@ -36,9 +36,12 @@ export const getDateDetails = dateString => {
 };
 
 export const getWeekNumber = date => {
-  const onejan = new Date(date.getFullYear(), 0, 1);
+  const firstJanuaryDayName = new Date(date.getFullYear(), 0, 1);
   const millisecsInDay = 86400000;
   return Math.ceil(
-    ((date - onejan) / millisecsInDay + onejan.getDay() + 1) / 7
+    ((date - firstJanuaryDayName) / millisecsInDay +
+      firstJanuaryDayName.getDay() +
+      1) /
+      7
   );
 };

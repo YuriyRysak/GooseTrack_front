@@ -6,9 +6,9 @@ import {
   useNotification,
 } from './notification';
 import { getMonthDetails, monthNamesArray } from './getMonthDetails';
-import { getDateDetails, dayNamesArray } from './getDateDetails';
+import { getDateDetails, dayNamesArray, getWeekNumber } from './getDateDetails';
 import { validateDate } from './validateDate';
-
+import { getWeekDetails } from './getWeekDetails';
 export {
   validateLoginForm,
   validateRegisterForm,
@@ -19,6 +19,8 @@ export {
   getMonthDetails,
   monthNamesArray,
   getDateDetails,
+  getWeekNumber,
   dayNamesArray,
+  getWeekDetails,
   validateDate,
 };
