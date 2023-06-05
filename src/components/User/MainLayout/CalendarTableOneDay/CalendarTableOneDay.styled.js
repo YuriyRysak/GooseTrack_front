@@ -120,4 +120,8 @@ export const TaskButton = styled.button`
         margin-left: 8px;
         margin-right: 8px;
     } 
+
+    :hover {
+        scale: 1.1;
+    }
 `;

@@ -1,6 +1,10 @@
 import { DayContainer, Number, NumberContainer, StyledLink, TaskButton, TasksContainer, OverflowContainer } from "./CalendarTableOneDay.styled"
 
 export const CalendarTableOneDay = ({date, fullDate, tasks, picked=false}) => {
+
+    const onClickTask = (id) => {
+        console.log(`Task id: ${id}`);
+    }
     
     return(
         <DayContainer>
@@ -11,7 +15,13 @@ export const CalendarTableOneDay = ({date, fullDate, tasks, picked=false}) => {
                 <OverflowContainer>
                     <TasksContainer>
                     {tasks.map(task => (
-                            <TaskButton key={task._id} priority={task.priority}>{task.title}</TaskButton>
+                            <TaskButton 
+                                key={task._id} 
+                                priority={task.priority}
+                                onClick={()=>onClickTask(task._id)}
+                            >
+                                {task.title}
+                            </TaskButton>
                         ))  
                     }
                 </TasksContainer> 
