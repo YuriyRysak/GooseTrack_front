@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { PeriodPaginator } from '../PeriodPaginator/PeriodPaginator';
-import { PeriodTypeSelect } from '../PeriodTypeSelect/PeriodTypeSelect';
+import { PeriodPaginator } from './PeriodPaginator/PeriodPaginator';
+import { PeriodTypeSelect } from './PeriodTypeSelect/PeriodTypeSelect';
 import { CalendarToolbarWrapper } from './CalendarToolbar.styled';
 
 export const CalendarToolbar = ({ today, prevHandler, nextHandler }) => {

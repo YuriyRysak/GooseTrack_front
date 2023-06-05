@@ -1,1 +1,1 @@
-export { default } from './ChoosedDay';
+export { default } from '.';
