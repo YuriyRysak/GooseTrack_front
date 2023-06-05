@@ -9,9 +9,8 @@ import {
 import { useSelector } from 'react-redux';
 
 export const UserInfo = () => {
-  const {
- username, avatarURL
-  } = useSelector(selectUser);
+  const { user: { username, avatarURL } } = useSelector(selectUser);
+
   const isLoading = useSelector(selectIsIsLoadingUser);
 
   const firstLetter = username.trim().slice(0, 1).toUpperCase();
