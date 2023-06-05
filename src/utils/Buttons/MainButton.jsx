@@ -1,4 +1,4 @@
-import { CancelBtn, PeriodBtn } from './MainButton.styled';
+import { CancelBtn, IconPag, PeriodBtn } from './MainButton.styled';
 import {
   ListLink,
   AuthLink,
@@ -86,8 +86,12 @@ export const MainButton = () => {
         <MonthDayBtn swith="day">Day</MonthDayBtn>
       </li>
       <li>
-        <PeriodBtn>+</PeriodBtn>
-        <PeriodBtn id="right">-</PeriodBtn>
+        <PeriodBtn>
+          <IconPag id="left" />
+        </PeriodBtn>
+        <PeriodBtn id="right">
+          <IconPag />
+        </PeriodBtn>
       </li>
     </ListLink>
   );

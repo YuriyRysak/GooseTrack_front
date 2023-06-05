@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { device } from 'styles/mediaVeriables';
 import { ReactComponent as IconLightTheme } from 'images/svg/light-theme.svg';
 import { ReactComponent as IconDarkTheme } from 'images/svg/dark-theme.svg';
+import { FaChevronRight } from 'react-icons/fa';
 
 // !після того як всі ростягнуть свої елементи ListLink треба видалить
 export const ListLink = styled.ul`
@@ -193,17 +194,35 @@ export const AddTaskBtn = styled.button`
 
 export const PeriodBtn = styled.button`
   width: 36px;
-  padding: 7px 10px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border: 1px solid ${({ theme }) => theme.colors.borderTableAndInput};
-  rotate: ${props => props.id === 'right' && '180deg'};
-  transform: translateX(${props => props.id === 'right' && '1px'});
+  height: 30px;
+  padding: 5px 0px;
+  border-top-left-radius: ${props => (props.id === 'right' ? 'none' : '8px')};
+  border-bottom-left-radius: ${props =>
+    props.id === 'right' ? 'none' : '8px'};
+  border-top-right-radius: ${props => (props.id === 'right' ? '8px' : 'none')};
+  border-bottom-right-radius: ${props =>
+    props.id === 'right' ? '8px' : 'none'};
   border-right: ${props => props.id === 'right' && 'none'};
+  border: 1px solid ${({ theme }) => theme.colors.borderTableAndInput};
   background-color: ${({ theme }) => theme.colors.backgroundUserForm};
+  @media ${device.tablet} {
+    width: 38px;
+    height: 34px;
+    padding: 6px 0px;
+  }
+`;
+
+export const IconPag = styled(FaChevronRight)`
   fill: ${({ theme }) => theme.colors.borderTableAndInput};
-  &:hover {
+  &:active {
     fill: ${({ theme }) => theme.colors.textCancelBtn};
+  }
+  width: 16px;
+  height: 16px;
+  rotate: ${props => props.id === 'left' && '180deg'};
+  @media ${device.tablet} {
+    width: 18px;
+    height: 18px;
   }
 `;
 
