@@ -22,7 +22,7 @@ const TestPage = () => {
     >
       <h2>СЮДИ ТЕСТУЄМО СВОЇ КОМПОНЕНТИ</h2>
       <ThemeToggler />
-      <MonthCalendarHead />
+      {/* <MonthCalendarHead /> */}
       <ListLink>
         <li>
           <AuthLink color="blue">Sign up</AuthLink>
