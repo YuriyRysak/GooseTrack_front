@@ -1,13 +1,15 @@
 import { Header, Description, ReviewsSlider } from 'components/Main';
+import { MainWrapper } from './MainPage.styled';
 
 const MainPage = () => {
   return (
-    <div>
-      {/* <h3>MainPage</h3> */}
+    <>
       <Header />
-      <Description />
-      <ReviewsSlider />
-    </div>
+      <MainWrapper>
+        <Description />
+        <ReviewsSlider />
+      </MainWrapper>
+    </>
   );
 };
 
