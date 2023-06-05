@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { useSelector } from 'react-redux';
-// import { selectIsLoggedInUser } from 'redux/auth/selectors';
+import PrivateRoute from 'routes/PrivateRoute';
+import PublicRoute from 'routes/PublicRoute';
 
 import TestPage from 'pages/TestPage';
 
@@ -22,16 +22,41 @@ const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const NotFoundPagePage = lazy(() => import('pages/NotFoundPage'));
 
 export const App = () => {
-  // const isLoggedIn = useSelector(selectIsLoggedInUser);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/calendar" component={<MainPage />} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute
+                redirectTo="/calendar"
+                restricted
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute
+                component={<LoginPage />}
+                redirectTo="/calendar"
+                restricted
+              />
+            }
+          />
 
-          <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/"
+            element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
+          >
             <Route path="account" element={<AccountPage />} />
             <Route path="calendar" element={<CalendarPage />}>
               <Route path=":currentDay" element={<ChoosedDay />} />
