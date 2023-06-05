@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 export const UserInfo = () => {
   const {
-    data: { username, avatarURL },
+ username, avatarURL
   } = useSelector(selectUser);
   const isLoading = useSelector(selectIsIsLoadingUser);
 

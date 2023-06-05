@@ -14,7 +14,7 @@ const RegisterPage = () => {
   console.log(isLoggedInUser);
   useEffect(()=>{
     if(isLoggedInUser){
-      navigate('month/:currentDate');
+      navigate('/calendar/month/:currentDate');
     }
   },[isLoggedInUser, navigate])
 
