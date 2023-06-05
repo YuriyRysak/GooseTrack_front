@@ -1,8 +1,8 @@
 import { MainLayout } from './MainLayout';
 import { CalendarTable } from './CalendarTable';
 import { CalendarToolbar } from './CalendarToolbar';
-import { ChoosedDay } from './ChoosedDay';
-import { ChoosedMonth } from './ChoosedMonth';
+// import { ChoosedDay } from './ChoosedDay';
+// import { ChoosedMonth } from './ChoosedMonth';
 import { DayCalendarHead } from './DayCalendarHead';
 import { MonthCalendarHead } from './MonthCalendarHead';
 import { PeriodPaginator } from './PeriodPaginator';
@@ -17,8 +17,8 @@ export {
   // MainLayout,
   CalendarTable,
   CalendarToolbar,
-  ChoosedDay,
-  ChoosedMonth,
+  // ChoosedDay,
+  // ChoosedMonth,
   DayCalendarHead,
   MonthCalendarHead,
   PeriodPaginator,
