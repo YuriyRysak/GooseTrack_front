@@ -21,12 +21,11 @@ import {
   ContainerImg,
   ImgAvatar,
   SvgAvatar,
-  BtnSubmit,
-  StyledErrorMessage,
   DatePickerWrap,
   IconUser,
-  InputContainer,
+  InputContainer, UserName, TextInput, StyledErrorMessage,
 } from './UserForm.styled';
+import { MainBtn } from '../../../../utils/Buttons/MainButton.styled';
 
 const userSchema = Yup.object().shape({
   name: Yup.string()
@@ -45,7 +44,7 @@ const userSchema = Yup.object().shape({
     .matches(patterns.phonePattern, 'Enter your phone number in format 38 (011) 111 11 11'),
   skype: Yup.string().max(16),
 
- });
+});
 
 
 export const UserForm = () => {
@@ -67,9 +66,9 @@ export const UserForm = () => {
   //============================
 
   console.log(userInfo);
-const isLoginUser = useSelector(selectIsLoggedInUser)
+  const isLoginUser = useSelector(selectIsLoggedInUser)
   console.log(isLoginUser);
-const {username, email, phone, skype, birthday, avatarURL} = userInfo;
+  const {username, email, phone, skype, birthday, avatarURL} = userInfo;
   console.log(username, email, phone, skype, birthday, avatarURL);
 
   // const handleLogOut = ()=>{
@@ -117,42 +116,53 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
               : new Date(),
         }}
         onSubmit={async values => {
-          const formData = new FormData();
-          formData.append('name', values.name);
-          formData.append('email', values.email);
-          if (values.phone) {
-            formData.append('phone', values.phone);
-          }
-          if (values.skype) {
-            formData.append('skype', values.skype);
-          }
-          formData.append('birthday', values.birthday);
-          if (avatarUrl) {
-            formData.append('avatarUrl', avatarUrl);
-          }
-          await dispatch(updateUser(formData));
+          const updatedUserData = {
+            username: values.username,
+            email: values.email,
+            phone: values.phone,
+            skype: values.skype,
+            birthday: values.birthday,
+            avatarURL: avatarUrl,
+          };
+          await dispatch(updateUser(updatedUserData));
         }}
+        // onSubmit={async values => {
+        //   const formData = new FormData();
+        //   formData.append('name', values.name);
+        //   formData.append('email', values.email);
+        //   if (values.phone) {
+        //     formData.append('phone', values.phone);
+        //   }
+        //   if (values.skype) {
+        //     formData.append('skype', values.skype);
+        //   }
+        //   formData.append('birthday', values.birthday);
+        //   if (avatarUrl) {
+        //     formData.append('avatarURL', avatarUrl);
+        //   }
+        //   await dispatch(updateUser(formData));
+        // }}
         validationSchema={userSchema}
       >
         {({
-          values,
-          handleSubmit,
-          handleChange,
-          handleBlur,
-        }) => (
+            values,
+            handleSubmit,
+            handleChange,
+            handleBlur,
+          }) => (
           <FormUser autoComplete="off" onSubmit={handleSubmit}>
 
             <ContainerImg>
               {avatarUrl ? (
                 <ImgAvatar
-                  src={URL.createObjectURL(avatarUrl)}
+                  src={URL.createObjectURL(avatarURL)}
                   alt="avatar"
                 />
               ) : userInfo?.userImgUrl ? (
-                <ImgAvatar src={userInfo.avatar} alt="avatar" />
+                <ImgAvatar src={userInfo.avatarURL} alt="avatar" />
               ) : (
                 <SvgAvatar>
-                <IconUser/>
+                  <IconUser/>
                 </SvgAvatar>
               )}
               <LabelImg htmlFor="avatarUrl">
@@ -162,58 +172,58 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
                   type="file"
                   onChange={event => setAvatarUrl(event.target.files[0])}
                   accept="image/*,.png,.jpg,.gif,.web"
-                  name="avatarUrl"
+                  name="avatarURL"
                 ></InputFile>
               </LabelImg>
             </ContainerImg>
 
 
-            <h2>{userInfo?.name} </h2>
+            <UserName>{userInfo?.username} </UserName>
             <User>User</User>
             <BlockInput>
               <InputContainer>
-            <LabelInput htmlFor="name" >
-                <p>User Name</p>
+                <LabelInput htmlFor="name" >
+                  <TextInput>User Name</TextInput>
                 </LabelInput>
 
-                  <Input
-                    type="text"
-                    name="name"
-                    id="name"
-                    value={values.name}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Your Name"
-                  />
-                  <div style={{ display: "flex", flexDirection: "column", color: "red"}
-                                    }>
-                  <StyledErrorMessage name="name"  />
-                      </div>
-                </InputContainer>
-
-             <InputContainer>
-                <LabelInput htmlFor="phone">
-                  <p>Phone</p>
-              </LabelInput>
-                          <Input
-                            type="tel"
-                            name="phone"
-                            id="phone"
-                            value={values.phone ? values.phone : ''}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            placeholder="38 (000) 000 00 00"
-                          />
+                <Input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={userInfo?.username || ''}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="Your Name"
+                />
                 <div style={{ display: "flex", flexDirection: "column", color: "red"}
-                                    }>
-                          <StyledErrorMessage name="phone" />
-                        </div>
+                }>
+                  <StyledErrorMessage name="name"  />
+                </div>
+              </InputContainer>
 
-                      </InputContainer>
+              <InputContainer>
+                <LabelInput htmlFor="phone">
+                  <TextInput>Phone</TextInput>
+                </LabelInput>
+                <Input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  value={userInfo?.phone || ''}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder="38 (000) 000 00 00"
+                />
+                <div style={{ display: "flex", flexDirection: "column", color: "red"}
+                }>
+                  <StyledErrorMessage name="phone" />
+                </div>
 
-                     <InputContainer>
+              </InputContainer>
+
+              <InputContainer>
                 <LabelInput htmlFor="birthday">
-               <p>Birthday</p>
+                  <TextInput>Birthday</TextInput>
                 </LabelInput>
                 <DatePickerWrap>
                   <StyledDatePicker
@@ -222,7 +232,7 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
                     id="birthday"
                     input={true}
                     maxDate={new Date()}
-                    selected={values.birthday}
+                    selected={userInfo?.birthday || ''} // Використовуємо birthday як початкове значення, якщо воно визначено
                     onChange={data => {
                       setNewBirthday(data);
                       handleDatePicker();
@@ -238,55 +248,54 @@ const {username, email, phone, skype, birthday, avatarURL} = userInfo;
 
                   <StyledErrorMessage name="birthday" />
 
-                  </DatePickerWrap>
-                  </InputContainer>
-
-            <InputContainer>
-              <LabelInput htmlFor="skype">
-                  <p>Skype</p>
-                </LabelInput>
-                    <Input
-                      type="text"
-                      name="skype"
-                      id="skype"
-                      placeholder="Add a skype number"
-                      value={values.skype ? values.skype : ''}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                <div style={{ display: "flex", flexDirection: "column", color: "red"}
-                  }>
-                    <StyledErrorMessage name="skype" />
-                  </div>
-             </InputContainer>
+                </DatePickerWrap>
+              </InputContainer>
 
               <InputContainer>
-              <LabelInput htmlFor="email">
-                  <p>Email</p>
-                  </LabelInput>
-                    <Input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Email"
-                      value={values.email}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
+                <LabelInput htmlFor="skype">
+                  <TextInput>Skype</TextInput>
+                </LabelInput>
+                <Input
+                  type="text"
+                  name="skype"
+                  id="skype"
+                  placeholder="Add a skype number"
+                  value={userInfo?.skype || ''}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
                 <div style={{ display: "flex", flexDirection: "column", color: "red"}
-                  }>
-                    <StyledErrorMessage name="email" />
-                  </div>
-                  </InputContainer>
+                }>
+                  <StyledErrorMessage name="skype" />
+                </div>
+              </InputContainer>
+
+              <InputContainer>
+                <LabelInput htmlFor="email">
+                  <TextInput>Email</TextInput>
+                </LabelInput>
+                <Input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  value={userInfo?.email || ''}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <div style={{ display: "flex", flexDirection: "column", color: "red"}
+                }>
+                  <StyledErrorMessage name="email" />
+                </div>
+              </InputContainer>
 
             </BlockInput>
-            <BtnSubmit type="submit">Save changes</BtnSubmit>
+            <MainBtn type={'submit'}  padding="50">Save changes</MainBtn>
           </FormUser>
         )}
       </Formik>
     </Wrapper>
   );
 };
-
 
 

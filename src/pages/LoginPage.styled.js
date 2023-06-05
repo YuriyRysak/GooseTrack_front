@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-
+import { device } from '../styles/mediaVeriables';
 export const Img = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media ${device.desktop}{
     display: block;
     width: 368px;
     height: 521px;

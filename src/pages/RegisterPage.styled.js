@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Link } from 'react-router-dom';
 import { themes } from 'styles/themes';
+import { device } from '../styles/mediaVeriables';
 export const RegisterPageContainer = styled.div`
   background-color: ${themes.colors.backgroundAuth};
   height: 100vh;
@@ -26,7 +27,7 @@ export const StyledNavLink = styled(Link)`
   cursor: pointer;
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07), 0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
 
-  @media screen and (min-width: 768px) {
+  @media ${device.tablet} {
     font-size: 18px;
     line-height: 1.33;
     margin-top: ${themes.fontSizes.xxl};
@@ -40,7 +41,7 @@ export const StyledNavLink = styled(Link)`
 export const Img = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media ${device.desktop} {
     display: block;
     width: 400px;
     height: 416px;
