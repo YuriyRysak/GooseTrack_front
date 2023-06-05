@@ -23,6 +23,7 @@ export const AuthLink = styled(NavLink)`
       ? ({ theme }) => theme.fontSizes.s
       : ({ theme }) => theme.fontSizes.xs};
   line-height: ${props => (props.colorbtn === 'white' ? 1.3 : 1.2)};
+  letter-spacing: ${props => props.colorbtn === 'white' && '-0.02em'};
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -41,7 +42,7 @@ export const AuthLink = styled(NavLink)`
   transition-duration: ${({ theme }) => theme.animations.duration};
   transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:hover {
-    transform: scale(1.25);
+    transform: scale(1.1);
     /* color: ${props =>
       props.color === 'blue'
         ? ({ theme }) => theme.colors.white
@@ -213,6 +214,7 @@ export const MonthDayBtn = styled.button`
   transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:active {
     background-color: ${({ theme }) => theme.colors.darkBlue};
+    color: ${({ theme }) => theme.colors.textMonthDayBtn};
   }
   @media ${device.tabletOnly} {
     font-size: ${({ theme }) => theme.fontSizes.m};
@@ -221,17 +223,30 @@ export const MonthDayBtn = styled.button`
 `;
 
 export const ToggleThemeBtn = styled.button`
-  /* border: none; */
-  /* background-color: transparent; */
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const IconLight = styled(IconLightTheme)`
   fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
+  @media ${device.tabletOnly} {
+    width: 32px;
+    height: 32px;
+  }
 `;
 export const IconDark = styled(IconDarkTheme)`
   fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
+  @media ${device.tabletOnly} {
+    width: 32px;
+    height: 32px;
+  }
 `;
