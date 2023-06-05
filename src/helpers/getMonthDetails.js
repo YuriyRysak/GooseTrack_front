@@ -32,9 +32,18 @@ export const getMonthDetails = dateString => {
   const year = date.getFullYear();
   const amountOfDays = new Date(year, month + 1, 0).getDate();
 
+  const amountOfWeeks = getWeeks(year, month);
+
   return {
     name,
     number,
     amountOfDays,
+    amountOfWeeks
   };
+};
+
+function getWeeks(year, month) // Внимание: Месяцы нумеруются с 0
+  {
+    let l = new Date(year, month+1, 0);
+    return Math.ceil( (l.getDate()- (l.getDay()?l.getDay():7))/7 )+1;
 };
