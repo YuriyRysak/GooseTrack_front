@@ -1,1 +1,1 @@
-export * from './ChoosedMonth';
+export { default } from './ChoosedMonth';

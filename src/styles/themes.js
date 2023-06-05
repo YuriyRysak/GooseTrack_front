@@ -20,6 +20,7 @@ export const themes = Object.freeze({
     iconPaginationActive: '#111111',
     scrollSwitchVertical: '#34343420',
     lineSwitchVertical: '#FFFFFFF',
+    textMonthDayBtn: '#3E85F3',
     loaderWrapper: '#343434', //!він також текст у календарі чорний
     loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
 
@@ -77,7 +78,7 @@ export const themes = Object.freeze({
   },
   animations: {
     cubicBezier: 'cubic-bezier(0, 0.110, 0.35, 2)',
-    duration: '25000ms',
+    duration: '250ms',
   },
   shadows: {
     authHeading:
@@ -110,12 +111,14 @@ export const dark = Object.freeze({
     canceled: '#21222C',
     canceledInTodo: '#EFEFEF',
     textCancelBtn: '#FFFFFF',
+    textMonthDayBtn: '#FFFFFF',
     loaderWrapper: '#FFFFFF',
     loaderCircle: ['#FFFFFF', '#3E85F3', '#2B78EF', '#DCE3E560', '#FFFFFF'],
     // !не міняються при зміні теми !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     black: '#343434',
     white: '#FFFFFF',
     accent: '#3E85F3',
+    hovered: '#2B78EF',
   },
   fontSizes: {
     xs: '12px',
@@ -144,7 +147,7 @@ export const dark = Object.freeze({
   },
   animations: {
     cubicBezier: 'cubic-bezier(0, 0.110, 0.35, 2);',
-    duration: '25000ms',
+    duration: '250ms',
   },
   shadows: {
     authHeading:

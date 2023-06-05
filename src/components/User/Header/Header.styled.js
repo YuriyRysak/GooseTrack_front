@@ -94,17 +94,3 @@ export const BtnAddFeedback = styled.button`
     filter: blur(0.1rem);
   }
 `;
-
-export const UserInfoTest = styled.div`
-  width: 90px;
-  height: 32px;
-  background-color: ${({ theme }) => theme.colors.ligthBlue};
-  padding-top: 11px;
-  padding-left: 20px;
-  border: 1px dotted #3e85f3;
-
-  @media screen and (min-width: 768px) {
-    width: 120px;
-    height: 44px;
-  }
-`;

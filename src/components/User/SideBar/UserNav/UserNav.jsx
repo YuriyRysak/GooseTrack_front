@@ -6,8 +6,14 @@ export const UserNav = () => {
   return (
     <UserNavWrap>
       <UserNavTitle>User Panel </UserNavTitle>
-      <UserNavItem to="/calendar/account"><UserIcon style={{ marginRight: 8, width: 20, height: 20}} /> My account</UserNavItem>
-      <UserNavItem to="/calendar"><CaledarIcon style={{ marginRight: 8, width: 20, height: 20}} /> Calendar</UserNavItem> 
+      <UserNavItem to="/account">
+        <UserIcon style={{ marginRight: 8, width: 20, height: 20 }} /> My
+        account
+      </UserNavItem>
+      <UserNavItem to="/calendar">
+        <CaledarIcon style={{ marginRight: 8, width: 20, height: 20 }} />{' '}
+        Calendar
+      </UserNavItem>
     </UserNavWrap>
   );
 };

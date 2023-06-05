@@ -6,8 +6,11 @@ import {
   useNotification,
 } from './notification';
 import { getMonthDetails, monthNamesArray } from './getMonthDetails';
-import { getDateDetails, dayNamesArray } from './getDateDetails';
+import { getDateDetails, dayNamesArray, getWeekNumber } from './getDateDetails';
 import { validateDate } from './validateDate';
+import { getWeekDetails } from './getWeekDetails';
+import { calendarType, checkCalendarType } from './checkCalendarType';
+import { getWeekDetailsByNumberOfWeek } from './getWeekDetailsByNumberOfWeek';
 
 export {
   validateLoginForm,
@@ -19,6 +22,11 @@ export {
   getMonthDetails,
   monthNamesArray,
   getDateDetails,
+  getWeekNumber,
   dayNamesArray,
+  getWeekDetails,
+  getWeekDetailsByNumberOfWeek,
   validateDate,
+  calendarType,
+  checkCalendarType,
 };

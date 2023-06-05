@@ -9,23 +9,22 @@ import {
 import { useSelector } from 'react-redux';
 
 export const UserInfo = () => {
-  const {
-    user: { name },
-    userPhoto,
-  } = useSelector(selectUser);
+  const { user: { username, avatarURL } } = useSelector(selectUser);
+
   const isLoading = useSelector(selectIsIsLoadingUser);
 
-  const firstLetter = name.trim().slice(0, 1).toUpperCase();
+  const firstLetter = username.trim().slice(0, 1).toUpperCase();
+
   return (
     <StyledLink to="/account">
-      <StyledName>{name}</StyledName>
+      <StyledName>{username}</StyledName>
       <StyledAvatarContainer>
         {isLoading ? (
           <StyledLetter>{firstLetter}</StyledLetter>
-        ) : !userPhoto ? (
+        ) : !avatarURL ? (
           <StyledLetter>{firstLetter}</StyledLetter>
         ) : (
-          <StyledAvatar src={userPhoto} alt="Avatar" />
+          <StyledAvatar src={avatarURL} alt="Avatar" />
         )}
       </StyledAvatarContainer>
     </StyledLink>
