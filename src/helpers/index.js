@@ -10,7 +10,6 @@ import { getDateDetails, dayNamesArray, getWeekNumber } from './getDateDetails';
 import { validateDate } from './validateDate';
 import { getWeekDetails } from './getWeekDetails';
 import { calendarType, checkCalendarType } from './checkCalendarType';
-import { cutString } from './cutString';
 
 export {
   validateLoginForm,
@@ -28,5 +27,4 @@ export {
   validateDate,
   calendarType,
   checkCalendarType,
-  cutString
 };
