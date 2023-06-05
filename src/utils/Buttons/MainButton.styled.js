@@ -23,10 +23,11 @@ export const AuthLink = styled(NavLink)`
       ? ({ theme }) => theme.fontSizes.s
       : ({ theme }) => theme.fontSizes.xs};
   line-height: ${props => (props.colorbtn === 'white' ? 1.3 : 1.2)};
+  letter-spacing: ${props => props.colorbtn === 'white' && '-0.02em'};
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  text-decoration: ${props => props.colorbtn && `none`};
+  text-decoration: ${props => props.colorbtn !== 'white' && `underline`};
   text-shadow: ${({ theme }) => theme.shadows.authHeading};
   color: ${props =>
     props.color === 'blue'
@@ -36,8 +37,13 @@ export const AuthLink = styled(NavLink)`
     props.colorbtn === 'white'
       ? ({ theme }) => theme.colors.white
       : 'transparent'};
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:hover {
-    color: ${props =>
+    transform: scale(1.1);
+    /* color: ${props =>
       props.color === 'blue'
         ? ({ theme }) => theme.colors.white
         : ({ theme }) => theme.colors.hovered};
@@ -47,7 +53,7 @@ export const AuthLink = styled(NavLink)`
         ? ({ theme }) => theme.colors.accent
         : ({ theme }) => theme.colors.white};
     background-color: ${props =>
-      props.colorbtn === 'blue' && `${({ theme }) => theme.colors.hovered}`};
+      props.colorbtn === 'blue' && `${({ theme }) => theme.colors.hovered}`}; */
   }
   @media ${device.tabletOnly} {
     font-size: ${props =>
@@ -72,10 +78,9 @@ export const MainBtn = styled.button`
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.accent};
   box-shadow: ${({ theme }) => theme.shadows.authButton};
-  transition: background-color
-    ${(({ theme }) => theme.animations.duration,
-    ({ theme }) => theme.animations.cubicBezier)};
-  border: none;
+  transition-property: background-color;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
@@ -114,11 +119,10 @@ export const SecondBtn = styled.button`
       ? ({ theme }) => theme.colors.canceled
       : ({ theme }) => theme.colors.accent};
 
-  transition: background-color
-    ${(({ theme }) => theme.animations.duration,
-    ({ theme }) => theme.animations.cubicBezier)};
+  transition-property: background-color;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
 
-  border: none;
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
@@ -150,9 +154,9 @@ export const CancelBtn = styled.button`
       ? ({ theme }) => theme.colors.canceled
       : ({ theme }) => theme.colors.canceledInTodo};
 
-  transition: background-color ${({ theme }) => theme.animations.duration},
-    ${({ theme }) => theme.animations.cubicBezier};
-  border: none;
+  transition-property: background-color;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
@@ -176,9 +180,9 @@ export const AddTaskBtn = styled.button`
   cursor: pointer;
   color: ${({ theme }) => theme.colors.textAndIconTodo};
   background-color: ${({ theme }) => theme.colors.backColorBtnAddTask};
-  transition: background-color
-    ${(({ theme }) => theme.animations.duration,
-    ({ theme }) => theme.animations.cubicBezier)};
+  transition-property: background-color;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
@@ -188,7 +192,6 @@ export const AddTaskBtn = styled.button`
 `;
 
 export const MonthDayBtn = styled.button`
-  border: none;
   width: 76px;
   padding: 8px 0px;
   font-weight: ${({ theme }) => theme.fontWeight.sb};
@@ -206,8 +209,12 @@ export const MonthDayBtn = styled.button`
       : `1px solid ${({ theme }) => theme.colors.accentText}`};
   background-color: ${({ theme }) => theme.colors.ligthBlue};
   color: ${({ theme }) => theme.colors.accent};
+  transition-property: background-color;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
   &:active {
     background-color: ${({ theme }) => theme.colors.darkBlue};
+    color: ${({ theme }) => theme.colors.textMonthDayBtn};
   }
   @media ${device.tabletOnly} {
     font-size: ${({ theme }) => theme.fontSizes.m};
@@ -216,17 +223,30 @@ export const MonthDayBtn = styled.button`
 `;
 
 export const ToggleThemeBtn = styled.button`
-  border: none;
-  background-color: transparent;
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: ${({ theme }) => theme.animations.duration};
+  transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const IconLight = styled(IconLightTheme)`
   fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
+  @media ${device.tabletOnly} {
+    width: 32px;
+    height: 32px;
+  }
 `;
 export const IconDark = styled(IconDarkTheme)`
   fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
+  @media ${device.tabletOnly} {
+    width: 32px;
+    height: 32px;
+  }
 `;
