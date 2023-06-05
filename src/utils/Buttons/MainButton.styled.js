@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { device } from 'styles/mediaVeriables';
 import { ReactComponent as IconLightTheme } from 'images/svg/light-theme.svg';
 import { ReactComponent as IconDarkTheme } from 'images/svg/dark-theme.svg';
-import { right } from '@popperjs/core';
 
 // !після того як всі ростягнуть свої елементи ListLink треба видалить
 export const ListLink = styled.ul`
@@ -56,7 +55,7 @@ export const AuthLink = styled(NavLink)`
     background-color: ${props =>
       props.colorbtn === 'blue' && `${({ theme }) => theme.colors.hovered}`}; */
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${props =>
       props.colorbtn === 'white'
         ? ({ theme }) => theme.fontSizes.s
@@ -85,7 +84,7 @@ export const MainBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${props =>
       props.padding === '50'
         ? `${({ theme }) => theme.fontSizes.s}`
@@ -127,7 +126,7 @@ export const SecondBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.s};
     padding: ${props => (props.radius === '10' ? `12px 32px` : `15px 0px`)};
     border-radius: ${props => props.radius === '10' && '14px'};
@@ -161,7 +160,7 @@ export const CancelBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.s};
     padding: 15px 0px;
   }
@@ -187,7 +186,7 @@ export const AddTaskBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     padding: 14px 0px;
   }
 `;
@@ -233,7 +232,7 @@ export const MonthDayBtn = styled.button`
     background-color: ${({ theme }) => theme.colors.darkBlue};
     color: ${({ theme }) => theme.colors.textMonthDayBtn};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.m};
     width: 82px;
   }
@@ -253,7 +252,7 @@ export const ToggleThemeBtn = styled.button`
 export const IconLight = styled(IconLightTheme)`
   width: 24px;
   height: 24px;
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     width: 32px;
     height: 32px;
   }
@@ -261,7 +260,7 @@ export const IconLight = styled(IconLightTheme)`
 export const IconDark = styled(IconDarkTheme)`
   width: 24px;
   height: 24px;
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     width: 32px;
     height: 32px;
   }
