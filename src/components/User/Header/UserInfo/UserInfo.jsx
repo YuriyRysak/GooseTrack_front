@@ -16,7 +16,6 @@ export const UserInfo = () => {
   const isLoading = useSelector(selectIsIsLoadingUser);
 
   const firstLetter = name.trim().slice(0, 1).toUpperCase();
-
   return (
     <StyledLink to="/account">
       <StyledName>{name}</StyledName>

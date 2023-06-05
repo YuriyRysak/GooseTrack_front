@@ -6,21 +6,24 @@ import { ReactComponent as BurgerMenu } from '../../../images/svg/burger.svg';
 
 export const Header = () => {
   let locationPath = useLocation().pathname;
-  const [isAccPage, setisAccPage] = useState(false);
+  const [isAccPage, setIsAccPage] = useState(false);
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const onCloseModal = () => setIsShowModal(false);
   
   useEffect(() => {
     if (locationPath.includes('account')) {
-      setisAccPage(true);
-    } else {setisAccPage(false);}
+      setIsAccPage(true);
+    } else {setIsAccPage(false);}
   }, [locationPath]);
 
   return (
     <HeaderWrap>
       <HeaderTitle>{isAccPage ? 'User Profile' : 'Calendar' }</HeaderTitle>
       <MenuBtn><BurgerMenu /></MenuBtn>
-      {!isAccPage && <BtnAddFeedback type='button'>Feedback</BtnAddFeedback>}
+      {!isAccPage && <BtnAddFeedback type='button' onClick={() => setIsShowModal(true)}>Feedback</BtnAddFeedback>}
       <ThemeToggler />
-      {/* <AddFeedbackModal /> */}
+      {isShowModal && (<AddFeedbackModal onCloseModal={onCloseModal} />)}
       <UserInfoTest>User Info</UserInfoTest>
        {/* <UserInfo /> */}
     </HeaderWrap>
