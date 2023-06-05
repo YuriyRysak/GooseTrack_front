@@ -87,7 +87,7 @@ export const MainButton = () => {
       </li>
       <li>
         <PeriodBtn>
-          <IconPag />
+          <IconPag id="left" />
         </PeriodBtn>
         <PeriodBtn id="right">
           <IconPag />
