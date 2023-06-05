@@ -1,4 +1,7 @@
-import { MonthCalendarHead, ThemeToggler } from 'components/User';
+import {
+  // MonthCalendarHead,
+  ThemeToggler,
+} from 'components/User';
 
 import { CgLogIn } from 'react-icons/cg';
 import {
