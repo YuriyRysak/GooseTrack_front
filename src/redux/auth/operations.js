@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/register', credentials);
       // додаємо токен до запиту
-      setAuthHeader(data.data.token);
+      setAuthHeader(data.data);
       return data.data;
     } catch (error) {
       if (error.message === `Email has already registered. Please log in`) {
@@ -50,7 +50,7 @@ export const logIn = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       // додаємо токен до запиту
-      setAuthHeader(data.data.token);
+      setAuthHeader(data.data);
       return data.data;
     } catch (error) {
       toast.error(`Email or Password is wrong`);
@@ -89,7 +89,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     // getState() повертає весь стан
-    console.log(state);
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
       // rejectWithValue() помилку повертаємо
