@@ -1,3 +1,4 @@
+import { getWeekDetails } from './getWeekDetails';
 import { patterns } from './patterns';
 
 export const monthNamesArray = [
@@ -33,12 +34,16 @@ export const getMonthDetails = dateString => {
   const amountOfDays = new Date(year, month + 1, 0).getDate();
 
   const amountOfWeeks = getWeeks(year, month);
+  const numberOfFirstWeek = getWeekDetails(`${dateString.slice(0, 7)}-01`).number;
+  const numberOfLastWeek = getWeekDetails(`${dateString.slice(0, 7)}-${amountOfDays}`).number;
 
   return {
     name,
     number,
     amountOfDays,
-    amountOfWeeks
+    amountOfWeeks, 
+    numberOfFirstWeek,
+    numberOfLastWeek
   };
 };
 
