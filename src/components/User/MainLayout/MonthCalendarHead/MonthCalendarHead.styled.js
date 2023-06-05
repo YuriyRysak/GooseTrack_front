@@ -13,9 +13,39 @@ export const ListDay = styled.ul`
   padding: 0;
 `;
 
-export const ItemDay = styled.li``;
+export const ItemDay = styled.li`
+  overflow: hidden;
+  text-transform: uppercase;
 
-export const DayBtn = styled.button`
+  @media screen and (max-width: ${({theme}) => (theme.breakpoints.m)}) {
+    width: 10px;
+    :nth-child(1) {
+      width: 15px;
+    }
+    :nth-child(3) {
+      width: 15px;
+    }
+  }
+
+  @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
+    width: 33px;
+    :nth-child(1) {
+      width: 40px;
+    }
+    :nth-child(3) {
+      width: 38px;
+    }
+    :nth-child(5) {
+      width: 25px;
+    }
+    :nth-child(6) {
+      width: 30px;
+    }
+      
+  }
+`;
+
+export const DayBtn = styled.p`
   border: none;
   background-color: transparent;
   /* color: ${({ theme }) => theme.colors.loaderWrapper}; */
