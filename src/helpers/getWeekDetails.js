@@ -26,7 +26,6 @@ export const getWeekDetails = dateString => {
     days[dayNamesArray[currentDayOfWeek]] = currentDayOfMonth;
 
     currentDate.setDate(currentDate.getDate() + 1);
-    // console.log((days[dayNamesArray[currentDayOfWeek]] = currentDayOfMonth));
   }
 
   return {
