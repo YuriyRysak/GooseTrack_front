@@ -13,11 +13,11 @@ import { selectIsLoggedInUser } from 'redux/auth/selectors';
 const LoginPage = () => {
   const isLoggedInUser = useSelector(selectIsLoggedInUser);
   const navigate = useNavigate();
-  console.log(isLoggedInUser);
+
 
   useEffect(()=>{
     if(isLoggedInUser){
-      navigate('/calendar/account'); //============
+      navigate('/calendar/month/:currentDate');
     }
   },[isLoggedInUser, navigate])
 

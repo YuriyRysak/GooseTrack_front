@@ -2,11 +2,17 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateRoute from 'routes/PrivateRoute';
+import PublicRoute from 'routes/PublicRoute';
 
 import TestPage from 'pages/TestPage';
 
 const MainLayout = lazy(() => import('components/User/MainLayout'));
 const Layout = lazy(() => import('utils/Layout'));
+const ChoosedDay = lazy(() => import('components/User/MainLayout/ChoosedDay'));
+const ChoosedMonth = lazy(() =>
+  import('components/User/MainLayout/ChoosedMonth')
+);
 
 const MainPage = lazy(() => import('pages/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage'));
@@ -20,13 +26,44 @@ export const App = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<MainPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="calendar" element={<MainLayout />}>
+          <Route
+            index
+            element={
+              <PublicRoute redirectTo="/calendar" component={<MainPage />} />
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute
+                redirectTo="/calendar"
+                restricted
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute
+                component={<LoginPage />}
+                redirectTo="/calendar"
+                restricted
+              />
+            }
+          />
+
+          <Route
+            path="/"
+            element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
+          >
             <Route path="account" element={<AccountPage />} />
-            <Route index element={<CalendarPage />} />
+            <Route path="calendar" element={<CalendarPage />}>
+              <Route path=":currentDay" element={<ChoosedDay />} />
+              <Route path="month/:currentDate" element={<ChoosedMonth />} />
+            </Route>
           </Route>
+
           <Route path="*" element={<NotFoundPagePage />} />
           <Route path="test" element={<TestPage />} />
         </Route>

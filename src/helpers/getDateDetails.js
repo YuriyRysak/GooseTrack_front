@@ -1,12 +1,12 @@
 import { patterns } from './index';
 export const dayNamesArray = [
-  'Sunday',
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
   'Saturday',
+  'Sunday',
 ];
 
 const dateRegex = patterns.datePattern;
@@ -19,12 +19,7 @@ export const getDateDetails = dateString => {
     };
   }
 
-  const dateParts = dateString.split('-');
-  const year = parseInt(dateParts[0]);
-  const month = parseInt(dateParts[1]);
-  const day = parseInt(dateParts[2]);
-
-  const date = new Date(year, month - 1, day);
+  const date = new Date(dateString);
   const week = getWeekNumber(date);
   const dayOfTheWeek = dayNamesArray[date.getDay()];
 

@@ -10,3 +10,5 @@ export const ChoosedMonth = () => {
     </MonthCalendarContainer>
   );
 };
+
+export default ChoosedMonth;
