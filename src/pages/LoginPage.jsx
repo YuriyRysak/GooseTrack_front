@@ -17,7 +17,7 @@ const LoginPage = () => {
 
   useEffect(()=>{
     if(isLoggedInUser){
-      navigate('/calendar/account'); //============
+      navigate('month/:currentDate');
     }
   },[isLoggedInUser, navigate])
 
