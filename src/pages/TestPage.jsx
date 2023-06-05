@@ -1,7 +1,9 @@
+import { ChoosedMonth } from "components/User";
+
 const TestPage = () => {
   return (
     <div>
-      <h2>СЮДИ ТЕСТУЄМО СВОЇ КОМПОНЕНТИ</h2>
+      <ChoosedMonth />
     </div>
   );
 };
