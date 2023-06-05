@@ -7,7 +7,6 @@ const NotFoundPage = () => {
       <Img src={animation} alt="" />
       <Title>Oops! Page not found</Title>
       <Btn to="/">Go back to homepage</Btn>
-      <p>123</p>
     </Wrapper>
   );
 };
