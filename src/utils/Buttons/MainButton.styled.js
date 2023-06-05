@@ -55,7 +55,7 @@ export const AuthLink = styled(NavLink)`
     background-color: ${props =>
       props.colorbtn === 'blue' && `${({ theme }) => theme.colors.hovered}`}; */
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${props =>
       props.colorbtn === 'white'
         ? ({ theme }) => theme.fontSizes.s
@@ -84,7 +84,7 @@ export const MainBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${props =>
       props.padding === '50'
         ? `${({ theme }) => theme.fontSizes.s}`
@@ -126,7 +126,7 @@ export const SecondBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.s};
     padding: ${props => (props.radius === '10' ? `12px 32px` : `15px 0px`)};
     border-radius: ${props => props.radius === '10' && '14px'};
@@ -160,7 +160,7 @@ export const CancelBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.s};
     padding: 15px 0px;
   }
@@ -186,8 +186,24 @@ export const AddTaskBtn = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.hovered};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     padding: 14px 0px;
+  }
+`;
+
+export const PeriodBtn = styled.button`
+  width: 36px;
+  padding: 7px 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.borderTableAndInput};
+  rotate: ${props => props.id === 'right' && '180deg'};
+  transform: translateX(${props => props.id === 'right' && '1px'});
+  border-right: ${props => props.id === 'right' && 'none'};
+  background-color: ${({ theme }) => theme.colors.backgroundUserForm};
+  fill: ${({ theme }) => theme.colors.borderTableAndInput};
+  &:hover {
+    fill: ${({ theme }) => theme.colors.textCancelBtn};
   }
 `;
 
@@ -216,7 +232,7 @@ export const MonthDayBtn = styled.button`
     background-color: ${({ theme }) => theme.colors.darkBlue};
     color: ${({ theme }) => theme.colors.textMonthDayBtn};
   }
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     font-size: ${({ theme }) => theme.fontSizes.m};
     width: 82px;
   }
@@ -227,25 +243,24 @@ export const ToggleThemeBtn = styled.button`
   transition-property: transform;
   transition-duration: ${({ theme }) => theme.animations.duration};
   transition-timing-function: ${({ theme }) => theme.animations.cubicBezier};
+  fill: ${({ theme }) => theme.colors.accent};
   &:hover {
     transform: scale(1.1);
   }
 `;
 
 export const IconLight = styled(IconLightTheme)`
-  fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     width: 32px;
     height: 32px;
   }
 `;
 export const IconDark = styled(IconDarkTheme)`
-  fill: ${({ theme }) => theme.colors.accent};
   width: 24px;
   height: 24px;
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     width: 32px;
     height: 32px;
   }
