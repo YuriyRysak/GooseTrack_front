@@ -77,7 +77,7 @@ export const themes = Object.freeze({
   },
   animations: {
     cubicBezier: 'cubic-bezier(0, 0.110, 0.35, 2)',
-    duration: '25000ms',
+    duration: '250ms',
   },
   shadows: {
     authHeading:
@@ -144,7 +144,7 @@ export const dark = Object.freeze({
   },
   animations: {
     cubicBezier: 'cubic-bezier(0, 0.110, 0.35, 2);',
-    duration: '25000ms',
+    duration: '250ms',
   },
   shadows: {
     authHeading:
