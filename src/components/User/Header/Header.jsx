@@ -1,7 +1,12 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { ThemeToggler } from '../Header';
-import { HeaderWrap, BtnAddFeedback, HeaderTitle, MenuBtn, UserInfoTest } from './Header.styled';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { ThemeToggler, UserInfo } from '../Header';
+import {
+  HeaderWrap,
+  BtnAddFeedback,
+  HeaderTitle,
+  MenuBtn,
+} from './Header.styled';
 import { ReactComponent as BurgerMenu } from '../../../images/svg/burger.svg';
 
 export const Header = () => {
@@ -11,18 +16,21 @@ export const Header = () => {
   useEffect(() => {
     if (locationPath.includes('account')) {
       setisAccPage(true);
-    } else {setisAccPage(false);}
+    } else {
+      setisAccPage(false);
+    }
   }, [locationPath]);
 
   return (
     <HeaderWrap>
-      <HeaderTitle>{isAccPage ? 'User Profile' : 'Calendar' }</HeaderTitle>
-      <MenuBtn><BurgerMenu /></MenuBtn>
-      {!isAccPage && <BtnAddFeedback type='button'>Feedback</BtnAddFeedback>}
+      <HeaderTitle>{isAccPage ? 'User Profile' : 'Calendar'}</HeaderTitle>
+      <MenuBtn>
+        <BurgerMenu />
+      </MenuBtn>
+      {!isAccPage && <BtnAddFeedback type="button">Feedback</BtnAddFeedback>}
       <ThemeToggler />
       {/* <AddFeedbackModal /> */}
-      <UserInfoTest>User Info</UserInfoTest>
-       {/* <UserInfo /> */}
+      <UserInfo />
     </HeaderWrap>
   );
 };
