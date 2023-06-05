@@ -1,15 +1,18 @@
 import { Outlet } from 'react-router-dom';
-import { TasksColumn, TasksColumnsList } from 'components/User';
+import { CalendarContainer, DayAndMonthsContainer } from './CalendarPage.styled';
+import { CalendarToolbar } from 'components/User';
 
 const CalendarPage = () => {
   return (
-    <div>
-      <h3>CalendarPage</h3>
-      <Outlet />
-      <TasksColumn />
+    <CalendarContainer>
 
-      <TasksColumnsList />
-    </div>
+      <CalendarToolbar />
+
+      <DayAndMonthsContainer>
+        <Outlet />
+      </DayAndMonthsContainer>
+      
+    </CalendarContainer>
   );
 };
 
