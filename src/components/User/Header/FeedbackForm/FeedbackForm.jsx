@@ -1,7 +1,18 @@
+import { FeedbackFormWrap, FeedbackFormLabel, RatingStarWrap, RatingStar, GreyStar, TextInput, BtnSave} from './FeedbackForm.styled';
+// import {SecondBtn} from '../../../../utils/Buttons/MainButton/SecondBtn';
+
 export const FeedbackForm = () => {
   return (
-    <div>
-      <h3>Feedback Form</h3>
-    </div>
+    <FeedbackFormWrap>
+      <FeedbackFormLabel>Rating</FeedbackFormLabel>
+      <RatingStarWrap>
+      <GreyStar /><GreyStar /><RatingStar /><RatingStar /><RatingStar />
+      </RatingStarWrap>
+      <FeedbackFormLabel>Review</FeedbackFormLabel>
+      <TextInput
+        name="feedback"
+        placeholder='Enter your text ...' />
+      <BtnSave >Save</BtnSave>
+    </FeedbackFormWrap>
   );
 };
