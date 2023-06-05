@@ -31,8 +31,8 @@ export const Header = () => {
       {!isAccPage && <BtnAddFeedback type='button' onClick={() => setIsShowModal(true)}>Feedback</BtnAddFeedback>}
       <ThemeToggler />
       {isShowModal && (<AddFeedbackModal onCloseModal={onCloseModal} />)}
-      <UserInfoTest>User Info</UserInfoTest>
-       {/* <UserInfo /> */}
+      {/* <UserInfoTest>User Info</UserInfoTest> */}
+       <UserInfo />
     </HeaderWrap>
   );
 };
