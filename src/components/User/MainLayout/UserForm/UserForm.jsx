@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { selectIsLoggedInUser, selectUser } from 'redux/auth/selectors';
+import { parseISO } from 'date-fns';
+import {selectUser } from 'redux/auth/selectors';
 import {  refreshUser, updateUser } from 'redux/auth/operations';
 import { patterns } from 'helpers';
 
@@ -34,7 +35,7 @@ const userSchema = Yup.object().shape({
     .max(16, 'Must be up to 16 characters long!')
     .required('Name is required field'),
 
-  birthday: Yup.date().nullable(),
+  // birthday: Yup.date().nullable(),
   email: Yup.string()
     .email('Invalid email format')
     .matches(patterns.emailPattern)
@@ -66,16 +67,14 @@ export const UserForm = () => {
   //============================
 
   console.log(userInfo);
-  const isLoginUser = useSelector(selectIsLoggedInUser)
-  console.log(isLoginUser);
-  const {username, email, phone, skype, birthday, avatarURL} = userInfo;
-  console.log(username, email, phone, skype, birthday, avatarURL);
 
-  // const handleLogOut = ()=>{
-  //   const logout = dispatch(logOut())
-  //   console.log(logout);
-  // }
+  // const birthDay = moment(birthday).format('YYYY/MM/DD');
+let birthday = null;
+  if(userInfo.birthday){
+    birthday = parseISO(userInfo.birthday)
+  }
 
+  console.log('birthDay ===>', birthday);
   //=============================
 
   useEffect(() => {
@@ -106,18 +105,18 @@ export const UserForm = () => {
       <Formik
         enableReinitialize={true}
         initialValues={{
-          name: formData.name || userInfo?.name || '',
+          name: formData.name || userInfo?.username || '',
           email: formData.email || userInfo?.email || '',
           phone: formData.phone || userInfo?.phone || '',
           skype: formData.skype || userInfo?.skype || '',
           birthday:
-            newBirthday || formData.birthday || userInfo?.birthday
-              ? new Date(newBirthday || formData.birthday || userInfo?.birthday)
+         birthday || newBirthday || formData.birthday
+              ? new Date(birthday || newBirthday || formData.birthday)
               : new Date(),
         }}
         onSubmit={async values => {
           const updatedUserData = {
-            username: values.username,
+            username: values.name,
             email: values.email,
             phone: values.phone,
             skype: values.skype,
@@ -126,9 +125,10 @@ export const UserForm = () => {
           };
           await dispatch(updateUser(updatedUserData));
         }}
+
         // onSubmit={async values => {
         //   const formData = new FormData();
-        //   formData.append('name', values.name);
+        //   formData.append('username', values.name);
         //   formData.append('email', values.email);
         //   if (values.phone) {
         //     formData.append('phone', values.phone);
@@ -154,12 +154,9 @@ export const UserForm = () => {
 
             <ContainerImg>
               {avatarUrl ? (
-                <ImgAvatar
-                  src={URL.createObjectURL(avatarURL)}
-                  alt="avatar"
-                />
+                <ImgAvatar src={avatarUrl} alt="avatar" />
               ) : userInfo?.userImgUrl ? (
-                <ImgAvatar src={userInfo.avatarURL} alt="avatar" />
+                <ImgAvatar src={userInfo.avatarURL.split('blob:')[1]} alt="avatar" />
               ) : (
                 <SvgAvatar>
                   <IconUser/>
@@ -170,15 +167,18 @@ export const UserForm = () => {
                 <InputFile
                   id="avatarUrl"
                   type="file"
-                  onChange={event => setAvatarUrl(event.target.files[0])}
+                  onChange={event => {
+                    const file = event.target.files[0];
+                    setAvatarUrl(URL.createObjectURL(file));
+                  }}
                   accept="image/*,.png,.jpg,.gif,.web"
                   name="avatarURL"
-                ></InputFile>
+                />
               </LabelImg>
             </ContainerImg>
 
 
-            <UserName>{userInfo?.username} </UserName>
+            <UserName>{userInfo?.username? userInfo?.username : ''} </UserName>
             <User>User</User>
             <BlockInput>
               <InputContainer>
@@ -190,7 +190,7 @@ export const UserForm = () => {
                   type="text"
                   name="name"
                   id="name"
-                  value={userInfo?.username || ''}
+                  value={userInfo?.username? userInfo.username : values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Your Name"
@@ -209,7 +209,7 @@ export const UserForm = () => {
                   type="tel"
                   name="phone"
                   id="phone"
-                  value={userInfo?.phone || ''}
+                  value={userInfo?.phone? userInfo.phone : values.phone}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="38 (000) 000 00 00"
@@ -232,7 +232,8 @@ export const UserForm = () => {
                     id="birthday"
                     input={true}
                     maxDate={new Date()}
-                    selected={userInfo?.birthday || ''} // Використовуємо birthday як початкове значення, якщо воно визначено
+                    // selected={values.birthday}
+                    selected={userInfo?.birthday !==null ? birthday : values.birthday}
                     onChange={data => {
                       setNewBirthday(data);
                       handleDatePicker();
@@ -260,7 +261,7 @@ export const UserForm = () => {
                   name="skype"
                   id="skype"
                   placeholder="Add a skype number"
-                  value={userInfo?.skype || ''}
+                  value={userInfo?.skype ? userInfo.skype : values.skype}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -279,7 +280,7 @@ export const UserForm = () => {
                   name="email"
                   id="email"
                   placeholder="Email"
-                  value={userInfo?.email || ''}
+                  value={userInfo?.email ? userInfo.email: values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />

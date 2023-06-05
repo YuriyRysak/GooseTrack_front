@@ -51,7 +51,7 @@ export const logIn = createAsyncThunk(
       const { data } = await axios.post('/users/login', credentials);
       // додаємо токен до запиту
       setAuthHeader(data.data.token);
-      return data;
+      return data.data;
     } catch (error) {
       toast.error(`Email or Password is wrong`);
       return thunkAPI.rejectWithValue(error.message);
@@ -89,6 +89,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     // getState() повертає весь стан
+    console.log(state);
     const persistedToken = state.auth.token;
     if (persistedToken === null) {
       // rejectWithValue() помилку повертаємо
@@ -97,7 +98,7 @@ export const refreshUser = createAsyncThunk(
     setAuthHeader(persistedToken);
     try {
       const { data } = await axios.get('users/current');
-      return data;
+      return data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
