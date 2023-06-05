@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
-// import { useAuth } from 'components/hooks';
+import { useAuth } from 'hooks';
 import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectIsLoggedInUser } from 'redux/auth/selectors';
 
 const PublicRoute = ({
   redirectTo = '/',
@@ -10,8 +8,7 @@ const PublicRoute = ({
   restricted = false,
   ...routeProps
 }) => {
-  // const { isLoggedIn } = useAuth();
-  const isLoggedIn = useSelector(selectIsLoggedInUser);
+  const { isLoggedIn } = useAuth();
 
   const shouldRedirect = isLoggedIn && routeProps.restricted;
   return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
