@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   @media ${device.desktop} {
     padding: 60px 164px;
   }
-  }
+  
 `;
 
 export const FormUser = styled(Form)`

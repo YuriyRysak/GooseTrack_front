@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { parseISO } from 'date-fns';
+// import { parseISO } from 'date-fns';
 import {selectUser } from 'redux/auth/selectors';
 import {  refreshUser, updateUser } from 'redux/auth/operations';
 import { patterns } from 'helpers';
@@ -25,6 +25,7 @@ import {
   DatePickerWrap,
   IconUser,
   InputContainer, UserName, TextInput, StyledErrorMessage,
+  
 } from './UserForm.styled';
 import { MainBtn } from '../../../../utils/Buttons/MainButton.styled';
 
@@ -69,12 +70,12 @@ export const UserForm = () => {
   console.log(userInfo);
 
   // const birthDay = moment(birthday).format('YYYY/MM/DD');
-let birthday = null;
-  if(userInfo.birthday){
-    birthday = parseISO(userInfo.birthday)
-  }
+// let birthday = null;
+//   if(userInfo.birthday){
+//     birthday = parseISO(userInfo.birthday)
+//   }
 
-  console.log('birthDay ===>', birthday);
+//   console.log('birthDay ===>', birthday);
   //=============================
 
   useEffect(() => {
@@ -110,9 +111,13 @@ let birthday = null;
           phone: formData.phone || userInfo?.phone || '',
           skype: formData.skype || userInfo?.skype || '',
           birthday:
-         birthday || newBirthday || formData.birthday
-              ? new Date(birthday || newBirthday || formData.birthday)
+        //  birthday || newBirthday || formData.birthday
+        //       ? new Date(birthday || newBirthday || formData.birthday)
+        //       : new Date(),
+          newBirthday || formData.birthday || userInfo?.birthday
+              ? new Date(newBirthday || formData.birthday || userInfo?.birthday)
               : new Date(),
+
         }}
         onSubmit={async values => {
           const updatedUserData = {
@@ -190,7 +195,8 @@ let birthday = null;
                   type="text"
                   name="name"
                   id="name"
-                  value={userInfo?.username? userInfo.username : values.name}
+                  // value={userInfo?.username? userInfo.username : values.name}
+                  value={values.name}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="Your Name"
@@ -209,7 +215,8 @@ let birthday = null;
                   type="tel"
                   name="phone"
                   id="phone"
-                  value={userInfo?.phone? userInfo.phone : values.phone}
+                  // value={userInfo?.phone? userInfo.phone : values.phone}
+                  value={values.phone}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   placeholder="38 (000) 000 00 00"
@@ -232,8 +239,8 @@ let birthday = null;
                     id="birthday"
                     input={true}
                     maxDate={new Date()}
-                    // selected={values.birthday}
-                    selected={userInfo?.birthday !==null ? birthday : values.birthday}
+                    selected={values.birthday}
+                    // selected={userInfo?.birthday !==null ? birthday : values.birthday}
                     onChange={data => {
                       setNewBirthday(data);
                       handleDatePicker();
@@ -261,7 +268,8 @@ let birthday = null;
                   name="skype"
                   id="skype"
                   placeholder="Add a skype number"
-                  value={userInfo?.skype ? userInfo.skype : values.skype}
+                  // value={userInfo?.skype ? userInfo.skype : values.skype}
+                  value={values.skype}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -280,7 +288,8 @@ let birthday = null;
                   name="email"
                   id="email"
                   placeholder="Email"
-                  value={userInfo?.email ? userInfo.email: values.email}
+                  // value={userInfo?.email ? userInfo.email: values.email}
+                  value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
