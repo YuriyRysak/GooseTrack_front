@@ -1,12 +1,12 @@
 import { patterns } from './index';
 export const dayNamesArray = [
-  'Sunday',
   'Monday',
   'Tuesday',
   'Wednesday',
   'Thursday',
   'Friday',
   'Saturday',
+  'Sunday',
 ];
 
 const dateRegex = patterns.datePattern;

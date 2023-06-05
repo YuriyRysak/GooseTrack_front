@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { device } from 'styles/mediaVeriables';
 
 export const ListDay = styled.ul`
   list-style: none;
@@ -12,17 +13,28 @@ export const ListDay = styled.ul`
   padding: 0;
 `;
 
-// export const ItemDay = styled.li``;
+export const ItemDay = styled.li``;
 
 export const DayBtn = styled.button`
   border: none;
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.loaderWrapper};
-  &:nth-of-type(n + 6) {
-    color: ${({ theme }) => theme.colors.accent};
-  }
+  /* color: ${({ theme }) => theme.colors.loaderWrapper}; */
+
+  color: ${({ id, theme }) => {
+    switch (id) {
+      case 'Saturday':
+        return theme.colors.accent;
+      case 'Sunday':
+        return theme.colors.hovered;
+      default:
+        return theme.colors.loaderWrapper;
+    }
+  }};
   font-weight: ${({ theme }) => theme.fontWeight.sb};
   font-size: ${({ theme }) => theme.fontSizes.m};
   line-height: 1.1;
   padding: 16px 0px;
+  @media ${device.tabletOnly} {
+    padding: 14px 0px;
+  }
 `;

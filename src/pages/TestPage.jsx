@@ -1,4 +1,4 @@
-import { ThemeToggler } from 'components/User';
+import { MonthCalendarHead, ThemeToggler } from 'components/User';
 
 import { CgLogIn } from 'react-icons/cg';
 import {
@@ -17,11 +17,12 @@ const TestPage = () => {
     <div
       style={{
         backgroundColor: 'gray',
-        display: 'flex',
+        padding: '32px',
       }}
     >
       <h2>СЮДИ ТЕСТУЄМО СВОЇ КОМПОНЕНТИ</h2>
       <ThemeToggler />
+      <MonthCalendarHead />
       <ListLink>
         <li>
           <AuthLink color="blue">Sign up</AuthLink>
