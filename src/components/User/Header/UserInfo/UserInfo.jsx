@@ -1,4 +1,4 @@
-import { selectIsIsLoadingUser, selectUser } from 'redux/auth/selectors';
+import { selectIsRefreshingUser, selectUser } from 'redux/auth/selectors';
 import {
   StyledLink,
   StyledName,
@@ -10,9 +10,10 @@ import { useSelector } from 'react-redux';
 
 export const UserInfo = () => {
   const {
- username, avatarURL
+    user: { username, avatarURL },
   } = useSelector(selectUser);
-  const isLoading = useSelector(selectIsIsLoadingUser);
+
+  const isLoading = useSelector(selectIsRefreshingUser);
 
   const firstLetter = username.trim().slice(0, 1).toUpperCase();
 

@@ -10,6 +10,7 @@ import { getDateDetails, dayNamesArray, getWeekNumber } from './getDateDetails';
 import { validateDate } from './validateDate';
 import { getWeekDetails } from './getWeekDetails';
 import { calendarType, checkCalendarType } from './checkCalendarType';
+import { getWeekDetailsByNumberOfWeek } from './getWeekDetailsByNumberOfWeek';
 
 export {
   validateLoginForm,
@@ -24,6 +25,7 @@ export {
   getWeekNumber,
   dayNamesArray,
   getWeekDetails,
+  getWeekDetailsByNumberOfWeek,
   validateDate,
   calendarType,
   checkCalendarType,

@@ -1,3 +1,4 @@
+import { getWeekDetails } from './getWeekDetails';
 import { patterns } from './patterns';
 
 export const monthNamesArray = [
@@ -32,9 +33,22 @@ export const getMonthDetails = dateString => {
   const year = date.getFullYear();
   const amountOfDays = new Date(year, month + 1, 0).getDate();
 
+  const amountOfWeeks = getWeeks(year, month);
+  const numberOfFirstWeek = getWeekDetails(`${dateString.slice(0, 7)}-01`).number;
+  const numberOfLastWeek = getWeekDetails(`${dateString.slice(0, 7)}-${amountOfDays}`).number;
+
   return {
     name,
     number,
     amountOfDays,
+    amountOfWeeks, 
+    numberOfFirstWeek,
+    numberOfLastWeek
   };
+};
+
+function getWeeks(year, month) // Внимание: Месяцы нумеруются с 0
+  {
+    let l = new Date(year, month+1, 0);
+    return Math.ceil( (l.getDate()- (l.getDay()?l.getDay():7))/7 )+1;
 };
