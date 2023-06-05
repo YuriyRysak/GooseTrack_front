@@ -1,16 +1,16 @@
 import { MainLayout } from './MainLayout';
-import { CalendarTable } from './CalendarTable';
-import { CalendarToolbar } from './CalendarToolbar';
+import { CalendarTable } from './Calendar/ChoosedMonth/CalendarTable';
+import { CalendarToolbar } from './Calendar/CalendarToolbar/CalendarToolbar';
 // import { ChoosedDay } from './ChoosedDay';
 // import { ChoosedMonth } from './ChoosedMonth';
-import { DayCalendarHead } from './DayCalendarHead';
-import { MonthCalendarHead } from './MonthCalendarHead';
-import { PeriodPaginator } from './PeriodPaginator';
-import { PeriodTypeSelect } from './PeriodTypeSelect';
-import { TaskColumnCard } from './TaskColumnCard';
-import { TasksColumn } from './TasksColumn';
-import { TasksColumnsList } from './TasksColumnsList';
-import { TaskToolbar } from './TaskToolbar';
+import { DayCalendarHead } from './Calendar/ChoosedDay/DayCalendarHead';
+import { MonthCalendarHead } from './Calendar/ChoosedMonth/MonthCalendarHead';
+import { PeriodPaginator } from './Calendar/CalendarToolbar/PeriodPaginator';
+import { PeriodTypeSelect } from './Calendar/CalendarToolbar/PeriodTypeSelect';
+import { TaskColumnCard } from './Calendar/ChoosedDay/TaskColumnCard';
+import { TasksColumn } from './Calendar/ChoosedDay/TasksColumn';
+import { TasksColumnsList } from './Calendar/ChoosedDay/ColumnsTasksList';
+import { TaskToolbar } from './Calendar/ChoosedDay/TaskToolbar';
 import { UserForm } from './UserForm';
 
 export {

@@ -11,9 +11,9 @@ import { refreshUser } from '../redux/auth/operations';
 
 const MainLayout = lazy(() => import('components/User/MainLayout'));
 const Layout = lazy(() => import('utils/Layout'));
-const ChoosedDay = lazy(() => import('components/User/MainLayout/ChoosedDay'));
+const ChoosedDay = lazy(() => import('components/User/MainLayout/Calendar/ChoosedDay/ChoosedDay'));
 const ChoosedMonth = lazy(() =>
-  import('components/User/MainLayout/ChoosedMonth'),
+  import('components/User/MainLayout/Calendar/ChoosedMonth/ChoosedMonth'),
 );
 
 const MainPage = lazy(() => import('pages/MainPage'));
