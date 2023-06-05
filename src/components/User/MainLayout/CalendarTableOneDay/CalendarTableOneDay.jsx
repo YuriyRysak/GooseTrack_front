@@ -1,12 +1,14 @@
 // add correct redirection to spesific day
 // change onClickTask
 // 
-
-import { cutString } from "helpers";
 import { DayContainer, Number, NumberContainer, StyledLink, TaskButton, TasksContainer, OverflowContainer } from "./CalendarTableOneDay.styled"
+import { ButtonTextContainer } from "./CalendarTableOneDay.styled";
+import { ButtonText } from "./CalendarTableOneDay.styled";
+import { ButtonDots } from "./CalendarTableOneDay.styled";
 
 export const CalendarTableOneDay = ({date, fullDate, tasks, picked=false}) => {
 
+    
     const onClickTask = (e, id) => {
         e.stopPropagation();
         e.preventDefault();
@@ -27,8 +29,12 @@ export const CalendarTableOneDay = ({date, fullDate, tasks, picked=false}) => {
                                         key={task._id} 
                                         priority={task.priority}
                                         onClick={(e)=>onClickTask(e, task._id)}
-                                    >
-                                        {cutString(task.title, 5)}
+                                    >   
+                                        <ButtonTextContainer>
+                                            <ButtonText>{task.title}</ButtonText>
+                                        </ButtonTextContainer>
+                                        <ButtonDots length={task.title.length}>...</ButtonDots>
+                                        
                                     </TaskButton>
                                 ))  
                             }

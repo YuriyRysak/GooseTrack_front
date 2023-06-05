@@ -29,22 +29,22 @@ export const CalendarTable = () => {
 
   const task1 = [{
     _id: 1213,
-    title: "Lear...",
+    title: "aAaAaAaAaAaAaAaAa",
     priority: "high"
 },
 {
     _id: 1223,
-    title: "Lear...",
+    title: "dfggg",
     priority: "medium"
 },
 {
     _id: 1323,
-    title: "Lear...",
+    title: "dfg dfdgdfg dfgf fdgfd dfgd",
     priority: "low"
 },
 {
     _id: 1523,
-    title: "Lear...",
+    title: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     priority: "high"
 },
 {

@@ -80,7 +80,8 @@ export const TasksContainer = styled.div`
 export const TaskButton = styled.button`
     margin: 2px;
     height: 22px;
-    padding:  4px 4px 4px 8px;    
+    padding:  4px 4px 4px 8px; 
+    display: flex ;
     font-weight: 700;
     font-size: 10px;
     line-height: 14px;
@@ -98,7 +99,7 @@ export const TaskButton = styled.button`
                 return '#CEEEFD';
         }
     }};
-    overflow: hidden;
+    //overflow: hidden;
     ::-webkit-scrollbar { width: 0; }
     color: ${({priority}) => {
         switch (priority) {
@@ -125,4 +126,41 @@ export const TaskButton = styled.button`
     :hover {
         scale: 1.1;
     }
+`;
+
+export const ButtonTextContainer = styled.div`
+    display: flex;
+    overflow: hidden;
+    height: 100%;  
+`;
+
+export const ButtonText = styled.p`
+    white-space: nowrap;
+`;
+
+export const ButtonDots = styled.div`
+    display: ${({length})=> {
+        if(length<6) {
+            return 'none'
+        };
+        return 'block'
+    }};
+
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
+        display: ${({length})=> {
+            if(length<10) {
+                return 'none'
+            };
+            return 'block'
+        }};
+    }
+
+    @media screen and (min-width: ${({theme}) => (theme.breakpoints.l)}) {
+        display: ${({length})=> {
+            if(length<18) {
+                return 'none'
+            };
+            return 'block'
+        }};
+    } 
 `;
