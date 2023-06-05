@@ -1,4 +1,7 @@
-import { MonthCalendarHead, ThemeToggler } from 'components/User';
+import {
+  // MonthCalendarHead,
+  ThemeToggler,
+} from 'components/User';
 
 import { CgLogIn } from 'react-icons/cg';
 import {
@@ -10,6 +13,7 @@ import {
   WrapperSecondBtn,
   AddTaskBtn,
   CancelBtn,
+  PeriodBtn,
 } from 'utils/Buttons/MainButton.styled';
 
 const TestPage = () => {
@@ -24,6 +28,14 @@ const TestPage = () => {
       <ThemeToggler />
       {/* <MonthCalendarHead /> */}
       <ListLink>
+        <li>
+          <PeriodBtn></PeriodBtn>
+          <PeriodBtn id="right"></PeriodBtn>
+        </li>
+        <li>
+          <MonthDayBtn>Month</MonthDayBtn>
+          <MonthDayBtn swith="day">Day</MonthDayBtn>
+        </li>
         <li>
           <AuthLink color="blue">Sign up</AuthLink>
         </li>
@@ -91,10 +103,6 @@ const TestPage = () => {
             <CgLogIn style={{ marginLeft: 11, width: 24, height: 24 }} />
             Add task
           </AddTaskBtn>
-        </li>
-        <li>
-          <MonthDayBtn>Month</MonthDayBtn>
-          <MonthDayBtn swith="day">Day</MonthDayBtn>
         </li>
       </ListLink>
     </div>

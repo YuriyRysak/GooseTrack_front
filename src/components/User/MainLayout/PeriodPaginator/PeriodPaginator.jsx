@@ -1,4 +1,4 @@
-export const PeriodPaginator = () => {
+export const PeriodPaginator = (data, type, changeDate) => {
   return (
     <div>
       <h3>Period Paginator</h3>
