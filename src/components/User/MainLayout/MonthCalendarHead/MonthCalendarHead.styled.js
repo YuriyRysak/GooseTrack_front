@@ -4,7 +4,6 @@ export const ListDay = styled.ul`
   list-style: none;
   width: 100%;
   border-radius: 8px;
-  background-color: '#';
   border: 1px solid ${({ theme }) => theme.colors.borderTableAndInput};
   display: flex;
   flex-direction: row;
@@ -13,7 +12,7 @@ export const ListDay = styled.ul`
   padding: 0;
 `;
 
-export const ItemDay = styled.li``;
+// export const ItemDay = styled.li``;
 
 export const DayBtn = styled.button`
   border: none;
