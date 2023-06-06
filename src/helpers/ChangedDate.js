@@ -60,7 +60,7 @@ export class DateManipulator {
   getPreviousWeekDate(date) {
     const previousWeekDate = new Date(date.getTime());
 
-    setDate(date.getDate() - 7);
+    // setDate(date.getDate() - 7);
 
     return previousWeekDate;
   }
