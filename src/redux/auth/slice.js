@@ -2,12 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { refreshUser, logIn, logOut, register, updateUser } from './operations';
 
 const handlePending = state => {
-  state.isRefreshing = true;
+  state.isLoggedIn = false;
+  state.isRefreshing = false;
 };
 const handleRejected = (state, { payload }) => {
   state.isRefreshing = false;
-  state.error = payload;
   state.isLoggedIn = false;
+  state.error = payload;
 };
 
 const initialState = {
@@ -18,10 +19,11 @@ const initialState = {
     phone: null,
     skype: null,
     birthday: null,
-    token: null,
   },
-  isLoggedIn: false,
+  token:null,
   isRefreshing: false,
+  isLoggedIn:false,
+  error:null,
 };
 
 export const authSlice = createSlice({
@@ -29,22 +31,20 @@ export const authSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(register.pending, handlePending)
       .addCase(register.fulfilled, (state, { payload }) => {
         state.user = payload;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(register.rejected, handleRejected)
-      .addCase(logIn.pending, handlePending)
+
       .addCase(logIn.fulfilled, (state, { payload }) => {
         state.user = payload;
+        state.token = payload.token;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(logIn.rejected, handleRejected)
+
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, state => {
         state.user = {
@@ -54,26 +54,31 @@ export const authSlice = createSlice({
           phone: null,
           skype: null,
           birthday: null,
-          token: null,
-        };
-        state.isLoggedIn = false;
+        }
+          state.token = null;
+
         state.isRefreshing = false;
+        state.isLoggedIn = false;
         state.error = null;
       })
       .addCase(logOut.rejected, handleRejected)
-      .addCase(refreshUser.pending, handlePending)
+
+      .addCase(refreshUser.pending, (state, { payload }) => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.user = payload;
-        state.isLoggedIn = true;
+        state.token = payload.token
         state.isRefreshing = false;
+        state.isLoggedIn = true
         state.error = null;
       })
       .addCase(refreshUser.rejected, handleRejected)
-      .addCase(updateUser.pending, handlePending)
+
       .addCase(updateUser.fulfilled, (state, { payload }) => {
         state.user = payload;
+        state.token = payload.token;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
         state.error = null;
       })
       .addCase(updateUser.rejected, handleRejected);

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {ModalWrap, ModalContent} from './AddFeedbackModal.styled';
 
 export const Modal = ({ onCloseModal, children }) => {
