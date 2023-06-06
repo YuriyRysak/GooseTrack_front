@@ -17,7 +17,7 @@ export const ItemDay = styled.li`
   overflow: hidden;
   text-transform: uppercase;
 
-  @media screen and (max-width: ${({theme}) => (theme.breakpoints.m)}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 10px;
     :nth-child(1) {
       width: 15px;
@@ -27,7 +27,7 @@ export const ItemDay = styled.li`
     }
   }
 
-  @media screen and (min-width: ${({theme}) => (theme.breakpoints.m)}) {
+  @media screen and (min-width: ${({ theme }) => theme.breakpoints.m}) {
     width: 33px;
     :nth-child(1) {
       width: 40px;
@@ -41,7 +41,6 @@ export const ItemDay = styled.li`
     :nth-child(6) {
       width: 30px;
     }
-      
   }
 `;
 
@@ -64,7 +63,7 @@ export const DayBtn = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.m};
   line-height: 1.1;
   padding: 16px 0px;
-  @media ${device.tabletOnly} {
+  @media ${device.tablet} {
     padding: 14px 0px;
   }
 `;
