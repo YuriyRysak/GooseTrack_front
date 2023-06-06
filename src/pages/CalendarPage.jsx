@@ -27,7 +27,7 @@ const CalendarPage = () => {
   return (
     <CalendarContainer>
 
-      <CalendarToolbar date={date} type={type} changeType={setType}/>
+      <CalendarToolbar date={date} changeDate={setDate} type={type} changeType={setType}/>
 
       <DayAndMonthsContainer>
         <Outlet />

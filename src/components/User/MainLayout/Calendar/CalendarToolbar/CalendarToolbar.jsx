@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-
 import { PeriodPaginator } from './PeriodPaginator/PeriodPaginator';
-import { PeriodTypeSelect } from './PeriodTypeSelect/PeriodTypeSelect';
-import { CalendarToolbarWrapper, PeriodPaginatorContainer } from './CalendarToolbar.styled';
-import { useSelector } from 'react-redux';
 
-export const CalendarToolbar = ({date, type, changeType}) => {
+import { CalendarToolbarWrapper } from './CalendarToolbar.styled';
+import { PeriodTypeSelect } from './PeriodTypeSelect';
+
+export const CalendarToolbar = ({date, changeDate, type, changeType}) => {
 
   
   return (
@@ -14,10 +11,14 @@ export const CalendarToolbar = ({date, type, changeType}) => {
         <PeriodPaginator
           date={date}
           type={type}
-          changeDate={''}
+          changeDate={changeDate}
         />
         
-      {/* <PeriodTypeSelect type={type} today={today} onChangeType={changeType} /> */}
+        <PeriodTypeSelect 
+          date={date} 
+          type={type} 
+          changeType={changeType}
+        />
     </CalendarToolbarWrapper>
   );
 };
