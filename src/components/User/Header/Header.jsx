@@ -7,7 +7,7 @@ import {
   BtnAddFeedback,
   HeaderTitle,
   MenuBtn,
-  UserInfoTest
+  /* UserInfoTest */
 } from './Header.styled';
 import { ReactComponent as BurgerMenu } from '../../../images/svg/burger.svg';
 
