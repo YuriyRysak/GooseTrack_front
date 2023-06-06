@@ -1,5 +1,5 @@
-import { CalendarTable } from "../CalendarTable";
-import { MonthCalendarHead } from "../MonthCalendarHead";
+import { CalendarTable } from "./CalendarTable";
+import { MonthCalendarHead } from "./MonthCalendarHead";
 import { MonthCalendarContainer } from "./ChoosedMonth.styled";
 
 export const ChoosedMonth = () => {
