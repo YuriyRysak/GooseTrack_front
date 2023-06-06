@@ -22,7 +22,7 @@ export const getMonthDetails = dateString => {
   if (!dateRegex.test(dateString)) {
     return {
       Error:
-        'Incorrect date format! Please use the format yyyy-dd-mm in getMonthDetails.',
+        'Incorrect date format! Please use the format yyyy-mm-dd in getMonthDetails.',
     };
   }
   const date = new Date(dateString);
@@ -34,21 +34,25 @@ export const getMonthDetails = dateString => {
   const amountOfDays = new Date(year, month + 1, 0).getDate();
 
   const amountOfWeeks = getWeeks(year, month);
-  const numberOfFirstWeek = getWeekDetails(`${dateString.slice(0, 7)}-01`).number;
-  const numberOfLastWeek = getWeekDetails(`${dateString.slice(0, 7)}-${amountOfDays}`).number;
+  const numberOfFirstWeek = getWeekDetails(
+    `${dateString.slice(0, 7)}-01`
+  ).number;
+  const numberOfLastWeek = getWeekDetails(
+    `${dateString.slice(0, 7)}-${amountOfDays}`
+  ).number;
 
   return {
     name,
     number,
     amountOfDays,
-    amountOfWeeks, 
+    amountOfWeeks,
     numberOfFirstWeek,
-    numberOfLastWeek
+    numberOfLastWeek,
   };
 };
 
-function getWeeks(year, month) // Внимание: Месяцы нумеруются с 0
-  {
-    let l = new Date(year, month+1, 0);
-    return Math.ceil( (l.getDate()- (l.getDay()?l.getDay():7))/7 )+1;
-};
+function getWeeks(year, month) {
+  // Внимание: Месяцы нумеруются с 0
+  let l = new Date(year, month + 1, 0);
+  return Math.ceil((l.getDate() - (l.getDay() ? l.getDay() : 7)) / 7) + 1;
+}

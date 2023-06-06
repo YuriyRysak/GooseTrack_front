@@ -6,7 +6,7 @@ const TestPage = () => {
     <div style={{ backgroundColor: 'gray' }}>
       <h2>СЮДИ ТЕСТУЄМО СВОЇ КОМПОНЕНТИ</h2>
       <PeriodPaginator
-        date={'2023-06-06'}
+        date={'2023-06-09'}
         type={'month'}
         changeDate={getMonthDetails}
       />

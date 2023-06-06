@@ -6,7 +6,7 @@ export const getWeekDetails = dateString => {
   if (!dateRegex.test(dateString)) {
     return {
       Error:
-        'Incorrect date format! Please use the format yyyy-dd-mm in getWeekDetails function.',
+        'Incorrect date format! Please use the format yyyy-mm-dd in getWeekDetails function.',
     };
   }
 
